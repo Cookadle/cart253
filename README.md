@@ -6,7 +6,7 @@ This is Pippin Barr’s coursework repository for CART253
 ## _Creative Computation_
 
 
-Cart 253 is a beginner class focusing on mixing  creativity and teachnology.This term will focus on learning to code with JavaScript,HTML and the likes while getting familiar with popular program Visual Studio Code and wonderful languages of programming supported on the platform.
+Cart 253 is a beginner class focusing on mixing creativity and teachnology.This term will focus on learning to code with JavaScript,HTML and the likes while getting familiar with popular program Visual Studio Code and all the others wonderful languages out there.
 What is guarrantee from this course: 
 
 - Heachaches and migraines
@@ -17,7 +17,7 @@ What is guarrantee from this course:
 
 ## Features
 
--  ✨ Many many school projects  ✨
+-  ✨ ** Many many **school projects  ✨
 -  ✨ Many templates for simple code  ✨
 -  ✨ Easy quick to access templates  ✨
 -  ✨ Codes that can be used to showcase my skills  ✨
@@ -25,3 +25,6 @@ What is guarrantee from this course:
 
 > The first step at getting good at something
 > is sucking at it!
+Have some good ol peanut butter for the road!
+
+![Siamese cat with shirt on](https://i.pinimg.com/736x/ce/01/1f/ce011f078152fe850bcf1ebf8d75cb41.jpg "PeanutB with christmas shirt on")
