@@ -22,5 +22,6 @@ What is guarrantee from this course:
 
 > The first step at getting good at something
 > is sucking at it!
--Enjoy some peanut butter for the road
-<img src="PeanutButter Dressed.jpg" alt="cat with sweatshirt on" />
+
+Enjoy some peanut butter for the road
+![image info](./pictures/PeanutButter Dressed.jpg)
