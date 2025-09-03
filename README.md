@@ -24,4 +24,5 @@ What is guarrantee from this course:
 > is sucking at it!
 
 Enjoy some peanut butter for the road
-![image info](./pictures/PeanutButter Dressed.jpg)
+![image info](./pictures/PeanutButter Dressed.jpg)![image info](./pictures/image.png)
+![Dressed Cat](Pictures/PeanutButter Dressed "Opeanut b the cat wearing a sweat")
