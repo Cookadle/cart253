@@ -1,5 +1,8 @@
+Welcome to this wonderful world of ours!
+Come see what is in store for me...
+
+
 This is Pippin Barr’s coursework repository for CART253
-Cart 253
 ## _Creative Computation_
 
 
@@ -22,7 +25,3 @@ What is guarrantee from this course:
 
 > The first step at getting good at something
 > is sucking at it!
-
-Enjoy some peanut butter for the road
-![image info](./pictures/PeanutButter Dressed.jpg)![image info](./pictures/image.png)
-![Dressed Cat](Pictures/PeanutButter Dressed "Opeanut b the cat wearing a sweat")
