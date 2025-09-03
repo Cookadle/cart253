@@ -17,7 +17,7 @@ What is guarrantee from this course:
 
 ## Features
 
--  ✨ ** Many many **school projects  ✨
+-  ✨ Many many school projects  ✨
 -  ✨ Many templates for simple code  ✨
 -  ✨ Easy quick to access templates  ✨
 -  ✨ Codes that can be used to showcase my skills  ✨
