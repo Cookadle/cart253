@@ -11,14 +11,13 @@
 
 "use strict";
 
-/**
- * Creates a rectangular ish canvas
- */
+// Creates a rectangular ish canvas
+
 function setup() {
   createCanvas(680, 825);
 }
 
-
-/**
- * Draws 
- */
+function draw () {
+//grey vintage background
+background ('#C7C7C7');
+}
