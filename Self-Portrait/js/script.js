@@ -1,8 +1,8 @@
 /**
- * The Land of the People
- * Philippe Beauchemin, Dyna Benaziza, Jeany Valcourt
+ * Pop up Jeany
+ * By Jeany Corrius
  * 
- * Draws a landscape.
+ * Draws a self portrait
  * 
  * Uses:
  * p5.js
