@@ -19,6 +19,7 @@ function draw () {
 //grey vintage background
 background ('#C7C7C7');
 
+ellipse ( 30,30,60,20)
 
 
 
