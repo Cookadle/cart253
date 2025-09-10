@@ -8,11 +8,11 @@ AUTHOR NAME
 
 This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
 
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
+> *This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.As an early 200s kids,they love any hint of nostakagia and childhood dreams.Therefore in this self portrait
 
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
+> the goal is to merge the concept of windows 7  pop up ad with retro art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s fun 
 
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+> intriguing ads filled year of technology.
 
 ## Screenshot(s)
 
