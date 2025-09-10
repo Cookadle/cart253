@@ -50,13 +50,7 @@ function drawSun() {
     pop();
 }
 
-function drawHen() {
-    drawHenBody();
-    drawHenWing();
-    drawHenHead();
-    drawHenEye();
-    drawHenBeak();
-}
+
 
 function drawHenBody() {
     push();
@@ -91,61 +85,4 @@ function drawHenBeak() {
     push();
     fill('#FFA930');
     triangle(360, 280, 365, 285, 360, 290);
-    pop();
-}
-    
-function drawPig() {
-    drawPigBody();
-    drawPigHead();
-}
-
-function drawPigBody() {
-    push();
-    // Body
-    // Peppa pig pink
-    fill('#C979AD');
-    noStroke();
-    ellipse(900, 400, 100, 70);
-    // Legs
-    // Rear legs
-    rect(925, 410, 10, 45);
-    rect(937, 410, 10, 45);
-    // Front legs
-    rect(870, 410, 10, 45);
-    rect(882, 410, 10, 45);
-    pop();
-}
-
-function drawPigHead() {
-    push();
-    fill('#C979AD');
-    noStroke();
-    // Head
-    ellipse(865, 370, 50);
-    // Nose
-    ellipse(845, 375, 30);
-    pop();
-    // Nostrils
-    push();
-    fill(0);
-    ellipse(846, 375, 4, 12);
-    ellipse(840, 375, 4, 12);
-    // Eye
-    ellipse(860, 360, 5);
-    pop();
-}
-
-function drawTent() {
-    // Tent
-    push();
-    fill('#544E4E');
-    triangle(1000, 500, 1100, 550, 1050, 200);
-    quad(1050, 200, 1350, 200, 1400, 550, 1100, 550);
-    pop();
-    // Zipper
-    push();
-    strokeWeight(2);
-    line(1050, 200, 1050, 525);
-    pop();
-}
-}
+    pop()
