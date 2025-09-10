@@ -1,9 +1,7 @@
 /**
  * Pop up Jeany
  * By Jeany Corrius
- * 
- * Draws a self portrait
- * 
+ * Draw a self portrait
  * Uses:
  * p5.js
  * https://p5js.org/
@@ -20,4 +18,15 @@ function setup() {
 function draw () {
 //grey vintage background
 background ('#C7C7C7');
+
+circle (350,300 )
+
+
+
+
+
+
+
+
+
 }
