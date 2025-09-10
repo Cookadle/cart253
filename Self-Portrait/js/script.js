@@ -12,28 +12,13 @@
 "use strict";
 
 /**
- * Creates the canvas
+ * Creates a rectangular ish canvas
  */
 function setup() {
-    // A rectangular canvas to work with
-    createCanvas(1500, 640);
+  createCanvas(680, 825);
 }
 
+
 /**
- * Draws a landscape
+ * Draws 
  */
-function draw() {
-    // A sky
-    background('#8FD6FF');
-function drawHill() {
-    // The hill is covered in grass
-    push();
-    fill('#2B8A45');
-    noStroke();
-    ellipse(750, 640, 1500, 480);
-    pop();
-function drawHenWing() {
-    push();
-    stroke(0);
-    ellipse(320, 320, 20, 40);
-    pop();
