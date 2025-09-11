@@ -18,13 +18,22 @@ function setup() {
 function draw () {
 //grey vintage background
 background ('#C7C7C7');
-
-ellipse ( 350,370,380,540)
-
+ drawFace();
 
 
+function drawFace() {
+  //my face one color (brown) with subtle countour 
+  push();
+  fill("#B5763F");
+  noStroke();
+  ellipse ( 350,370,380,540);
+  triangle (549,400,400,750, 222, 570);
+  pop ();
 
 
 
+
+
+}
 
 }
