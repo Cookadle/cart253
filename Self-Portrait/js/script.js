@@ -24,7 +24,7 @@ background ('#C7C7C7');
 
 }
 function drawFace() {
-  //my face one color (brown) with subtle countour 
+  //my face one color (brown) with subtle countour ,neck and shoulders darker browns and some lines
   push();
   fill("#B5763F");
   noStroke();
@@ -32,8 +32,8 @@ function drawFace() {
   triangle (535,403,380,715, 227,576); //576 good
   pop ();
   push();
-rect(90, 740, 680, 429);
-rect(450,500,100,300);
+rect(90, 740, 680, 429); // shoulders
+rect(450,500,100,300); //neck
 
 
 }
