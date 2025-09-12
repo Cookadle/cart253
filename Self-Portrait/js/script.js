@@ -21,19 +21,19 @@ background ('#C7C7C7');
  drawFace();
 
 
+
+}
 function drawFace() {
   //my face one color (brown) with subtle countour 
   push();
   fill("#B5763F");
   noStroke();
   ellipse ( 350,370,380,540);
-  triangle (549,400,400,750, 222, 570);
+  triangle (535,403,380,715, 227,576); //576 good
   pop ();
+  push();
+rect(90, 740, 680, 429);
+rect(450,500,100,300);
 
-
-
-
-
-}
 
 }
