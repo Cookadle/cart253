@@ -36,9 +36,9 @@ function drawFace() {
   pop ();
   push();
 rect(90, 740, 680, 429); // shoulders
-  // Rotate the coordinate system 1/8 turn.
-  rotate(90);
-rect(450,500,100,300); //neck
+  // Rotate the rectangle aka neck
+  rotate(-10);
+rect(350,550,110,300); //neck
 
 
 }
