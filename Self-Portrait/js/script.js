@@ -13,6 +13,8 @@
 
 function setup() {
   createCanvas(680, 825);
+// Use degrees.
+  angleMode(DEGREES);
 }
 
 function draw () {
@@ -29,10 +31,13 @@ function drawFace() {
   fill("#B5763F");
   noStroke();
   ellipse ( 350,370,380,540);
+  
   triangle (535,403,380,715, 227,576); //576 good
   pop ();
   push();
 rect(90, 740, 680, 429); // shoulders
+  // Rotate the coordinate system 1/8 turn.
+  rotate(90);
 rect(450,500,100,300); //neck
 
 
