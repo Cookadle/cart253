@@ -36,12 +36,12 @@ function drawFace() {
   pop ();
   push();
   //rotate the rectangle aka shoulders
-  rotate(-5)
+  rotate(-6)
 rect(90, 770, 540, 409); // shoulders
   // Rotate the rectangle aka neck
-  rotate(-10);
+  rotate(-5);
 rect(305,560,119,300); //neck
-fi
+fill("#B5763f")
 
 
 }
