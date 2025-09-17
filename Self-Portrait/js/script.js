@@ -35,10 +35,13 @@ function drawFace() {
   triangle (535,403,380,715, 227,576); //576 good
   pop ();
   push();
-rect(90, 740, 680, 429); // shoulders
+  //rotate the rectangle aka shoulders
+  rotate(-5)
+rect(90, 770, 540, 409); // shoulders
   // Rotate the rectangle aka neck
   rotate(-10);
-rect(350,550,110,300); //neck
+rect(305,560,119,300); //neck
+fi
 
 
 }
