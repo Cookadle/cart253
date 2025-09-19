@@ -22,6 +22,17 @@ function draw () {
 background ('#C7C7C7');
  drawFace();
 
+}
+
+
+
+
+
+function drawEyes(){
+   // Draw ellipse as outer eye shape
+  // x, y, width, height
+  ellipse(0, 0, 0, 0);
+
 
 
 }
@@ -43,6 +54,6 @@ rect(90, 770, 540, 409); // shoulders
 rect(305,560,119,300); //neck
 fill("#B5763f")
 noStroke();
-
-
 }
+
+
