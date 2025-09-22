@@ -23,22 +23,24 @@ background ('#C7C7C7');
 drawFace();
 }
 function drawFace() {
-  //my face one color (brown) with subtle countour ,neck and shoulders darker browns and some lines
+  ellipse (540,100,300,100); //eyes
+   //my face one color (brown) with subtle countour ,neck and shoulders darker browns and some lines
   push();
-  fill("#B5763F");
+  fill("#b98150ff");
   noStroke();
   ellipse ( 350,370,380,540);
   
   triangle (535,403,380,715, 227,576); //576 good
   pop ();
-  push();
   //rotate the rectangle aka shoulders with neck
   rotate(-6)
   rect(90, 770, 540, 409); // shoulders
+  pop(); 
+  
   // Rotate the rectangle aka neck even more
   rotate(-5);
   rect(305,560,119,300); //neck
-  fill("#B5763f")
+  fill("#dd883dff")
   noStroke();
 
 }
