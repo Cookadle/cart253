@@ -20,21 +20,7 @@ function setup() {
 function draw () {
 //grey vintage background
 background ('#C7C7C7');
- drawFace();
-
-}
-
-
-
-
-
-function drawEyes(){
-   // Draw ellipse as outer eye shape
-  // x, y, width, height
-  ellipse(0, 0, 0, 0);
-
-
-
+drawFace();
 }
 function drawFace() {
   //my face one color (brown) with subtle countour ,neck and shoulders darker browns and some lines
@@ -48,12 +34,15 @@ function drawFace() {
   push();
   //rotate the rectangle aka shoulders with neck
   rotate(-6)
-rect(90, 770, 540, 409); // shoulders
+  rect(90, 770, 540, 409); // shoulders
   // Rotate the rectangle aka neck even more
   rotate(-5);
-rect(305,560,119,300); //neck
-fill("#B5763f")
-noStroke();
-}
+  rect(305,560,119,300); //neck
+  fill("#B5763f")
+  noStroke();
 
+}
+function drawEyes(){
+  ellipse(50, 50, 80, 44);
+}
 
