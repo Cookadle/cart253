@@ -26,35 +26,32 @@ drawEyes();
 
 function drawBase() {
 //Rotate the rectangle aka shoulders with neck and create it
-rotate(-6)
-rect(90, 770, 540, 409); // shoulders
-//Rotate the rectangle aka neck even more n create
-rotate(-5);
-push();
-rect(305,560,119,300); //neck
-pop();
-fill("#dd883dff")
-noStroke();
+push()
+  rotate(-6)
+  fill("#dd883dff")
+  noStroke();
+  rect(90, 770, 540, 409); // shoulders
+  rotate(-5); //Rotate the rectangle aka neck even more n create
+  rect(305,560,119,300);//neck
+  
+  pop();
+
 
   
 //My face
  push();
 fill("#b98150ff");
-
 noStroke();
-ellipse ( 310,420,400,540);
-  
-  
-//My chiseled chin
-triangle (330,780,457, 602, 130,567); //576 good
+ellipse ( 308,420,410,540); //my round face
+triangle (330,780,457, 602, 125,567); //my chin
 pop ();
-  push();
+  
   
 }
 function drawEyes(){
 push();
-ellipse (); 
-fill("#")
+ellipse (50,50,50,50); 
+fill("#0000")
 pop();
 }
 
