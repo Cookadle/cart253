@@ -55,10 +55,10 @@ fill("#0000")
 ellipse (50,50,50,50); 
 // Draw eye shape with ellipse, circle, and arc
 
-  // Draw ellipse as outer eye shape
+  // Outer eye shape
   // x, y, width, height
-  ellipse(540, 250, 270, 100);
-
+  ellipse(540, 250, 270, 100); //rigth eye
+  ellipse(240, 250, 230, 115); //left eye
   // Draw circle as pupil
   // x, y, diameter
   circle(560, 250, 100);
