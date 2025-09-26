@@ -42,16 +42,27 @@ push()
  push();
 fill("#b98150ff");
 noStroke();
-ellipse ( 308,420,410,540); //my round face
-triangle (330,780,457, 602, 125,567); //my chin
+ellipse ( 410,300,410,540); //my round face
+triangle (480,720,590,420, 336,560); //my chin
+  //quad(20, 50, 80, 30, 80, 70, 20, 70);//potential chin
 pop ();
-  
-  
 }
+
+
 function drawEyes(){
 push();
-ellipse (50,50,50,50); 
 fill("#0000")
+ellipse (50,50,50,50); 
+// Draw eye shape with ellipse, circle, and arc
+
+  // Draw ellipse as outer eye shape
+  // x, y, width, height
+  ellipse(540, 250, 270, 100);
+
+  // Draw circle as pupil
+  // x, y, diameter
+  circle(560, 250, 100);
+  fill("#0000")
 pop();
 }
 
