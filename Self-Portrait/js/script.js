@@ -33,21 +33,20 @@ rotate(-5);
 push();
 rect(305,560,119,300); //neck
 pop();
-
 fill("#dd883dff")
 noStroke();
 
   
 //My face
  push();
-  fill("#b98150ff");
+fill("#b98150ff");
 
-  noStroke();
-  ellipse ( 310,430,380,540);
+noStroke();
+ellipse ( 310,420,400,540);
   
   
 //My chiseled chin
-triangle (320,780,459, 602, 145,567); //576 good
+triangle (320,780,457, 602, 125,567); //576 good
 pop ();
   push();
   
