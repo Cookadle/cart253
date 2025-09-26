@@ -46,7 +46,7 @@ ellipse ( 310,420,400,540);
   
   
 //My chiseled chin
-triangle (320,780,457, 602, 125,567); //576 good
+triangle (330,780,457, 602, 130,567); //576 good
 pop ();
   push();
   
