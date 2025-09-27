@@ -33,8 +33,7 @@ push()
   rect(90, 770, 540, 409); // shoulders
   rotate(-5); //Rotate the rectangle aka neck even more n create
   rect(305,560,119,300);//neck
-  
-  pop();
+pop();
 
 
   
@@ -43,7 +42,7 @@ push()
 fill("#b98150ff");
 noStroke();
 ellipse ( 410,300,410,540); //my round face
-triangle (480,730,590,430, 229     ,450); //my chin
+triangle (480,730,590,430, 235  ,450); //my chin
   //quad(20, 50, 80, 30, 80, 70, 20, 70);//potential chin
 pop ();
 }
@@ -53,11 +52,16 @@ function drawEyes(){
 push();
 fill("#0000")
 // Outer eye shape
+
  ellipse(540, 250, 270, 100); //rigth eye
   ellipse(240, 250, 230, 115); //left eye
   // Draw circle as pupil
   // x, y, diameter
   circle(560, 250, 100);
+  circle(240, 250, 100);
+  
+    arc(540, 100, 300, 100, 180, 360, CHORD);
+
   fill("#0000")
 pop();
 }
