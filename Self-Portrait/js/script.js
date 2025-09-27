@@ -59,8 +59,8 @@ fill("#0000")
   // x, y, diameter
   circle(560, 250, 100);
   circle(240, 250, 100);
-  
-    arc(540, 100, 300, 100, 180, 360, CHORD);
+  // x, y, width, height, start angle, stop angle, mode
+    arc(540, 250, 275, 100, 180, 360, CHORD);
 
   fill("#0000")
 pop();
