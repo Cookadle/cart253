@@ -1,3 +1,4 @@
+
 /**
  * Pop up Jeany
  * By Jeany Corrius
@@ -9,10 +10,15 @@
 
 "use strict";
 
+//function preload(){
+//WinXP = loadImage('images/retro.jpg')
+//}
+
 // Creates a rectangular ish canvas
 
 function setup() {
   createCanvas(680, 825);
+  
 // Use degrees.
   angleMode(DEGREES);
 }
@@ -20,14 +26,19 @@ function setup() {
 function draw () {
 //grey vintage background
 background ('#C7C7C7');
+
+//image(WinXP,69,67{,300,400)
 drawBase();
 drawEyes();
+drawNose();
+
 }
 
-function drawBase() {
-//Rotate the rectangle aka shoulders with neck and create it
+  
+function drawBase() { //draw the foundation of face n neck
+
 push()
-  rotate(-6)
+  rotate(-6) //Rotate the rectangle aka shoulders with neck and create it
   fill("#dd883dff")
   noStroke();
   rect(90, 770, 540, 409); // shoulders
@@ -50,19 +61,29 @@ pop ();
 
 function drawEyes(){
 push();
-fill("#0000")
-// Outer eye shape
+fill("#F0E2A8")
+ //  draw Outer eye shape
+ ellipse(540, 200, 270, 100); //Blanc d.oeil right
+  ellipse(240, 250, 230, 115); //left blanc d"oeil
+  pop();
 
- ellipse(540, 250, 270, 100); //rigth eye
-  ellipse(240, 250, 230, 115); //left eye
-  // Draw circle as pupil
-  // x, y, diameter
-  circle(560, 250, 100);
-  circle(240, 250, 100);
-  // x, y, width, height, start angle, stop angle, mode
-    arc(540, 250, 275, 100, 180, 360, CHORD);
 
-  fill("#0000")
+  push();
+ //draw pupils 
+  circle(560, 200, 100); //right pupil
+  noStroke();
+  pop();
+
+  circle(240, 250, 100); //left eye
+  noStroke();
+
+
+   //draw eyelidss
+  push();
+fill("#50717a")
+    arc(540, 200, 275, 100, 180, 360, CHORD); //right eyelids
+  arc(240, 250, 235, 150, 180, 360, CHORD); //left eyelids
 pop();
-}
+  fill("#")
 
+}
