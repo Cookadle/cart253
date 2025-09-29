@@ -14,6 +14,22 @@ This description should help the reader understand what the program is, anything
 
 > intriguing ads filled year of technology.
 
+>Remove before submit
+>To do
+Hair
+Nose to do 
+clothes
+variables 
+add drawn folders that will act as mouse hates massages type shit  
+add items to menu bar 
+
+Objectifs
+Use variables to create change over time
+Use mouseX and mouseY to allow for some user interaction
+Use at least one conditional to make the program respond to a changing variable 
+Errors : cloud leaving a black trails when moving could be due to background 
+drawing with text find a way to make the cursors not draw 
+
 ## Screenshot(s)
 
 This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
