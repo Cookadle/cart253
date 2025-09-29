@@ -11,6 +11,8 @@
 "use strict";
 
 let img;
+//variable for x coordinate of cloud
+let cloudOneX = 50;
 
 function preload(){
 img=loadImage('./assets/retro.jpg');
@@ -18,22 +20,27 @@ img=loadImage('./assets/retro.jpg');
 
 function setup() {
   createCanvas(680, 825); // Creates a rectangular ish canvas
-  background ('#C7C7C7'); //grey vintage background
   angleMode(DEGREES); // Use degrees.
-  image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER); //its the windows xp background babyyyy
+//background ('#C7C7C7'); //grey vintage background
+image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER); //its the windows xp background babyyyy
+
 }
 
 function draw () {
+
+frameRate(60); //set frame rate to 15
 drawBase();
 drawEyes();
 drawLips();
 drawEmoji();
 drawMenu();
+drawClouds();
 
 }
 
 function drawLips(){ //time to draw them lips
-push ();
+push ();  
+noStroke();
 fill("#8C0606")
   triangle(340,550,375,500,450,550); //top lips left
   triangle(520,520,400,560,460,490); //top lips right
@@ -41,10 +48,12 @@ fill("#912626")
   triangle(459,625,520,  520, 360, 550); //bottom lips 
 pop();
 }
+
 function drawMenu () { //building windows xp 7 background 
+  push();
 fill('blue')
 rect(0, 790, 700, 100);// windows bar
-
+pop();
 }
   
 function drawBase() { //draw the foundation of face n neck
@@ -67,8 +76,6 @@ triangle (480,730,590,430, 235  ,450); //my chin
   //quad(20, 50, 80, 30, 80, 70, 20, 70);//potential chin
 pop ();
 }
-
-
 function drawEyes(){
 push();
   fill("#F0E2A8")
@@ -82,7 +89,7 @@ push();
   noStroke();
   fill("#115C37")
   circle(240, 250, 100); //left pupil outside
-  circle(560, 202, 100); //right pupil outside
+  circle(560, 196, 100); //right pupil outside
 pop();
 
 
@@ -107,6 +114,13 @@ function drawEmoji(){ //emojis
 textSize(25)
 //text("🌸")
 text("🌸", 100, 250) //flower
-text("⬉✦", mouseX, mouseY) //cursor 2000s style
-
+text("⬉✦", mouseX, mouseY) //cursor 2000s styles
+}
+function drawClouds(){ //cloud
+fill('#7BA8A3')
+ellipse(cloudOneX, 250, 200, 100); //bottom cloud
+ellipse(cloudOneX - 240, 130, 150, 50);//middle cloud
+ellipse(cloudOneX + 10, 40,100, 40);//top cloud
+//set x coordinate to framecount
+cloudOneX = frameCount % width
 }
