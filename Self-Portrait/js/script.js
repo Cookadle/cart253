@@ -112,7 +112,6 @@ pop();
 }
 function drawEmoji(){ //emojis
 textSize(25)
-//text("🌸")
 text("🌸", 100, 250) //flower
 text("⬉✦", mouseX, mouseY) //cursor 2000s styles
 }
