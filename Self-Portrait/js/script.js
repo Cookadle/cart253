@@ -10,33 +10,43 @@
 
 "use strict";
 
-//function preload(){
-//WinXP = loadImage('images/retro.jpg')
-//}
-
-// Creates a rectangular ish canvas
+let img;
+ function preload(){
+img=loadImage('/assets/retro.jpg');
+}
 
 function setup() {
-  createCanvas(680, 825);
-  
-// Use degrees.
-  angleMode(DEGREES);
+  createCanvas(680, 825); // Creates a rectangular ish canvas
+background ('#C7C7C7'); //grey vintage background
+  angleMode(DEGREES); // Use degrees.
+  Image(img,500,550) 
+
 }
 
 function draw () {
-//grey vintage background
-background ('#C7C7C7');
+//building windows xp 7 background 
+//grass on bottom half
+  fill("green");
+  rect(0, 600, 700, 200);// first grass
+  fill('blue')
+rect(0, 790, 700, 100);// windows bar
 
-//image(WinXP,69,67{,300,400)
+
+
 drawBase();
 drawEyes();
 drawLips();
+drawEmoji();
 
 }
-function drawLips(){
-  push ();
-  fill("#8C0606")
-triangle(459,625,520,  520, 360, 550); //bottom lips 
+
+function drawLips(){ //time to draw them lips
+push ();
+fill("#8C0606")
+  triangle(340, 550,375,  500, 450,  550); //top lips left
+  triangle( 520, 520,400,560   ,460,  490); //top lips right
+fill("#912626")
+  triangle(459,625,520,  520, 360, 550); //bottom lips 
 pop();
 }
 
@@ -95,5 +105,12 @@ fill("#50717a")
   arc(240, 250, 235, 150, 180, 360, CHORD); //left eyelids
   
 pop();
+
+}
+function drawEmoji(){
+//emojis
+textSize(25)
+//text("🌸", 100, 250) //future emoji
+text("⬉✦", mouseX, mouseY) //cursor 2000s style
 
 }

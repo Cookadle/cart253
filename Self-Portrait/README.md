@@ -1,4 +1,4 @@
-# TITLE OF PROJECT
+# Cubism Windows
 
 Jeany Corrius
 
@@ -8,7 +8,7 @@ Jeany Corrius
 
 This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
 
-> *This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.As an early 200s kids,they love any hint of nostakagia and childhood dreams.Therefore in this self portrait
+> *This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.As an early 2000s kid myself,I love any hint of nostalaia and childhood dreams.Therefore in this self portrait
 
 > the goal is to merge the concept of windows 7  pop up ad with retro art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s fun 
 
