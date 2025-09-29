@@ -11,6 +11,7 @@
 "use strict";
 
 let img;
+
 function preload(){
 img=loadImage('./assets/retro.jpg');
 }
@@ -19,35 +20,32 @@ function setup() {
   createCanvas(680, 825); // Creates a rectangular ish canvas
   background ('#C7C7C7'); //grey vintage background
   angleMode(DEGREES); // Use degrees.
-    image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER);
-//its the windows xp background babyyyy
+  image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER); //its the windows xp background babyyyy
 }
 
 function draw () {
-//building windows xp 7 background 
-
-  fill('blue')
-rect(0, 790, 700, 100);// windows bar
-
-
-
 drawBase();
 drawEyes();
 drawLips();
 drawEmoji();
+drawMenu();
 
 }
 
 function drawLips(){ //time to draw them lips
 push ();
 fill("#8C0606")
-  triangle(340, 550,375,  500, 450,  550); //top lips left
-  triangle( 520, 520,400,560   ,460,  490); //top lips right
+  triangle(340,550,375,500,450,550); //top lips left
+  triangle(520,520,400,560,460,490); //top lips right
 fill("#912626")
   triangle(459,625,520,  520, 360, 550); //bottom lips 
 pop();
 }
+function drawMenu () { //building windows xp 7 background 
+fill('blue')
+rect(0, 790, 700, 100);// windows bar
 
+}
   
 function drawBase() { //draw the foundation of face n neck
 
@@ -72,43 +70,43 @@ pop ();
 
 
 function drawEyes(){
- 
-
-
-
-
 push();
-fill("#F0E2A8")
- //  draw Outer eye shape
- ellipse(540, 200, 270, 100); //Blanc d.oeil right
+  fill("#F0E2A8")
+  //  draw Outer eye shape
+  ellipse(540, 200, 270, 100); //Blanc d.oeil right
   ellipse(240, 250, 230, 115); //left blanc d"oeil
-  pop();
-  push();
-  noStroke();
- fill("#115C37")
- circle(240, 250, 100); //left pupil outside
-circle(560, 202, 100); //right pupil outside
-  noStroke();
+pop();
+
+
 push();
+  noStroke();
+  fill("#115C37")
+  circle(240, 250, 100); //left pupil outside
+  circle(560, 202, 100); //right pupil outside
+pop();
+
+
 //draw pupils 
- fill("#000000ff")
+push();
+fill("#000000ff")
   circle(560, 202, 50); //inside pupil right
-  //draw pupils 
- fill("#000000ff")
+fill("#000000ff")
   circle(240, 250, 50); //left inside pupil 
-pop(); 
+pop();
+
+
 push();
 fill("#50717a")
-    arc(540, 200, 275, 100, 180, 360, CHORD); //right eyelids
+noStroke();
+  arc(540, 200, 275, 110, 180, 360, CHORD); //right eyelids
   arc(240, 250, 235, 150, 180, 360, CHORD); //left eyelids
-  
 pop();
 
 }
-function drawEmoji(){
-//emojis
-//textSize(25)
-//text("🌸", 100, 250) //future emoji
+function drawEmoji(){ //emojis
+textSize(25)
+//text("🌸")
+text("🌸", 100, 250) //flower
 text("⬉✦", mouseX, mouseY) //cursor 2000s style
 
 }
