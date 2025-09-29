@@ -10,7 +10,7 @@ This description should help the reader understand what the program is, anything
 
 > *This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.As an early 2000s kid myself,I love any hint of nostalaia and childhood dreams.Therefore in this self portrait
 
-> the goal is to merge the concept of windows 7  pop up ad with retro art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s fun 
+> the goal is to merge the concept of windows 7 pop up ad with cubism art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s fun 
 
 > intriguing ads filled year of technology.
 
@@ -21,6 +21,7 @@ This bit should have some images of the program running so that the reader has a
 > ![Image of a clown face](./assets/images/clown.png)
 
 ## Attribution
+> -Never tried function was: preload.Ideal for images import!
 
 This bit should attribute any code, assets or other elements used taken from other sources. For example:
 

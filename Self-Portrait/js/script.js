@@ -11,22 +11,21 @@
 "use strict";
 
 let img;
- function preload(){
-img=loadImage('/assets/retro.jpg');
+function preload(){
+img=loadImage('./assets/retro.jpg');
 }
 
 function setup() {
   createCanvas(680, 825); // Creates a rectangular ish canvas
-background ('#C7C7C7'); //grey vintage background
+  background ('#C7C7C7'); //grey vintage background
   angleMode(DEGREES); // Use degrees.
-  image(img,50,50) //its the windows xp background babyyyy
+    image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER);
+//its the windows xp background babyyyy
 }
 
 function draw () {
 //building windows xp 7 background 
-//grass on bottom half
-  fill("green");
-  rect(0, 600, 700, 200);// first grass
+
   fill('blue')
 rect(0, 790, 700, 100);// windows bar
 
@@ -108,7 +107,7 @@ pop();
 }
 function drawEmoji(){
 //emojis
-textSize(25)
+//textSize(25)
 //text("🌸", 100, 250) //future emoji
 text("⬉✦", mouseX, mouseY) //cursor 2000s style
 
