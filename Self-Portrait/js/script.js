@@ -30,8 +30,14 @@ background ('#C7C7C7');
 //image(WinXP,69,67{,300,400)
 drawBase();
 drawEyes();
-drawNose();
+drawLips();
 
+}
+function drawLips(){
+  push ();
+  fill("#8C0606")
+triangle(459,625,520,  520, 360, 550); //bottom lips 
+pop();
 }
 
   
@@ -46,8 +52,6 @@ push()
   rect(305,560,119,300);//neck
 pop();
 
-
-  
 //My face
  push();
 fill("#b98150ff");
@@ -60,30 +64,36 @@ pop ();
 
 
 function drawEyes(){
+ 
+
+
+
+
 push();
 fill("#F0E2A8")
  //  draw Outer eye shape
  ellipse(540, 200, 270, 100); //Blanc d.oeil right
   ellipse(240, 250, 230, 115); //left blanc d"oeil
   pop();
-
-
   push();
- //draw pupils 
-  circle(560, 200, 100); //right pupil
   noStroke();
-  pop();
-
-  circle(240, 250, 100); //left eye
+ fill("#115C37")
+ circle(240, 250, 100); //left pupil outside
+circle(560, 202, 100); //right pupil outside
   noStroke();
-
-
-   //draw eyelidss
-  push();
+push();
+//draw pupils 
+ fill("#000000ff")
+  circle(560, 202, 50); //inside pupil right
+  //draw pupils 
+ fill("#000000ff")
+  circle(240, 250, 50); //left inside pupil 
+pop(); 
+push();
 fill("#50717a")
     arc(540, 200, 275, 100, 180, 360, CHORD); //right eyelids
   arc(240, 250, 235, 150, 180, 360, CHORD); //left eyelids
+  
 pop();
-  fill("#")
 
 }
