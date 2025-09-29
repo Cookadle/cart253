@@ -19,7 +19,7 @@ function setup() {
   createCanvas(680, 825); // Creates a rectangular ish canvas
 background ('#C7C7C7'); //grey vintage background
   angleMode(DEGREES); // Use degrees.
-  Image(img,500,550) 
+  image(img,500,550) 
 
 }
 
