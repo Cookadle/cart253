@@ -19,8 +19,6 @@ has for goal to merge the windows 7 with cubism art as a fun nostalgic way to pr
 This bit should have some images of the program running so that the reader has a sense of what it looks like.
 ![cubism woman stuck in computer screen](https://www.pinterest.com/pin/644718502945687736/)
 
-https://github.com/{cookadle}/{cart253}/raw/{main}/art/{Screenshot2025-09-30at23-55-11PopUpJeany.png}
-
 ## Attribution
 > -Never tried function was: preload.Ideal for images import!
 
