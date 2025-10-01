@@ -6,40 +6,19 @@ Jeany Corrius
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
 
-> *This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.As an early 2000s kid myself,I love any hint of nostalaia and childhood dreams.Therefore in this self portrait
+> *This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.Not meant to be accurate,it was heavily inspired by Picasso and his cubism style.This self portrait
 
-> the goal is to merge the concept of windows 7 pop up ad with cubism art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s fun 
+>  has for goal to merge the windows 7 with cubism art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s.
 
-> intriguing ads filled year of technology.
-
->Remove before submit
->To do
-Hair
-Nose to do 
-clothes
-variables 
-add drawn folders that will act as mouse hates massages type shit  
-add items to menu bar 
-
-Objectifs
-Use variables to create change over time
-Use mouseX and mouseY to allow for some user interaction
-Use at least one conditional to make the program respond to a changing variable 
-Errors : cloud leaving a black trails when moving could be due to background 
-drawing with text find a way to make the cursors not draw 
 
 ## Screenshot(s)
 
 This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
 
-> ![Image of a clown face](./assets/images/clown.png)
 
 ## Attribution
 > -Never tried function was: preload.Ideal for images import!
-
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
 
