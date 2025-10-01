@@ -2,7 +2,8 @@
 
 Jeany Corrius
 
-[View this project online]
+
+https://cookadle.github.io/cart253/Self-Portrait/
 
 
 ## Description
@@ -16,8 +17,7 @@ Jeany Corrius
 ## Screenshot(s)
 
 This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
-
-
+https://github.com/{cookadle}/{cart253}/raw/{main}/art/{Screenshot 2025-09-30 at 23-55-11 Pop Up Jeany.png}
 ## Attribution
 > -Never tried function was: preload.Ideal for images import!
 
