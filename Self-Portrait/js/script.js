@@ -44,7 +44,7 @@ function mousePressed() {
 function draw () {
   
   image(img, 0, 0, width, height, 0, 0, img.width, img.height, COVER); //variables
-  //drawClouds();
+  drawClouds();
   drawBase();
   drawEyes();
   drawLips();
