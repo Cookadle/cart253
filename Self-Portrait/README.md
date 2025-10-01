@@ -9,15 +9,17 @@ https://cookadle.github.io/cart253/Self-Portrait/
 ## Description
 
 
-> *This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.Not meant to be accurate,it was heavily inspired by Picasso and his cubism style.This self portrait
+This is a self portrait of Jeany Corrius one of the many formidable students of Pippin.Not meant to be accurate,it was heavily inspired by Picasso and his cubism style.This self portrait
 
->  has for goal to merge the windows 7 with cubism art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s.
+has for goal to merge the windows 7 with cubism art as a fun nostalgic way to present myself.Ideally the user should feel as if they wwere pulled back in the early 2000s.
 
 
 ## Screenshot(s)
 
-This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
-https://github.com/{cookadle}/{cart253}/raw/{main}/art/{Screenshot 2025-09-30 at 23-55-11 Pop Up Jeany.png}
+This bit should have some images of the program running so that the reader has a sense of what it looks like.
+
+https://github.com/{cookadle}/{cart253}/raw/{main}/art/{Screenshot2025-09-30at23-55-11PopUpJeany.png}
+
 ## Attribution
 > -Never tried function was: preload.Ideal for images import!
 
