@@ -9,7 +9,7 @@
  */
 
 "use strict";
-
+//help
 
 let img; //image variable
 let song;//music play 
