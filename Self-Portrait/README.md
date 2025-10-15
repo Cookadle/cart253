@@ -16,16 +16,13 @@ has for goal to merge the windows 7 with cubism art as a fun nostalgic way to pr
 
 ## Screenshot(s)
 
-This bit should have some images of the program running so that the reader has a sense of what it looks like.
 ![cubism woman stuck in computer screen](https://i.pinimg.com/736x/ef/0e/b7/ef0eb7184e995f0b90b5061d581ed76e.jpg)
 
 ## Attribution
 > -Never tried function was: preload.Ideal for images import!
-g
+> [Windows sound](https://www.myinstants.com/en/instant/windows-xp-error/) 
 > - This project uses [p5.js](https://p5js.org).
 
 ## License
-
-This bit should include the license you want to apply to your work. For example:
 
 > This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.
