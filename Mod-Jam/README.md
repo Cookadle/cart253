@@ -8,7 +8,7 @@ Jeany
 
 This is my safe space where I keep everything Mod-Jam related.
 
-![farmer saying it aint much but its honest work](https://i.pinimg.com/736x/62/bf/18/62bf18cb1ddba0280f877d42c493561f.jpg)
+![farmer saying it aint much but its honest work](https://media.npr.org/assets/img/2023/05/26/honest-work-meme_wide-4029ac991ab09630c53950e7236a45ab07dc9b9d.jpg)
 
 ## Attribution
 To Pippin and my fellow classmates,I love seeing all your works!
