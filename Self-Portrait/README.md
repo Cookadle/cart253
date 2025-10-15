@@ -17,11 +17,11 @@ has for goal to merge the windows 7 with cubism art as a fun nostalgic way to pr
 ## Screenshot(s)
 
 This bit should have some images of the program running so that the reader has a sense of what it looks like.
-![cubism woman stuck in computer screen](https://www.pinterest.com/pin/644718502945687736/)
+![cubism woman stuck in computer screen](https://i.pinimg.com/736x/ef/0e/b7/ef0eb7184e995f0b90b5061d581ed76e.jpg)
 
 ## Attribution
 > -Never tried function was: preload.Ideal for images import!
-
+g
 > - This project uses [p5.js](https://p5js.org).
 
 ## License
