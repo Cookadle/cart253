@@ -1,12 +1,13 @@
-# TITLE OF PROJECT
+# Mod-Jam
 
-AUTHOR NAME
+Jeany
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
 ## Description
 
 This is my safe space where I keep everything Mod-Jam related.
+
 ![farmer saying it aint much but its honest work](https://i.pinimg.com/736x/62/bf/18/62bf18cb1ddba0280f877d42c493561f.jpg)
 
 ## Attribution
