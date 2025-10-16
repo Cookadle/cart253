@@ -31,7 +31,7 @@ ___
 <p>After reading the detailed read me of Lana, I prepared myself to pet that cat.</p>
 <p>Lana self-expression of self is an adorable cat, who also rock the same hairstyle Lana rocks daily.</p>
 <p>Keeping her individuality by integrating one of her core self element (hair) into the cat was a beautiful choice.</p>
-<p>As I pet that cat, I realized that no matter what I click on my mouse I am still petting him, contrary to what the read me says:
+As I pet that cat, I realized that no matter what I click on my mouse I am still petting him, contrary to what the read me says:
 >[Press and hold the left mouse button over the cat's head while moving the mouse to pet the cat.](https://github.com/lannacheck-ops/cart253/tree/main/art-jam/template-p5-project#controls)
 
 
