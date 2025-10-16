@@ -43,7 +43,7 @@ Which I think could have been implemented in the massage function with something
 };
 ```
 
-So depending on which side is clicked, you are doing different actions with the mouse. If Lana were to keep working on this one in the future, I could see even more controls added, and attributing to specific controls would make increase the complexity of the kitty.
+So depending on which side is clicked, you are doing different actions with the mouse. If Lana were to keep working on this one in the future, I could see even more controls added, and attributing them to specific controls would increase the complexity of the kitty.
 But beyond that Lana work has clearly had a lot of work and thoughts put into it, I have many questions to ask her as I am fascinated by her train of thoughts 
 
 ___
