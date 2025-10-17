@@ -18,4 +18,5 @@ scoring system
 
  briing fly to frfog mouth when caught
  a new control system 
- extra
+ extra:
+ constraint frog so it doesnt go off screen 
