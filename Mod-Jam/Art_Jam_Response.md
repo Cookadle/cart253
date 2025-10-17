@@ -41,8 +41,8 @@ ___
 
 Which I think could have been implemented in the massage function with something like:
 ```
- function mouseIsPressed() {
-    if (!mouseIsPressed === LEFT) {
+ if (mouseIsPressed) {
+    if (mouseButton === LEFT) {
     }
 };
 ```
