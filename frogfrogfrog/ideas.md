@@ -7,6 +7,8 @@ title
 
 scoring system
  could be negative value ,every fly eaten is one less annoying frog in this damned world,icon next to number could be a happy child smiling idk
+ a fly lays up to 75 to 150 eggs 
+ so assign fly value as random between <75-150>
 
  ending
  frog get fatter ,max fatness is 125

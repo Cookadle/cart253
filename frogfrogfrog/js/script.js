@@ -18,6 +18,9 @@
 //
 //
 
+
+let score = 0; // Will count - eggs eaten by frog
+
 // Our frog
 const frog = {
     // The frog's body has a position and size
@@ -172,6 +175,8 @@ function checkTongueFlyOverlap() {
         resetFly();
         // Bring back the tongue
         frog.tongue.state = "inbound";
+        //
+        score= score -
     }
 }
 
