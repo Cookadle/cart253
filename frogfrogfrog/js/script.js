@@ -179,7 +179,7 @@ function checkTongueFlyOverlap() {
         score += 1; //random (75,150);
     }
     //draw score on screen
-    fill ("#eebe1fff")
+    fill ("#000000ff")
     textAlign(RIGHT);
     textSize(25);
     text("Score = ", +score, 120, 50);
