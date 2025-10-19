@@ -23,6 +23,7 @@
 //score system
 let score = 0; // Will count - eggs eaten by frog
 
+
 // Our frog
 const frog = {
     // The frog's body has a position and size
@@ -175,8 +176,8 @@ function checkTongueFlyOverlap() {
         resetFly();
         // Bring back the tongue
         frog.tongue.state = "inbound";
-        //Add point to score
-        score += random(-75.3, -150.8);
+         //Add point to score + floor round them up
+        score+= floor(random (-7,-150));
     }
     //draw score on screen
     fill("black");
