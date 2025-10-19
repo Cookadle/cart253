@@ -180,9 +180,9 @@ function checkTongueFlyOverlap() {
     }
     //draw score on screen
     fill ("black")
-    textAlign(RIGHT);
+    textAlign(CENTER);
     textSize(25);
-    text("Score = ", +score, 120, 50);
+    text("Score : " +score, 120, 50);
 
 }
 
