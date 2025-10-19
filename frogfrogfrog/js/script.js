@@ -1,6 +1,6 @@
 /**
  * Frogfrogfrog
- * Pippin Barr
+ * 
  * 
  * A game of catching flies with your frog-tongue
  * 
@@ -14,6 +14,9 @@
  */
 
 "use strict";
+//Adding audio and sound effects
+//
+//
 
 // Our frog
 const frog = {
