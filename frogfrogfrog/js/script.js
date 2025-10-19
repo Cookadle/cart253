@@ -179,13 +179,14 @@ function checkTongueFlyOverlap() {
         //Add point to score
         score += 1; //random (75,150);
     }
-}
-//draw score on screen
-function drawScore (){
+      //draw score on screen
+fill(255);
 textAlign(RIGHT);
 textSize(25);
-text("Score : ",+score,10,140);
+text("Score = ",+score,120,50);
+
 }
+
 
 //future winning conditions
 //if(score>-){}
