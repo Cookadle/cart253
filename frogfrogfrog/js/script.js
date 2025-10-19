@@ -14,6 +14,10 @@
  */
 
 "use strict";
+
+/**Start state for a title screen*/
+let gameState = "title screen";
+
 //Adding audio and sound effects
 //
 //
@@ -28,7 +32,8 @@ const frog = {
         x: 320,
         y: 520,
         size: 150
-    },
+    }
+    ,
     // The frog's tongue has a position, size, speed, and state
     tongue: {
         x: undefined,
