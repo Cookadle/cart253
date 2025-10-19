@@ -184,7 +184,7 @@ function checkTongueFlyOverlap() {
 function drawScore (){
 textAlign(RIGHT);
 textSize(25);
-text("Score = ",+score,50,50);
+text("Score : ",+score,10,140);
 }
 
 //future winning conditions
