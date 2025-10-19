@@ -181,11 +181,11 @@ function checkTongueFlyOverlap() {
     }
 }
 //draw score on screen
-function drawScore
+function drawScore(){
 fill(255);
 textAlign(RIGHT);
 text("Score =",+score,50,50);
-
+}
 
 //future winning conditions
 //if(score>-){}
