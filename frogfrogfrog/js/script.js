@@ -19,7 +19,7 @@
 //
 
 
-let score = 0; // Will count - eggs eaten by frog
+//let score = 0; // Will count - eggs eaten by frog
 
 // Our frog
 const frog = {
