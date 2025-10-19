@@ -70,7 +70,7 @@ function draw() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
-    drawScore();
+
 }
 
 /**
@@ -181,11 +181,11 @@ function checkTongueFlyOverlap() {
     }
 }
 //draw score on screen
-function drawScore(){
 fill(255);
 textAlign(RIGHT);
+textSize(25);
 text("Score =",+score,50,50);
-}
+
 
 //future winning conditions
 //if(score>-){}
