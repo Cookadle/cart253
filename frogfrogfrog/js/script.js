@@ -15,8 +15,6 @@
 
 "use strict";
 
-/**Start state for a title screen*/
-let gameState = "title screen";
 
 //Adding audio and sound effects
 //
