@@ -141,7 +141,7 @@ function moveTongue() {
 
 
 //Displays the tongue (tip and line connection) and the frog (body)
- function drawFrog() {
+function drawFrog() {
     // Draw the tongue tip
     push();
     fill("#ff0000");
@@ -169,7 +169,7 @@ function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
     const d = dist(frog.tongue.x, frog.tongue.y, fly.x, fly.y);
     // Check if it's an overlap
-    const eaten = (d < frog.tongue.size/2 + fly.size/2);
+    const eaten = (d < frog.tongue.size / 2 + fly.size / 2);
     if (eaten) {
         // Reset the fly
         resetFly();
@@ -178,11 +178,11 @@ function checkTongueFlyOverlap() {
         //Add point to score
         score += 1; //random (75,150);
     }
-      //draw score on screen
-fill(255);
-textAlign(RIGHT);
-textSize(25);
-text("Score = ",+score,120,50);
+    //draw score on screen
+    fill(255);
+    textAlign(RIGHT);
+    textSize(25);
+    text("Score = ", +score, 120, 50);
 
 }
 
