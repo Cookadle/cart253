@@ -176,7 +176,7 @@ function checkTongueFlyOverlap() {
         // Bring back the tongue
         frog.tongue.state = "inbound";
         //
-        score= score -
+        //score= score - Math.random() * (150 - 75) + min
     }
 }
 
