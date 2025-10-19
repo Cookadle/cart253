@@ -20,8 +20,8 @@
 //
 //
 
-
-//let score = 0; // Will count - eggs eaten by frog
+//score system
+let score = 0; // Will count - eggs eaten by frog
 
 // Our frog
 const frog = {
@@ -70,6 +70,7 @@ function draw() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
+    drawScore();
 }
 
 /**
@@ -139,10 +140,9 @@ function moveTongue() {
     }
 }
 
-/**
- * Displays the tongue (tip and line connection) and the frog (body)
- */
-function drawFrog() {
+
+//Displays the tongue (tip and line connection) and the frog (body)
+ function drawFrog() {
     // Draw the tongue tip
     push();
     fill("#ff0000");
@@ -165,9 +165,7 @@ function drawFrog() {
     pop();
 }
 
-/**
- * Handles the tongue overlapping the fly
- */
+//Handles the tongue overlapping the fly
 function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
     const d = dist(frog.tongue.x, frog.tongue.y, fly.x, fly.y);
@@ -178,10 +176,20 @@ function checkTongueFlyOverlap() {
         resetFly();
         // Bring back the tongue
         frog.tongue.state = "inbound";
-        //
-        //score= score - Math.random() * (150 - 75) + min
+        //Add point to score
+        score-= random (-75,-150);
     }
 }
+//draw score on screen
+function drawScore
+fill(255);
+textAlign(RIGHT);
+text("Score =",+score,50,50);
+
+
+//future winning conditions
+//if(score>-){}
+
 
 /**
  * Launch the tongue on click (if it's not launched yet)
