@@ -70,7 +70,6 @@ function draw() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
-    drawScore();
 }
 
 /**
