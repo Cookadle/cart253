@@ -25,9 +25,19 @@ let gameState= 0;
 //
 //
 
+/*function preload(){
+button start 
+button info
+ game background
+frog drawing
+fly drawing
+instruction screen 
+title screen
+game over background
+}
 //score system
 let score = 0; // Will count - eggs eaten by frog
-
+*/
 
 // Our frog
 const frog = {
@@ -66,6 +76,7 @@ function setup() {
 
     // Give the fly its first random position
     resetFly();
+    *
 }
 
 function draw() {
