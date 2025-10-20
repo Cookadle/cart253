@@ -15,7 +15,7 @@
 
 "use strict";
 //game states for navigation
-let gameState= 0;
+let gameState = 0;
 // 0 is title screen
 // 1 is game
 // 2 instrtuctions
@@ -78,7 +78,7 @@ function setup() {
     resetFly();
 
 
-    
+
     /*startButton = Button(,,startButtonImage);
     instructionsButton = Button (,,InfoButtonImage);
     backgroundMusic.play(will loop )
@@ -95,12 +95,12 @@ function draw() {
     drawFrog();
     checkTongueFlyOverlap();
 }
-    
-    /*if (gameState ==0){
-        startTitle();
-    }else if (gameState==1) {
-        game();
-    }
+
+/*if (gameState ==0){
+    startTitle();
+}else if (gameState==1) {
+    game();
+}
 //else if (gameState==)
 }
 
@@ -108,23 +108,23 @@ function draw() {
 
 
 /*function startMenu() {
-  Image();
-  startButton.display();
+Image();
+startButton.display();
 
-  if (startButton.clicked()) {
-    gameState = 2;
-  }
+if (startButton.clicked()) {
+gameState = 2;
+}
 
-  if (instructionsButton.clicked()) {
-    gameState = 1;
-  }
+if (instructionsButton.clicked()) {
+gameState = 1;
+}
 }
 
 
 /**
- * Moves the fly according to its speed
- * Resets the fly if it gets all the way to the right
- */
+* Moves the fly according to its speed
+* Resets the fly if it gets all the way to the right
+*/
 function moveFly() {
     // Move the fly
     fly.x += fly.speed;
@@ -224,8 +224,8 @@ function checkTongueFlyOverlap() {
         resetFly();
         // Bring back the tongue
         frog.tongue.state = "inbound";
-         //Add point to score + floor round them up
-        score+= floor(random (-7,-150));
+        //Add point to score + floor round them up
+        score += floor(random(-7, -150));
     }
     //draw score on screen with text
     fill("black");
