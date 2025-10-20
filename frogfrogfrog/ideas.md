@@ -1,8 +1,10 @@
 # Starting points
-title
+title and instructions screen
  put fly on title resting if frog catch it the game strat?
 pixel lili pad or whatever i started with
-frog on start button  looking 
+frog on lily pad 
+button  looking like trash with flies around it
+TO DRAW: RED BUTTON PIXEL +INSTRUCTIONS BUTTON
 
 
 

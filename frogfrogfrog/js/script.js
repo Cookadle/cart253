@@ -18,7 +18,7 @@
 let gameState= 0;
 // 0 is title screen
 // 1 is game
-
+// 2 instrtuctions
 
 
 //Adding audio and sound effects
