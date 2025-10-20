@@ -84,7 +84,7 @@ function draw() {
 //else if (gameState==)
 }
 
-function startMenu() {
+/*function startMenu() {
   Image();
   startButton.display();
 
