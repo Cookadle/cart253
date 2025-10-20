@@ -76,7 +76,14 @@ function setup() {
 
     // Give the fly its first random position
     resetFly();
-    *
+
+
+    
+    /*startButton = Button(,,startButtonImage);
+    instructionsButton = Button (,,InfoButtonImage);
+    backgroundMusic.play(will loop )
+
+    */
 }
 
 function draw() {
@@ -87,7 +94,7 @@ function draw() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
-    
+}
     
     /*if (gameState ==0){
         startTitle();
