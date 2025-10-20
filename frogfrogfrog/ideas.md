@@ -1,14 +1,18 @@
 # Starting points
 title
  put fly on title resting if frog catch it the game strat?
+pixel lili pad or whatever i started with
+frog on start button  looking 
 
 
 
-
-scoring system
- could be negative value ,every fly eaten is one less annoying frog in this damned world,icon next to number could be a happy child smiling idk
+scoring system(DONE)
+negative value ,every fly eaten is one less annoying frog in this damned world,icon next to number could be a happy child smiling idk
  a fly lays up to 75 to 150 eggs 
  so assign fly value as random between <75-150>
+
+ Draw aserite of three eggs larvae as currency next to score IF YOU HAVE TIME
+
 
  ending
  frog get fatter ,max fatness is 125
@@ -17,8 +21,11 @@ scoring system
  visual/audio
 
  fly movements
+--
 
  briing fly to frfog mouth when caught
+
  a new control system 
+
  extra:
  constraint frog so it doesnt go off screen 

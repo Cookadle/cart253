@@ -14,6 +14,11 @@
  */
 
 "use strict";
+//game states for navigation
+let gameState= 0;
+// 0 is title screen
+// 1 is game
+
 
 
 //Adding audio and sound effects
@@ -71,7 +76,27 @@ function draw() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
+    if (gameState ==0){
+        startTitle();
+    }else if (gameState==1) {
+        game();
+    }
+//else if (gameState==)
 }
+
+function startMenu() {
+  Image();
+  startButton.display();
+
+  if (startButton.clicked()) {
+    gameState = 2;
+  }
+
+  if (instructionsButton.clicked()) {
+    gameState = 1;
+  }
+}
+
 
 /**
  * Moves the fly according to its speed
