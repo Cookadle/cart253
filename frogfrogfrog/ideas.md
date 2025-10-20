@@ -1,28 +1,32 @@
 # Starting points
 title and instructions screen
- put fly on title resting if frog catch it the game strat?
-pixel lili pad or whatever i started with
-frog on lily pad 
 button  looking like trash with flies around it
-TO DRAW: RED BUTTON PIXEL +INSTRUCTIONS BUTTON
+TO DRAW: background of title screen =title frogfrogfrog
 
 
 
 scoring system(DONE)
-negative value ,every fly eaten is one less annoying frog in this damned world,icon next to number could be a happy child smiling idk
- a fly lays up to 75 to 150 eggs 
- so assign fly value as random between <75-150>
+negative value ,every fly eaten is one less annoying frog in this damned world
+ a fly lays up to 75 to 150 eggs so each fly is female in this game nd losing their babies
 
- Draw aserite of three eggs larvae as currency next to score IF YOU HAVE TIME
-
+** Draw aserite of three eggs larvae as currency next to score IF YOU HAVE TIME
 
  ending
+
  frog get fatter ,max fatness is 125
- spider come all over the screen they eat the frog it ate too much flies 
+ So each time
+ if  score get updated +1 body frog 
+ once score =-3000 game over =fat frog
+ spider come all over the screen they eat the frog it ate too much flies spider must survive too
 
  visual/audio
+sound for frogeating to add
+sound for title screen n regular game
+sound for fly buzzing
+
 
  fly movements
+ sppedy fly
 --
 
  briing fly to frfog mouth when caught

@@ -76,13 +76,18 @@ function draw() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
-    if (gameState ==0){
+    
+    
+    /*if (gameState ==0){
         startTitle();
     }else if (gameState==1) {
         game();
     }
 //else if (gameState==)
 }
+
+
+
 
 /*function startMenu() {
   Image();
@@ -204,7 +209,7 @@ function checkTongueFlyOverlap() {
          //Add point to score + floor round them up
         score+= floor(random (-7,-150));
     }
-    //draw score on screen
+    //draw score on screen with text
     fill("black");
     textAlign(CENTER);
     textSize(25);
