@@ -12,7 +12,7 @@ negative value ,every fly eaten is one less annoying frog in this damned world
 ** Draw aserite of three eggs larvae as currency next to score IF YOU HAVE TIME
 
  ending
-
+setTimeout() for a delay
  frog get fatter ,max fatness is 125
  So each time
  if  score get updated +1 body frog 
