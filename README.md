@@ -1,32 +1,36 @@
-Welcome to this wonderful world of ours!
-Come see what is in store for me...
+# TITLE OF PROJECT
 
+Jeany
+Dyna
 
-This is Pippin Barr’s coursework repository for CART253
-## _Creative Computation_
+[View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
+## Description
 
-Cart 253 is a beginner class focusing on mixing creativity and teachnology.This term will focus on learning to code with JavaScript,HTML and the likes while getting familiar with popular program Visual Studio Code and all the others wonderful languages out there.
-What is guarrantee from this course: 
+This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
 
-- Heachaches and migraines
-- Fun and wonder of the world
-- Programming skills to show off your mom beyond freeing space in her gallery
-- A deeper understanding of what my silly computer is made of 
-- A growing need and hunger for realising complex codes
+> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
 
-## Features
+> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
 
--  ✨ Many many school projects  ✨
--  ✨ Many templates for simple code  ✨
--  ✨ Easy quick to access templates  ✨
--  ✨ Codes that can be used to showcase my skills  ✨
--  ✨ Exclusive preview of my new developed music skill -never heard before  ✨
+> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
 
-> The first step at getting good at something
-> is sucking at it!
+## Screenshot(s)
 
+This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
 
-Have some good ol peanut butter for the road!
+> ![Image of a clown face](./assets/images/clown.png)
 
-![Siamese cat with shirt on](https://i.pinimg.com/736x/ce/01/1f/ce011f078152fe850bcf1ebf8d75cb41.jpg "PeanutB with christmas shirt on")
+## Attribution
+
+This bit should attribute any code, assets or other elements used taken from other sources. For example:
+
+> - This project uses [p5.js](https://p5js.org).
+> - The clown image is a capture of the clown from the Apple emoji character set.
+> - The barking sound effect is "single dog bark 1" by crazymonke9 from freesound.org: https://freesound.org/people/crazymonke9/sounds/418107/
+
+## License
+
+This bit should include the license you want to apply to your work. For example:
+
+> This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.
