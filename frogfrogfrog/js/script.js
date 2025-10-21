@@ -14,30 +14,36 @@
  */
 
 "use strict";
+//score system
+let score = 0; // Will count negative eggs from fly mamas eaten by frog
+
 //game states for navigation
 let gameState = 0;
+
 // 0 is title screen
 // 1 is game
 // 2 instrtuctions
+
+
+
 
 
 //Adding audio and sound effects
 //
 //
 
-/*function preload(){
-button start 
-button info
- game background
-frog drawing
-fly drawing
-instruction screen 
-title screen
-game over background
-}
-//score system
-let score = 0; // Will count - eggs eaten by frog
-*/
+*function preload(){
+startButtonImage = loadImage('/')
+// button start 
+// button info
+// game background
+// frog drawing
+// fly drawing
+// instruction screen 
+// title screen
+// game over background
+}*/
+
 
 // Our frog
 const frog = {
