@@ -32,18 +32,18 @@ let gameState = 0;
 //
 //
 
-function preload(){
-//startButtonImage = loadImage('./assets/images/startButton.png')// start button
-//infoButtonImage = loadImage('./assets/images/infoButton.png') //info button
-titleScreen = loadImage('./assets/images/titlebackground.png')
-// =loadImage('./assets/images/')//  
-// =loadImage('./assets/images/')// 
-// =loadImage('./assets/images/')// game background
-// =loadImage('./assets/images/')// frog drawing
-// =loadImage('./assets/images/')// fly drawing
-// =loadImage('./assets/images/')// instruction screen 
-// =loadImage('./assets/images/')// title screen
-// =loadImage('./assets/images/')// game over background
+function preload() {
+    startButtonImage = loadImage('./assets/images/startButton.png')// start button
+    infoButtonImage = loadImage('./assets/images/infoButton.png') //info button
+    titleScreen = loadImage('./assets/images/titlebackground.png')
+    // =loadImage('./assets/images/')//  
+    // =loadImage('./assets/images/')// 
+    // =loadImage('./assets/images/')// game background
+    // =loadImage('./assets/images/')// frog drawing
+    // =loadImage('./assets/images/')// fly drawing
+    // =loadImage('./assets/images/')// instruction screen 
+    // =loadImage('./assets/images/')// title screen
+    // =loadImage('./assets/images/')// game over background
 }
 
 // Our frog
@@ -86,11 +86,11 @@ function setup() {
 
 
 
-    startButton = Button(100,300,startButtonImage);
-    instructionsButton = Button (200,300,InfoButtonImage);
+    startButton = Button(100, 300, startButtonImage);
+    instructionsButton = Button(200, 300, InfoButtonImage);
     //backgroundMusic.play(will loop )
 
-    
+
 }
 
 function draw() {
