@@ -23,9 +23,7 @@ let gameState = 0;
 // 0 is title screen
 // 1 is game
 // 2 game over
-
-
-
+let startButtonImage; let titleScreen,
 
 
 //Adding audio and sound effects
@@ -34,10 +32,7 @@ let gameState = 0;
 
 function preload() {
     startButtonImage = loadImage('./assets/images/startButton.png')// start button
-    infoButtonImage = loadImage('./assets/images/infoButton.png') //info button
-    titleScreen = loadImage('./assets/images/titlebackground.png')
-    // =loadImage('./assets/images/')//  
-    // =loadImage('./assets/images/')// 
+    titleScreen = loadImage('./assets/images/titlebackground.png')//title screen
     // =loadImage('./assets/images/')// game background
     // =loadImage('./assets/images/')// frog drawing
     // =loadImage('./assets/images/')// fly drawing
@@ -87,8 +82,7 @@ function setup() {
 
 
     startButton = Button(100, 300, startButtonImage);
-    instructionsButton = Button(200, 300, InfoButtonImage);
-    //backgroundMusic.play(will loop )
+    //backgroundMusic.play(will loop );
 
 
 }
@@ -103,29 +97,63 @@ function draw() {
     checkTongueFlyOverlap();
 }
 
-/*if (gameState ==0){
-    startTitle();
-}else if (gameState==1) {
-    game();
-}
-//else if (gameState==)
-}
 
 
+function startMenu() {
+    image(titleScreen, width / 2, height / 2);
+    startButton.display();
 
-
-/*function startMenu() {
-Image();
-startButton.display();
-
-if (startButton.clicked()) {
-gameState = 2;
+    if (startButton.clicked()) {
+        gameState = 1;
+    }
 }
 
-if (instructionsButton.clicked()) {
-gameState = 1;
+// button xy, image, be clicked
+function Button(x, y, img) {
+    // x,y,img arguments are like let x = 0
+
+    // width and height of image
+    let w = 64;
+    let h = 32;
+    // button toggle
+    let isClicked = false;
+    function clicked() {
+        // mouse clicked
+        // inside the button
+        // didn't click on previous frame
+        if (mouseIsPressed) {
+            // rectangle collision detection
+            if (
+                mouseX > x - w / 2 &&
+                mouseX < x + w / 2 &&
+                mouseY > y - h / 2 &&
+                mouseY < y + h / 2
+            ) {
+                if (!isClicked) {
+                    isClicked = true;
+                    return true;
+                }
+            }
+        } else if (isClicked) {
+            // after clicking and releasing, we can click again
+            isClicked = false;
+        }
+        return false;
+    }
+
+    return { display, clicked };
 }
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
