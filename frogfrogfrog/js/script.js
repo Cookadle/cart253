@@ -22,7 +22,7 @@ let gameState = 0;
 
 // 0 is title screen
 // 1 is game
-// 2 instrtuctions
+// 2 game over
 
 
 
@@ -33,17 +33,17 @@ let gameState = 0;
 //
 
 function preload(){
-startButtonImage = loadImage('/assets/images/startButton.png')// start button
-infoButtonImage = loadImage('/assets/images/infoButton.png') //info button
-titleScreen = loadImage('/assets/images/titlebackground.png')
-// =loadImage('/assets/images/')//  
-// =loadImage('/assets/images/')// 
-// =loadImage('/assets/images/')// game background
-// =loadImage('/assets/images/')// frog drawing
-// =loadImage('/assets/images/')// fly drawing
-// =loadImage('/assets/images/')// instruction screen 
-// =loadImage('/assets/images/')// title screen
-// =loadImage('/assets/images/')// game over background
+//startButtonImage = loadImage('./assets/images/startButton.png')// start button
+//infoButtonImage = loadImage('./assets/images/infoButton.png') //info button
+titleScreen = loadImage('./assets/images/titlebackground.png')
+// =loadImage('./assets/images/')//  
+// =loadImage('./assets/images/')// 
+// =loadImage('./assets/images/')// game background
+// =loadImage('./assets/images/')// frog drawing
+// =loadImage('./assets/images/')// fly drawing
+// =loadImage('./assets/images/')// instruction screen 
+// =loadImage('./assets/images/')// title screen
+// =loadImage('./assets/images/')// game over background
 }
 
 // Our frog
@@ -139,6 +139,7 @@ function moveFly() {
     if (fly.x > width) {
         resetFly();
     }
+    //create one for fly going down and not vertically
 }
 
 /**
