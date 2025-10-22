@@ -27,8 +27,8 @@ let startButtonImage; let titleScreen,
 
 
 function preload() {
-    startButtonImage = loadImage('./assets/images/startButton.png')// start button
-    titleScreen = loadImage('./assets/images/titlebackground.png')//title screen
+    startButtonImage = loadImage('./assets/images/startButton.png');//start button
+    titleScreen = loadImage('./assets/images/titlebackground.png'); //title screen
     // =loadImage('./assets/images/')// game background
     // =loadImage('./assets/images/')// frog drawing
     // =loadImage('./assets/images/')// fly drawing
@@ -76,7 +76,8 @@ function setup() {
     resetFly();
 
 
-
+ // Draw the image.
+  image(img, 0, 0);
     startButton = Button(100, 300, startButtonImage);
 
 
