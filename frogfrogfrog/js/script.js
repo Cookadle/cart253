@@ -35,7 +35,7 @@ let gameState = 0;
 function preload(){
 startButtonImage = loadImage('/assets/images/startButton.png')// start button
 infoButtonImage = loadImage('/assets/images/infoButton.png') //info button
-titleScreen = loadImage('/assets/images/')
+titleScreen = loadImage('/assets/images/titlebackground.png')
 // =loadImage('/assets/images/')//  
 // =loadImage('/assets/images/')// 
 // =loadImage('/assets/images/')// game background
@@ -44,8 +44,7 @@ titleScreen = loadImage('/assets/images/')
 // =loadImage('/assets/images/')// instruction screen 
 // =loadImage('/assets/images/')// title screen
 // =loadImage('/assets/images/')// game over background
-}*
-
+}
 
 // Our frog
 const frog = {
@@ -87,11 +86,11 @@ function setup() {
 
 
 
-    /*startButton = Button(,,startButtonImage);
-    instructionsButton = Button (,,InfoButtonImage);
-    backgroundMusic.play(will loop )
+    startButton = Button(100,300,startButtonImage);
+    instructionsButton = Button (200,300,InfoButtonImage);
+    //backgroundMusic.play(will loop )
 
-    */
+    
 }
 
 function draw() {
