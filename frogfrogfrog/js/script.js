@@ -20,13 +20,13 @@ let score = 0; // Will count negative eggs from fly mamas eaten by frog
 //game states for navigation will start on title screen
 let gameState = "menu";
 
-let startButtonImage,
+//let startButtonImage,
 
 //function preload() {
 //startButtonImage = loadImage('./assets/images/startButton.png');//start button
 // =loadImage('./assets/images/')// game background
 
-
+//}
 // Our frog
 const frog = {
     // The frog's body has a position and size
@@ -63,7 +63,7 @@ function setup() {
     createCanvas(640, 480);
 // Give the fly its first random position
     resetFly();
-startButton = Button(100, 300, startButtonImage);
+//startButton = Button(100, 300, startButtonImage);
 }
 
 
@@ -73,23 +73,23 @@ function draw() {
     if (gameState === "menu") {
         drawmenu();
     }
-    else if (gameState === "game") {
-        runGame();
+    //else if (gameState === "game") {
+      //  runGame();
     }
-}
+//}
 
 function drawmenu() {
     //cute gradiant of green with rectagle
 square(30, 20, 55);
-startButton = Button(100, 300, startButtonImage);
+//startButton = Button(100, 300, startButtonImage);
 }
-image(titleScreen, width / 2, height / 2);
-  startButton.display();
+//image(titleScreen, width / 2, height / 2);
+  //startButton.display();
 
-  if (startButton.clicked()) {
-    gameState === "game";
+  //if (startButton.clicked()) {
+    //gameState === "game";
   
-}
+//}
 
 
 function  runGame (){
@@ -168,7 +168,7 @@ function moveTongue() {
         // The tongue stops if it hits the bottom
         if (frog.tongue.y >= height) {
             frog.tongue.state = "idle";
-        }vPreferences: Open Settings (JSON)"
+        }
     }
 }
 
@@ -234,3 +234,13 @@ function mousePressed() {
         frog.tongue.state = "outbound";
     }
 }
+
+/**
+* Start the game (if it isn't started yet)
+*/
+function mousePressed() {
+    if (gameState === "menu") {
+        gameState === "runGame";
+    }
+}
+
