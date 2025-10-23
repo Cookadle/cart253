@@ -17,21 +17,15 @@
 //score system
 let score = 0; // Will count negative eggs from fly mamas eaten by frog
 
-//game states for navigation
-let gameState = "titleScreen";
+//game states for navigation will start on title screen
+let gameState = "menu";
 
-let startButtonImage; let titleScreen,
+let startButtonImage,
 
+//function preload() {
+//startButtonImage = loadImage('./assets/images/startButton.png');//start button
+// =loadImage('./assets/images/')// game background
 
-function preload() {
-    startButtonImage = loadImage('./assets/images/startButton.png');//start button
-    // =loadImage('./assets/images/')// game background
-    // =loadImage('./assets/images/')// frog drawing
-    // =loadImage('./assets/images/')// fly drawing
-    // =loadImage('./assets/images/')// instruction screen 
-    // =loadImage('./assets/images/')// title screen
-    // =loadImage('./assets/images/')// game over background
-}
 
 // Our frog
 const frog = {
@@ -67,62 +61,46 @@ const fly = {
  */
 function setup() {
     createCanvas(640, 480);
-
-    // Give the fly its first random position
+// Give the fly its first random position
     resetFly();
-
+startButton = Button(100, 300, startButtonImage);
 }
-function drawtitleScreen() {
-    //cute gradiant of green 
-    rectMode(CENTER);
-    colorMode(HSB);
-    noStroke();
 
-    // Top color
-    // Hue: 100°, Saturation: 90%, Brightness: 100%
-    let colorA = color(150, 90, 100);
-
-    // Bottom color
-    // Hue: 250°, Saturation: 80%, Brightness: 20%
-    let colorB = color(120, 80, 20);
-
-    // Number of stripes
-    let stripeCount = 7;
-
-    // Divide height of canvas by number of stripes
-    let stripeHeight = height / stripeCount;
-
-    // Start at top of canvas, repeat to bottom n move down by stripeHeight each time,
-    for (let y = 0; y < height; y += stripeHeight) {
-        // Convert y position to number between  0 (top of canvas) and 1 (bottom of canvas)
-        let fadeAmount = y / height;
-
-        // Interpolate color
-        let betweenColor = lerpColor(colorA, colorB, fadeAmount);
-
-        // Draw stripe
-        fill(betweenColor);
-        rect(0, y, width, stripeHeight);
-    }
-
-
-}
 
 
 
 function draw() {
+    if (gameState === "menu") {
+        drawmenu();
+    }
+    else if (gameState === "game") {
+        runGame();
+    }
+}
 
+function drawmenu() {
+    //cute gradiant of green with rectagle
+square(30, 20, 55);
+startButton = Button(100, 300, startButtonImage);
+}
+image(titleScreen, width / 2, height / 2);
+  startButton.display();
+
+  if (startButton.clicked()) {
+    gameState === "game";
+  
+}
+
+
+function  runGame (){
+    background("#87ceeb");
     moveFly();
     drawFly();
     moveFrog();
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
-    titleScreen();
 }
-
-
-
 
 
 
@@ -198,6 +176,7 @@ function moveTongue() {
 //Displays the tongue (tip and line connection) and the frog (body)
 function drawFrog() {
     // Draw the tongue tip
+    if (gameState === "game") {
     push();
     fill("#ff0000");
     noStroke();
@@ -217,6 +196,7 @@ function drawFrog() {
     noStroke();
     ellipse(frog.body.x, frog.body.y, frog.body.size);
     pop();
+}
 }
 
 //Handles the tongue overlapping the fly
