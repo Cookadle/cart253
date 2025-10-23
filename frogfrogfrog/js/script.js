@@ -91,6 +91,13 @@ function draw() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
+
+if (gameState === '0') {
+    loadImage)
+
+
+
+
 }
 
 
