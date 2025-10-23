@@ -38,7 +38,11 @@ As I pet that cat, I realized that no matter what I click on my mouse I am still
 Which I think could have been implemented in the massage function with something like:
 ```
  if (mouseIsPressed) {
+<<<<<<< HEAD
+    if (!mouseIsPressed === LEFT) {
+=======
     if (mouseButton === LEFT) {
+>>>>>>> d1d40fd1ddc66c8a4f003ef994edfdd4013e4b90
     }
 };
 ```
