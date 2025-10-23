@@ -66,15 +66,15 @@ const fly = {
  * Creates the canvas and initializes the fly
  */
 function setup() {
-    //createCanvas(640, 480);
+    createCanvas(640, 480);
 
     // Give the fly its first random position
     resetFly();
 
 }
 function drawtitleScreen() {
-    createCanvas(640, 480);
     //cute gradiant of green 
+    rectMode(CENTER);
     colorMode(HSB);
     noStroke();
 
