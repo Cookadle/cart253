@@ -168,7 +168,7 @@ function moveTongue() {
         // The tongue stops if it hits the bottom
         if (frog.tongue.y >= height) {
             frog.tongue.state = "idle";
-        }
+        }vPreferences: Open Settings (JSON)"
     }
 }
 
@@ -222,7 +222,7 @@ function checkTongueFlyOverlap() {
 }
 
 
-//future winning conditions
+//future winning ckvkvonditions
 //if(score>-){}
 
 
