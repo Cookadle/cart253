@@ -1,7 +1,8 @@
 # Starting points
 title and instructions screen
-button  looking like trash with flies around it
-TO DRAW: background of title screen =title frogfrogfrog
+button start in the middle frog frog frog written after if you have time 
+gradiant green 
+
 
 
 
