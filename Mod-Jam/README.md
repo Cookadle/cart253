@@ -1,18 +1,35 @@
-# Mod-Jam
+# TITLE OF PROJECT
 
-Jeany Corrius
+AUTHOR NAME
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
 ## Description
 
-This is my safe space where I keep everything Mod-Jam related.
+This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
 
-![farmer saying it aint much but its honest work](https://media.npr.org/assets/img/2023/05/26/honest-work-meme_wide-4029ac991ab09630c53950e7236a45ab07dc9b9d.jpg)
+> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
+
+> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
+
+> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+
+## Screenshot(s)
+
+This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
+
+> ![Image of a clown face](./assets/images/clown.png)
 
 ## Attribution
-To Pippin and my fellow classmates,I love seeing all your works!
+
+This bit should attribute any code, assets or other elements used taken from other sources. For example:
+
+> - This project uses [p5.js](https://p5js.org).
+> - The clown image is a capture of the clown from the Apple emoji character set.
+> - The barking sound effect is "single dog bark 1" by crazymonke9 from freesound.org: https://freesound.org/people/crazymonke9/sounds/418107/
 
 ## License
+
+This bit should include the license you want to apply to your work. For example:
 
 > This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.
