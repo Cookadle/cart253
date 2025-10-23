@@ -93,9 +93,9 @@ function draw() {
     checkTongueFlyOverlap();
 
 if (gameState === '0') {
-    loadImage)
+    loadImage("titleScreen")
 
-
+}
 
 
 }
