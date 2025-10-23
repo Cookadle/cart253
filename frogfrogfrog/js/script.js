@@ -18,11 +18,8 @@
 let score = 0; // Will count negative eggs from fly mamas eaten by frog
 
 //game states for navigation
-let gameState = 0;
+let gameState = "titleScreen";
 
-// 0 is title screen
-// 1 is game
-// 2 game over
 let startButtonImage; let titleScreen,
 
 
@@ -69,42 +66,44 @@ const fly = {
  * Creates the canvas and initializes the fly
  */
 function setup() {
-    createCanvas(640, 480);
-
-     gameState = 0;
-}
-  colorMode(HSB);
-  noStroke();
-
-  // Top color
-  // Hue: 150°, Saturation: 90%, Brightness: 100%
-  let colorA = color(150, 90, 100);
-
-  // Bottom color
-  // Hue: 120°, Saturation: 80%, Brightness: 20%
-  let colorB = color(120, 80, 20);
-
-  // Number of stripes
-  let stripeCount = 7;
-
-  // Divide height of canvas by number of stripes
-  let stripeHeight = height / stripeCount;
-
-  // Start at top of canvas, repeat to bottom n move down by stripeHeight each time,
-  for (let y = 0; y < height; y += stripeHeight) {
-    // Convert y position to number between  0 (top of canvas) and 1 (bottom of canvas)
-    let fadeAmount = y / height;
-
-    // Interpolate color
-    let betweenColor = lerpColor(colorA, colorB, fadeAmount);
-
-    // Draw stripe
-    fill(betweenColor);
-    rect(0, y, width, stripeHeight);
-  
+    //createCanvas(640, 480);
 
     // Give the fly its first random position
     resetFly();
+
+}
+function drawtitleScreen() {
+    createCanvas(640, 480);
+    //cute gradiant of green 
+    colorMode(HSB);
+    noStroke();
+
+    // Top color
+    // Hue: 100°, Saturation: 90%, Brightness: 100%
+    let colorA = color(150, 90, 100);
+
+    // Bottom color
+    // Hue: 250°, Saturation: 80%, Brightness: 20%
+    let colorB = color(120, 80, 20);
+
+    // Number of stripes
+    let stripeCount = 7;
+
+    // Divide height of canvas by number of stripes
+    let stripeHeight = height / stripeCount;
+
+    // Start at top of canvas, repeat to bottom n move down by stripeHeight each time,
+    for (let y = 0; y < height; y += stripeHeight) {
+        // Convert y position to number between  0 (top of canvas) and 1 (bottom of canvas)
+        let fadeAmount = y / height;
+
+        // Interpolate color
+        let betweenColor = lerpColor(colorA, colorB, fadeAmount);
+
+        // Draw stripe
+        fill(betweenColor);
+        rect(0, y, width, stripeHeight);
+    }
 
 
 }
@@ -112,37 +111,6 @@ function setup() {
 
 
 function draw() {
-if (gameState == 0){
-     background;
-    colorMode(HSB);
-  noStroke();
-
-  // Top color
-  // Hue: 150°, Saturation: 90%, Brightness: 100%
-  let colorA = color(150, 90, 100);
-
-  // Bottom color
-  // Hue: 120°, Saturation: 80%, Brightness: 20%
-  let colorB = color(120, 80, 20);
-
-  // Number of stripes
-  let stripeCount = 7;
-
-  // Divide height of canvas by number of stripes
-  let stripeHeight = height / stripeCount;
-
-  // Start at top of canvas, repeat to bottom n move down by stripeHeight each time,
-  for (let y = 0; y < height; y += stripeHeight) {
-    // Convert y position to number between  0 (top of canvas) and 1 (bottom of canvas)
-    let fadeAmount = y / height;
-
-    // Interpolate color
-    let betweenColor = lerpColor(colorA, colorB, fadeAmount);
-
-    // Draw stripe
-    fill(betweenColor);
-    rect(0, y, width, stripeHeight);
-  }
 
     moveFly();
     drawFly();
@@ -150,11 +118,11 @@ if (gameState == 0){
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
-
+    titleScreen();
 }
 
 
-}
+
 
 
 
