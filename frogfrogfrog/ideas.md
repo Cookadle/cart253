@@ -34,8 +34,13 @@ sound for fly buzzing
 
  briing fly to frfog mouth when caught
 
+
+
+
+
+
  a new control system (done)
-   move frog left to rigth and not just click
+move frog left to rigth
 
  extra:
- constraint frog so it doesnt go off screen 
+ Constraint frog so it doesnt go off screen (done)
