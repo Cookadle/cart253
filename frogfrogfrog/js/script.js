@@ -5,8 +5,8 @@
  * A game of catching flies with your frog-tongue
  * 
  * Instructions:
- * - Move the frog with your mouse
- * - Click to launch the tongue
+ * - Move the frog with the left right key arrows
+ * - Press up arrow  to launch the tongue
  * - Catch flies
  * 
  * Made with p5
@@ -59,18 +59,19 @@ function setup() {
 
 }
 
-function draw() {
-    if (gameState === "menu") {
+function draw() { //where the gamestate come alive
+    if (gameState === "menu") { //will be at title scren
         drawmenu();
     }
-    else if (gameState === "game") {
+    else if (gameState === "game") { //will be in game
         runGame();
     }
 }
 
 
 
-function drawmenu() { //a gradiant title screen going from ligth green to dark green 
+//a gradiant title screen going from ligth green to dark green+Click here to start function 
+function drawmenu() {  
     rectMode();
     colorMode(HSB);
     noStroke();
@@ -92,6 +93,8 @@ function drawmenu() { //a gradiant title screen going from ligth green to dark g
         fill(betweenColor);
         rect(0, y, width, stripeHeight);
     }
+
+//CLICK TO START BUTTON VALUES
     //draw the click to start button
     fill('#9ACC7E')
     rect(220, 350, 200, 50, 20) //button start draw
@@ -99,15 +102,15 @@ function drawmenu() { //a gradiant title screen going from ligth green to dark g
     textSize(20);
     fill("#192E18");
     text("Click here to start", 240, 385); //text for fake button
-//Start the game (if it isn't started yet)
-if (mouseX>= 130 && mouseX <=320 && mouseY >=325 && mouseY <= 375 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
+//Start the game by clicking button area ONLY 
+if (mouseX>= 200 && mouseX <=420 && mouseY >=345 && mouseY <= 400 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
     if (gameState === "menu") {
         gameState = "game";
     }
 }
 
 }
-function runGame() {
+function runGame() { //will let the game  start once game state is different 
     background("#87ceeb");
     moveFly();
     drawFly();
@@ -177,7 +180,7 @@ function moveFrog() {
 }
 
 /**
- * Handles moving the tongue based on its state
+ * Handles moving the tongue based on its state + score 
  */
 function moveTongue() {
     // Tongue matches the frog's x
@@ -231,7 +234,7 @@ function drawFrog() {
     }
 }
 
-//Handles the tongue overlapping the fly
+//Handles the tongue overlapping the fly  + score value
 function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
     const d = dist(frog.tongue.x, frog.tongue.y, fly.x, fly.y);
