@@ -92,22 +92,21 @@ function drawmenu() { //a gradiant title screen going from ligth green to dark g
         fill(betweenColor);
         rect(0, y, width, stripeHeight);
     }
+    //draw the click to start button
     fill('#9ACC7E')
     rect(220, 350, 200, 50, 20) //button start draw
 
-    textSize(25);
+    textSize(20);
     fill("#192E18");
-    text("Click to Start", 250, 385); //text for fake button
-
-
+    text("Click here to Start", 240, 385); //text for fake button
+//Start the game (if it isn't started yet)
+if (mouseX>= 120 && mouseX <=320 && mouseY >=325 && mouseY <= 375 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
+    if (gameState === "menu") {
+        gameState = "game";
+    }
 }
 
-
-
-
-
-
-
+}
 function runGame() {
     background("#87ceeb");
     moveFly();
@@ -249,8 +248,8 @@ function checkTongueFlyOverlap() {
     text("Score : " + score, 130, 50);
 
 }
-//Start the game (if it isn't started yet)
-function mouseClicked() { //if mouse was clicked game will start
+/*/Start the game (if it isn't started yet)
+function mouseIsPressed() { //if mouse was clicked game will start
     if (gameState === "menu") {
         gameState = "game";
     }
