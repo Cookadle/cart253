@@ -20,16 +20,6 @@ let score = 0; // Will count negative eggs from fly mamas eaten by frog
 //game states for navigation will start on title screen
 let gameState = "menu";
 
-
-function preload() {
-    start = loadImage('./assets/images/startButton.png'); //start button
-    // =loadImage('./assets/images/')// game background
-
-}
-
-// Create a variable for button object
-var button;
-
 // Our frog
 const frog = {
     // The frog's body has a position and size
@@ -64,65 +54,52 @@ const fly = {
  */
 function setup() {
     createCanvas(640, 480);
-// Give the fly its first random position
+    // Give the fly its first random position
     resetFly();
-
+  
 }
 
 function draw() {
-        if (gameState === "menu") {
-            drawmenu();
-        }
-
-
-        //else if (gameState === "game") {
-        // runGame();
+    if (gameState === "menu") {
+        drawmenu();
     }
+    else if (gameState === "game") {
+     runGame();}  
+}
+
 
 
 function drawmenu() { //a gradiant title screen going from ligth green to dark green 
     rectMode();
     colorMode(HSB);
     noStroke();
-
-    // Top color
-    // Hue: 100°, Saturation: 90%, Brightness: 100%
+    // Top color Hue: 100°, Saturation: 90%, Brightness: 100%
     let colorA = color(150, 90, 100);
-
     // Bottom color
-    // Hue: 250°, Saturation: 80%, Brightness: 20%
     let colorB = color(120, 80, 20);
-
-    // Number of stripes
+    //stripes
     let stripeCount = 7;
-
     // Divide height of canvas by number of stripes
     let stripeHeight = height / stripeCount;
-
     // Start at top of canvas, repeat to bottom n move down by stripeHeight each time,
     for (let y = 0; y < height; y += stripeHeight) {
         // Convert y position to number between  0 (top of canvas) and 1 (bottom of canvas)
         let fadeAmount = y / height;
-
         // Interpolate color
         let betweenColor = lerpColor(colorA, colorB, fadeAmount);
-
         // Draw stripe
         fill(betweenColor);
         rect(0, y, width, stripeHeight);
     }
-    // Create the button
-    button = createImg('startButton.png');
-button.mousePressed(gameState===game);
-    // Position the button
-    button.position(500, 750);
+    fill('#9ACC7E')
+    rect(220,350,200,50,20) //button start draw
 
- // Use the mousePressed() method to start game function when the button is pressed.
- // button.mousePressed(game);
+    textSize(25);
+    fill("#192E18");
+    text("Click to Start",250,385); //text for fake button
 
 
 }
-
 
 
 
@@ -138,6 +115,7 @@ function runGame() {
     moveTongue();
     drawFrog();
     checkTongueFlyOverlap();
+    checkInputKeyboard();
 }
 
 
@@ -176,10 +154,22 @@ function resetFly() {
 }
 
 /**
- * Moves the frog to the mouse position on x
+ * Moves the frog with keyboard input
  */
 function moveFrog() {
-    frog.body.x = mouseX;
+ // Launch tongue w spacebar click (when not launched yet)
+    if (keyIsDown(32) && frog.tongue.state === "idle") {
+        frog.tongue.state = "outbound";
+    }
+    // Move the frog to the left with left arrow key when pressed
+    if (keyIsDown(LEFT_ARROW)) {
+        frog.body.x -= 5;
+    }
+    // Move the frog towards the right when the right arrow key is pressed
+    if (keyIsDown(RIGHT_ARROW)) {
+        frog.body.x += 5;
+    }
+
 }
 
 /**
@@ -251,34 +241,44 @@ function checkTongueFlyOverlap() {
         //Add point to score + floor round them up
         score += floor(random(-7, -150));
     }
-    //draw score on screen with text
+    //draw score on screen with text depending on catch
     fill("black");
     textAlign(CENTER);
     textSize(25);
     text("Score : " + score, 130, 50);
 
 }
-
-
-//future winning ckvkvonditions
-//if(score>-){}
-
-
-/**
- * Launch the tongue on click (if it's not launched yet)
- */
-function mousePressed() {
-    if (frog.tongue.state === "idle") {
-        frog.tongue.state = "outbound";
+//Start the game (if it isn't started yet)
+function mouseClicked() { //if mouse was clicked game will start
+    if (gameState === "menu") {
+        gameState = "game";
     }
 }
 
 /**
-* Start the game (if it isn't started yet)
-*/
-function mousePressed() {
-    if (gameState === "menu") {
-        gameState === "runGame";
+ * Launch the tongue on press r (if it's not launched yet)
+ */
+/*function mousePressed() {
+    
+    if (frog.tongue.state === "idle") {
+        frog.tongue.state = "outbound";
+    }
+}*/
+
+ 
+//Check keyboard inputs for froggy
+function checkInputKeyboard() {
+    // Launch the tongue with up key (if it's not launched yet)
+    if (keyIsDown(UP_ARROW) && frog.tongue.state === "idle") {
+        frog.tongue.state = "outbound";
+    }
+    // Move the frog to left when the left arrow key is down
+    if (keyIsDown(LEFT_ARROW)) {
+        frog.body.x -= 3;
+    }
+    // Move the frog to right when the right arrow key is down
+    if (keyIsDown(RIGHT_ARROW)) {
+        frog.body.x += 3;
     }
 }
 

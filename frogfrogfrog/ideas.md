@@ -1,7 +1,7 @@
 # Starting points
 title and instructions screen
 button start in the middle frog frog frog written after if you have time 
-gradiant green 
+
 
 
 
@@ -14,6 +14,7 @@ negative value ,every fly eaten is one less annoying frog in this damned world
 ** Draw aserite of three eggs larvae as currency next to score IF YOU HAVE TIME
 
  ending
+
 setTimeout() for a delay
  frog get fatter ,max fatness is 125
  So each time
@@ -33,7 +34,7 @@ sound for fly buzzing
 
  briing fly to frfog mouth when caught
 
- a new control system 
+ a new control system (done)
    move frog left to rigth and not just click
 
  extra:
