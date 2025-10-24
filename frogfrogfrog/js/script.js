@@ -98,9 +98,9 @@ function drawmenu() { //a gradiant title screen going from ligth green to dark g
 
     textSize(20);
     fill("#192E18");
-    text("Click here to Start", 240, 385); //text for fake button
+    text("Click here to start", 240, 385); //text for fake button
 //Start the game (if it isn't started yet)
-if (mouseX>= 120 && mouseX <=320 && mouseY >=325 && mouseY <= 375 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
+if (mouseX>= 130 && mouseX <=320 && mouseY >=325 && mouseY <= 375 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
     if (gameState === "menu") {
         gameState = "game";
     }
@@ -114,10 +114,10 @@ function runGame() {
     moveFrog();
     moveTongue();
     drawFrog();
+    
     checkTongueFlyOverlap();
     checkInputKeyboard();
 }
-
 
 
 /**
@@ -157,8 +157,8 @@ function resetFly() {
  * Moves the frog with keyboard input
  */
 function moveFrog() {
-    // Launch tongue w spacebar click (when not launched yet)
-    if (keyIsDown(32) && frog.tongue.state === "idle") {
+    // Launch tongue up arrow r click (when not launched yet)
+    if (keyIsDown(UP_ARROW) && frog.tongue.state === "idle") {
         frog.tongue.state = "outbound";
     }
     // Move the frog to the left with left arrow key when pressed
@@ -169,6 +169,10 @@ function moveFrog() {
     if (keyIsDown(RIGHT_ARROW)) {
         frog.body.x += 5;
     }
+    // Constrain the frog position
+  frog.body.x = constrain(frog.body.x, 0, 640);
+
+      
 
 }
 
@@ -248,23 +252,6 @@ function checkTongueFlyOverlap() {
     text("Score : " + score, 130, 50);
 
 }
-/*/Start the game (if it isn't started yet)
-function mouseIsPressed() { //if mouse was clicked game will start
-    if (gameState === "menu") {
-        gameState = "game";
-    }
-}
-
-/**
- * Launch the tongue on press r (if it's not launched yet)
- */
-/*function mousePressed() {
-    
-    if (frog.tongue.state === "idle") {
-        frog.tongue.state = "outbound";
-    }
-}*/
-
 
 //Check keyboard inputs for froggy
 function checkInputKeyboard() {
@@ -280,5 +267,6 @@ function checkInputKeyboard() {
     if (keyIsDown(RIGHT_ARROW)) {
         frog.body.x += 3;
     }
+
 }
 
