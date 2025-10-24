@@ -56,7 +56,7 @@ function setup() {
     createCanvas(640, 480);
     // Give the fly its first random position
     resetFly();
-  
+
 }
 
 function draw() {
@@ -64,7 +64,8 @@ function draw() {
         drawmenu();
     }
     else if (gameState === "game") {
-     runGame();}  
+        runGame();
+    }
 }
 
 
@@ -92,11 +93,11 @@ function drawmenu() { //a gradiant title screen going from ligth green to dark g
         rect(0, y, width, stripeHeight);
     }
     fill('#9ACC7E')
-    rect(220,350,200,50,20) //button start draw
+    rect(220, 350, 200, 50, 20) //button start draw
 
     textSize(25);
     fill("#192E18");
-    text("Click to Start",250,385); //text for fake button
+    text("Click to Start", 250, 385); //text for fake button
 
 
 }
@@ -157,7 +158,7 @@ function resetFly() {
  * Moves the frog with keyboard input
  */
 function moveFrog() {
- // Launch tongue w spacebar click (when not launched yet)
+    // Launch tongue w spacebar click (when not launched yet)
     if (keyIsDown(32) && frog.tongue.state === "idle") {
         frog.tongue.state = "outbound";
     }
@@ -265,7 +266,7 @@ function mouseClicked() { //if mouse was clicked game will start
     }
 }*/
 
- 
+
 //Check keyboard inputs for froggy
 function checkInputKeyboard() {
     // Launch the tongue with up key (if it's not launched yet)
