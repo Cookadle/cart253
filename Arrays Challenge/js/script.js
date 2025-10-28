@@ -9,10 +9,10 @@ Phillippe Beauchemin
  */
 
 let balls = [];
-// let ball = uunndefined; // Will create it with createBall()}
+// let ball = undefined; // Will create it with createBall()}
 
 /**
- * Ceereate the canvas and the ball
+ * Create the canvas and the ball
  */
 function setup() {
     // Create the canvas
