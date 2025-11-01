@@ -40,8 +40,7 @@ const frog = {
     }
 };
 
-// Our fly
-// Has a position, size, and speed of horizontal movement
+// Our fly Has a position, size, and speed of horizontal movement
 const fly = {
     x: 0,
     y: 200, // Will be random
@@ -49,16 +48,13 @@ const fly = {
     speed: 3
 };
 
-/**
- * Creates the canvas and initializes the fly
- */
+/* Creates the canvas and initializes the fly*/
 function setup() {
     createCanvas(640, 480);
     // Give the fly its first random position
     resetFly();
 
 }
-
 function draw() { //where the gamestate come alive
     if (gameState === "menu") { //will be at title scren
         drawmenu();
@@ -71,7 +67,7 @@ function draw() { //where the gamestate come alive
 
 
 //a gradiant title screen going from ligth green to dark green+Click here to start function 
-function drawmenu() {  
+function drawmenu() {
     rectMode();
     colorMode(HSB);
     noStroke();
@@ -94,7 +90,7 @@ function drawmenu() {
         rect(0, y, width, stripeHeight);
     }
 
-//CLICK TO START BUTTON VALUES
+    //CLICK TO START BUTTON VALUES
     //draw the click to start button
     fill('#9ACC7E')
     rect(220, 350, 200, 50, 20) //button start draw
@@ -102,12 +98,12 @@ function drawmenu() {
     textSize(20);
     fill("#192E18");
     text("Click here to start", 240, 385); //text for fake button
-//Start the game by clicking button area ONLY 
-if (mouseX>= 200 && mouseX <=420 && mouseY >=345 && mouseY <= 400 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
-    if (gameState === "menu") {
-        gameState = "game";
+    //Start the game by clicking button area ONLY 
+    if (mouseX >= 200 && mouseX <= 420 && mouseY >= 345 && mouseY <= 400 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
+        if (gameState === "menu") {
+            gameState = "game";
+        }
     }
-}
 
 }
 function runGame() { //will let the game  start once game state is different 
@@ -117,7 +113,7 @@ function runGame() { //will let the game  start once game state is different
     moveFrog();
     moveTongue();
     drawFrog();
-    
+
     checkTongueFlyOverlap();
     checkInputKeyboard();
 }
@@ -173,9 +169,9 @@ function moveFrog() {
         frog.body.x += 5;
     }
     // Constrain the frog position
-  frog.body.x = constrain(frog.body.x, 0, 640);
+    frog.body.x = constrain(frog.body.x, 0, 640);
 
-      
+
 
 }
 
@@ -255,6 +251,32 @@ function checkTongueFlyOverlap() {
     text("Score : " + score, 130, 50);
 
 }
+/*
+function drawSpiders
+
+ spider come all over the screen they eat the frog it ate too much flies spider must survive too
+if (score) < -250
+draw nothing 
+elif (score) > -250 && (score) < -600
+draw 1 (image ) circle of spider at this  yx 
+elif (score) > -600 && (score) < 1200
+draw 1 mage at this
+draw 1 image at this
+elif (score) > 1200 && (score) < 2000
+draw 1
+draw 1 
+draw 1
+if (score) > 2000 && (score) < 2999
+draw
+draw 
+draw
+draw
+if (score) > 3000
+draw void of spiders
+game state = game over
+display text 
+
+*/
 
 //Check keyboard inputs for froggy
 function checkInputKeyboard() {
