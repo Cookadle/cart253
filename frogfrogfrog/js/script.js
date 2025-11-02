@@ -6,7 +6,7 @@
  * 
  * Instructions:
  * - Move the frog with the left right key arrows
- * - Press up arrow  to launch the tongue
+ * - Press up arrow to launch the tongue
  * - Catch flies
  * 
  * Made with p5
@@ -76,7 +76,6 @@ function draw() { //where the gamestate come alive
 }*/
 }
 
-
 //a gradiant title screen going from ligth green to dark green+Click here to start function 
 function drawmenu() {
     rectMode();
@@ -116,6 +115,7 @@ function drawmenu() {
     }
 
 }
+
 function runGame() { //will let the game  start once game state is different 
     background("#87ceeb");
     moveFly();
@@ -129,8 +129,7 @@ function runGame() { //will let the game  start once game state is different
     //checkdrawSpiders();
 }
 
-
-/** Moves the fly according to its speed  Resets the fly if it gets all the way to the right*/
+/* Moves the fly according to its speed  Resets the fly if it gets all the way to the right*/
 function moveFly() {
     // Move the fly
     fly.x += fly.speed;
@@ -158,7 +157,7 @@ function resetFly() {
     fly.y = random(0, 300);
 }
 
-//Moves the frog with keyboard input
+//Moves the frog with keyboard input + constraint body so not off screen
 function moveFrog() {
     // Launch tongue up arrow r click (when not launched yet)
     if (keyIsDown(UP_ARROW) && frog.tongue.state === "idle") {
@@ -174,9 +173,6 @@ function moveFrog() {
     }
     // Constrain the frog position
     frog.body.x = constrain(frog.body.x, 0, 640);
-
-
-
 }
 
 // Handles moving the tongue based on its state + score 
