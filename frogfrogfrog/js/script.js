@@ -24,7 +24,7 @@ let gameState = "menu";
 
 // Load the image.
 //function preload(){ //all loading calls here
-  //spideytop_img= loadImage('/assets/');
+//spideytop_img= loadImage('/assets/');
 //}
 
 
@@ -101,7 +101,7 @@ function drawmenu() {
         rect(0, y, width, stripeHeight);
     }
 
-//CLICK TO START BUTTON VALUES //draw the click to start button
+    //CLICK TO START BUTTON VALUES //draw the click to start button
     fill('#9ACC7E')
     rect(220, 350, 200, 50, 20) //button start draw
 
@@ -180,7 +180,7 @@ function moveFrog() {
 }
 
 // Handles moving the tongue based on its state + score 
- function moveTongue() {
+function moveTongue() {
     // Tongue matches the frog's x
     frog.tongue.x = frog.body.x;
     // If the tongue is idle, it doesn't do anything
