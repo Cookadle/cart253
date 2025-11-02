@@ -17,9 +17,15 @@
 //score system
 let score = 0; // Will count negative eggs from fly mamas eaten by frog
 
+let spideytop_img;//let the image exist yk
+
 //game states for navigation will start on title screen
 let gameState = "menu";
 
+// Load the image.
+function preload() { //all loading calls here
+  spideytop_img= loadImage('/assets/laDefense.jpg');
+}
 // Our frog
 const frog = {
     // The frog's body has a position and size
@@ -62,8 +68,10 @@ function draw() { //where the gamestate come alive
     else if (gameState === "game") { //will be in game
         runGame();
     }
+    /*else if (gameState=== "over") { //will be over
+        runOver();
+}*/
 }
-
 
 
 //a gradiant title screen going from ligth green to dark green+Click here to start function 
@@ -90,8 +98,7 @@ function drawmenu() {
         rect(0, y, width, stripeHeight);
     }
 
-    //CLICK TO START BUTTON VALUES
-    //draw the click to start button
+//CLICK TO START BUTTON VALUES //draw the click to start button
     fill('#9ACC7E')
     rect(220, 350, 200, 50, 20) //button start draw
 
@@ -116,6 +123,7 @@ function runGame() { //will let the game  start once game state is different
 
     checkTongueFlyOverlap();
     checkInputKeyboard();
+    checkdrawSpiders();
 }
 
 
@@ -252,29 +260,25 @@ function checkTongueFlyOverlap() {
 
 }
 /*
-function drawSpiders
-
- spider come all over the screen they eat the frog it ate too much flies spider must survive too
+function drawSpiders(){
+//spider come all over the screen they eat the frog it ate too much flies spider must survive too
 if (score) < -250
 draw nothing 
 elif (score) > -250 && (score) < -600
-draw 1 (image ) circle of spider at this  yx 
+// Show loaded image on screen at (100, 100)
+  image(gfg_img, 100, 100);
+}
 elif (score) > -600 && (score) < 1200
-draw 1 mage at this
-draw 1 image at this
+draw 1 mage at this (left side)
 elif (score) > 1200 && (score) < 2000
-draw 1
-draw 1 
-draw 1
+draw 1  (rigth side)
 if (score) > 2000 && (score) < 2999
-draw
-draw 
-draw
-draw
+draw (bottom)
 if (score) > 3000
 draw void of spiders
 game state = game over
 display text 
+}
 
 */
 
