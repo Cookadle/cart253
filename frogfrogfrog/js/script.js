@@ -17,15 +17,18 @@
 //score system
 let score = 0; // Will count negative eggs from fly mamas eaten by frog
 
-let spideytop_img;//let the image exist yk
+//let spideytop_img;//let the image exist yk
 
 //game states for navigation will start on title screen
 let gameState = "menu";
 
 // Load the image.
-function preload() { //all loading calls here
-  spideytop_img= loadImage('/assets/laDefense.jpg');
-}
+//function preload(){ //all loading calls here
+  //spideytop_img= loadImage('/assets/');
+//}
+
+
+
 // Our frog
 const frog = {
     // The frog's body has a position and size
@@ -123,14 +126,11 @@ function runGame() { //will let the game  start once game state is different
 
     checkTongueFlyOverlap();
     checkInputKeyboard();
-    checkdrawSpiders();
+    //checkdrawSpiders();
 }
 
 
-/**
-* Moves the fly according to its speed
-* Resets the fly if it gets all the way to the right
-*/
+/** Moves the fly according to its speed  Resets the fly if it gets all the way to the right*/
 function moveFly() {
     // Move the fly
     fly.x += fly.speed;
@@ -152,17 +152,13 @@ function drawFly() {
     pop();
 }
 
-/**
- * Resets the fly to the left with a random y
- */
+/**Resets the fly to the left with a random y*/
 function resetFly() {
     fly.x = 0;
     fly.y = random(0, 300);
 }
 
-/**
- * Moves the frog with keyboard input
- */
+//Moves the frog with keyboard input
 function moveFrog() {
     // Launch tongue up arrow r click (when not launched yet)
     if (keyIsDown(UP_ARROW) && frog.tongue.state === "idle") {
@@ -183,10 +179,8 @@ function moveFrog() {
 
 }
 
-/**
- * Handles moving the tongue based on its state + score 
- */
-function moveTongue() {
+// Handles moving the tongue based on its state + score 
+ function moveTongue() {
     // Tongue matches the frog's x
     frog.tongue.x = frog.body.x;
     // If the tongue is idle, it doesn't do anything
@@ -210,7 +204,6 @@ function moveTongue() {
         }
     }
 }
-
 
 //Displays the tongue (tip and line connection) and the frog (body)
 function drawFrog() {
@@ -238,7 +231,7 @@ function drawFrog() {
     }
 }
 
-//Handles the tongue overlapping the fly  + score value
+//Handles the tongue overlapping the fly + score value n display
 function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
     const d = dist(frog.tongue.x, frog.tongue.y, fly.x, fly.y);
@@ -260,21 +253,32 @@ function checkTongueFlyOverlap() {
 
 }
 /*
-function drawSpiders(){
+
+/*
+function checkSpiders(){
 //spider come all over the screen they eat the frog it ate too much flies spider must survive too
+
 if (score) < -250
 draw nothing 
-elif (score) > -250 && (score) < -600
-// Show loaded image on screen at (100, 100)
-  image(gfg_img, 100, 100);
+
+
+if (score) > -250 && (score) < -600 // Show loaded image on screen at (100, 100)
+  draw image(img, 100, 100); scoreD
+else nothing
 }
+
 elif (score) > -600 && (score) < 1200
-draw 1 mage at this (left side)
+draw image D && C at this (left side) ; score C
+
 elif (score) > 1200 && (score) < 2000
-draw 1  (rigth side)
+draw image D && C && B  (rigth side) ; score B
+
 if (score) > 2000 && (score) < 2999
-draw (bottom)
+draw  draw image D && C && B && A (bottom) ; score A
+
 if (score) > 3000
+
+
 draw void of spiders
 game state = game over
 display text 
