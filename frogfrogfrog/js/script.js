@@ -20,21 +20,18 @@ let score = 0; // Will count negative eggs from fly mamas eaten by frog
 
 //game states for navigation will start on title screen
 let gameState = "menu";
-let spideytop;
-let spideybottom;
-let spideyleft;
-let spideyright;
+let spideytop;let spideybottom;let spideyleft;let spideyright;
 
 // Load the image.
 function preload() { //all loading calls here
     spideytop = loadImage('./assets/images/SpiderTop.png');
+    spideyleft = loadImage('./assets/images/SpiderLeft.png');
+    spideyright = loadImage('./assets/images/SpiderRight.png');
+spideybottom= loadImage('/assets/images/SpiderBottomnDetail.png');
 }
-//spideybottom= loadImage('/assets/images/SpiderBottomnDetail.png');
-//spideyleft= loadImage('/assets/images/SpiderLeft.png');
-//spideyright= loadImage('/assets/images/SpiderRight.png');
 //}
 
-
+//*
 
 // Our frog
 const frog = {
@@ -135,7 +132,8 @@ function runGame() { //will let the game  start once game state is different
 
     checkTongueFlyOverlap();
     checkInputKeyboard();
-    // 🕷️ NEW: Show spider image once score is in a certain range
+
+    // 🕷️ Show spider image once score is in a certain range
     if (score > -600 && score <= -250) {
         image(spideytop, 100, 0, 200, 200);
     }
@@ -143,10 +141,17 @@ function runGame() { //will let the game  start once game state is different
         image(spideytop, 100, 0, 200, 200);
         image(spideyleft, 50, 10, 100, 100);
     }
-    else if (score > -601 && score <= -1200) {
+    else if (score > -1201 && score <= -2000) {
         image(spideytop, 100, 0, 200, 200);
         image(spideyleft, 50, 10, 100, 100);
-        image()
+        image(spideyright, 50, 500, 200, 200);
+    }
+    else if (score > -2000 && score <= -2999) {
+        image(spideytop, 100, 0, 200, 200);
+        image(spideyleft, 50, 10, 100, 100);
+        image(spideyright, 50, 500, 200, 200);
+        image(spideybottom, 300, 500, 400, 400);
+
     }
 
 
@@ -183,9 +188,8 @@ function moveFly() {
     //create one for fly going down and not vertically
 }
 
-/**
- * Draws the fly as a black circle
- */
+// Draws the fly as a black circle
+ 
 function drawFly() {
     push();
     noStroke();
@@ -194,7 +198,7 @@ function drawFly() {
     pop();
 }
 
-/**Resets the fly to the left with a random y*/
+//Resets the fly to the left with a random y
 function resetFly() {
     fly.x = 0;
     fly.y = random(0, 300);
@@ -291,43 +295,6 @@ function checkTongueFlyOverlap() {
     text("Score : " + score, 130, 50);
 
 }
-
-
-
-/*
-function drawSpiders(){
-//spider come all over the screen they eat the frog it ate too much flies spider must survive too
-
-//if (score) < -250
-//draw nothing 
-
-
-if (score > -600 && score < -250) {
-// Show loaded image on screen at (100, 100)
-image(spideytop, 100, 100,100,100);
-}
-}
-
-/*
-elif (score) > -600 && (score) < 1200
-image(spideytop, 100, 100);
-image(spideyleft, 300, 200);
-
-elif (score) > 1200 && (score) < 2000
-draw image D && C && B  (rigth side) ;
-
-if (score) > 2000 && (score) < 2999
-draw  draw image D && C && B && A (bottom) ; 
-
-if (score) > 3000
-
-
-draw void of spiders
-game state = game over
-display text 
-}
-
-*/
 
 //Check keyboard inputs for froggy
 function checkInputKeyboard() {
