@@ -17,14 +17,21 @@
 //score system
 let score = 0; // Will count negative eggs from fly mamas eaten by frog
 
-//let spideytop_img;//let the image exist yk
 
 //game states for navigation will start on title screen
 let gameState = "menu";
+let spideytop;
+let spideybottom;
+let spideyleft;
+let spideyright;
 
 // Load the image.
-//function preload(){ //all loading calls here
-//spideytop_img= loadImage('/assets/');
+function preload() { //all loading calls here
+    spideytop = loadImage('./assets/images/SpiderTop.png');
+}
+//spideybottom= loadImage('/assets/images/SpiderBottomnDetail.png');
+//spideyleft= loadImage('/assets/images/SpiderLeft.png');
+//spideyright= loadImage('/assets/images/SpiderRight.png');
 //}
 
 
@@ -71,6 +78,7 @@ function draw() { //where the gamestate come alive
     else if (gameState === "game") { //will be in game
         runGame();
     }
+
     /*else if (gameState=== "over") { //will be over
         runOver();
 }*/
@@ -124,9 +132,44 @@ function runGame() { //will let the game  start once game state is different
     moveTongue();
     drawFrog();
 
+
     checkTongueFlyOverlap();
     checkInputKeyboard();
-    //checkdrawSpiders();
+    // 🕷️ NEW: Show spider image once score is in a certain range
+    if (score > -600 && score <= -250) {
+        image(spideytop, 100, 0, 200, 200);
+    }
+    else if (score > -601 && score <= -1200) {
+        image(spideytop, 100, 0, 200, 200);
+        image(spideyleft, 50, 10, 100, 100);
+    }
+    else if (score > -601 && score <= -1200) {
+        image(spideytop, 100, 0, 200, 200);
+        image(spideyleft, 50, 10, 100, 100);
+        image()
+    }
+
+
+    /*
+    elif (score) > -600 && (score) < 1200
+    image(spideytop, 100, 100);
+    image(spideyleft, 300, 200);
+    
+    elif (score) > 1200 && (score) < 2000
+    draw image D && C && B  (rigth side) ;
+    
+    if (score) > 2000 && (score) < 2999
+    draw  draw image D && C && B && A (bottom) ; 
+    
+    if (score) > 3000
+    
+    
+    draw void of spiders
+    game state = game over
+    display text 
+    }
+      }
+    }*/
 }
 
 /* Moves the fly according to its speed  Resets the fly if it gets all the way to the right*/
@@ -248,29 +291,33 @@ function checkTongueFlyOverlap() {
     text("Score : " + score, 130, 50);
 
 }
-/*
+
+
 
 /*
-function checkSpiders(){
+function drawSpiders(){
 //spider come all over the screen they eat the frog it ate too much flies spider must survive too
 
-if (score) < -250
-draw nothing 
+//if (score) < -250
+//draw nothing 
 
 
-if (score) > -250 && (score) < -600 // Show loaded image on screen at (100, 100)
-  draw image(img, 100, 100); scoreD
-else nothing
+if (score > -600 && score < -250) {
+// Show loaded image on screen at (100, 100)
+image(spideytop, 100, 100,100,100);
+}
 }
 
+/*
 elif (score) > -600 && (score) < 1200
-draw image D && C at this (left side) ; score C
+image(spideytop, 100, 100);
+image(spideyleft, 300, 200);
 
 elif (score) > 1200 && (score) < 2000
-draw image D && C && B  (rigth side) ; score B
+draw image D && C && B  (rigth side) ;
 
 if (score) > 2000 && (score) < 2999
-draw  draw image D && C && B && A (bottom) ; score A
+draw  draw image D && C && B && A (bottom) ; 
 
 if (score) > 3000
 
