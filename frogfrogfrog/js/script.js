@@ -20,18 +20,19 @@ let score = 0; // Will count negative eggs from fly mamas eaten by frog
 
 //game states for navigation will start on title screen
 let gameState = "menu";
-let spideytop;let spideybottom;let spideyleft;let spideyright;
+//let images of spidey BE
+let spideytop;
+let spideybottom;
+let spideyleft;
+let spideyright;
 
 // Load the image.
-function preload() { //all loading calls here
+function preload() {
     spideytop = loadImage('./assets/images/SpiderTop.png');
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
     spideyright = loadImage('./assets/images/SpiderRight.png');
-spideybottom= loadImage('/assets/images/SpiderBottomnDetail.png');
+    spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
 }
-//}
-
-//*
 
 // Our frog
 const frog = {
@@ -134,47 +135,34 @@ function runGame() { //will let the game  start once game state is different
     checkInputKeyboard();
 
     // 🕷️ Show spider image once score is in a certain range
-    if (score > -600 && score <= -250) {
-        image(spideytop, 100, 0, 200, 200);
+    if (score <= -250 && score > -600) {
+        image(spideytop, -5, 0, 600, 350);
     }
-    else if (score > -601 && score <= -1200) {
-        image(spideytop, 100, 0, 200, 200);
-        image(spideyleft, 50, 10, 100, 100);
+    else if (score <= -600 && score > -1200) {
+        image(spideyleft, -5, 0, 600, 350);
     }
-    else if (score > -1201 && score <= -2000) {
-        image(spideytop, 100, 0, 200, 200);
-        image(spideyleft, 50, 10, 100, 100);
-        image(spideyright, 50, 500, 200, 200);
+    else if (score <= -1200 && score > -2000) {
+        image(spideyright, 15, 0, 600, 450);
     }
-    else if (score > -2000 && score <= -2999) {
-        image(spideytop, 100, 0, 200, 200);
-        image(spideyleft, 50, 10, 100, 100);
-        image(spideyright, 50, 500, 200, 200);
-        image(spideybottom, 300, 500, 400, 400);
-
+    else if (score <= -2000) {
+        image(spideybottom, -5, 0, 600, 600);
     }
 
+    //Write score on corner left screen with text 
+    fill("black");
+    textAlign(CENTER);
+    textSize(25);
+    text("Score : " + score, 130, 50);
+}
 
-    /*
-    elif (score) > -600 && (score) < 1200
-    image(spideytop, 100, 100);
-    image(spideyleft, 300, 200);
-    
-    elif (score) > 1200 && (score) < 2000
-    draw image D && C && B  (rigth side) ;
-    
-    if (score) > 2000 && (score) < 2999
-    draw  draw image D && C && B && A (bottom) ; 
-    
-    if (score) > 3000
-    
-    
-    draw void of spiders
-    game state = game over
-    display text 
-    }
-      }
-    }*/
+
+
+
+/* draw void of spiders
+ game state = game over
+ display text 
+ 
+     
 }
 
 /* Moves the fly according to its speed  Resets the fly if it gets all the way to the right*/
@@ -189,7 +177,7 @@ function moveFly() {
 }
 
 // Draws the fly as a black circle
- 
+
 function drawFly() {
     push();
     noStroke();
@@ -222,7 +210,7 @@ function moveFrog() {
     frog.body.x = constrain(frog.body.x, 0, 640);
 }
 
-// Handles moving the tongue based on its state + score 
+// Handles moving the tongue based on its state 
 function moveTongue() {
     // Tongue matches the frog's x
     frog.tongue.x = frog.body.x;
@@ -274,7 +262,7 @@ function drawFrog() {
     }
 }
 
-//Handles the tongue overlapping the fly + score value n display
+//Handles the tongue overlapping the fly + score value n display.Why here and not in run game you ask? I DONT KNOW 
 function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
     const d = dist(frog.tongue.x, frog.tongue.y, fly.x, fly.y);
@@ -288,12 +276,6 @@ function checkTongueFlyOverlap() {
         //Add point to score + floor round them up
         score += floor(random(-7, -150));
     }
-    //draw score on screen with text depending on catch
-    fill("black");
-    textAlign(CENTER);
-    textSize(25);
-    text("Score : " + score, 130, 50);
-
 }
 
 //Check keyboard inputs for froggy
