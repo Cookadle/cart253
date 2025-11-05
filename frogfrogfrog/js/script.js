@@ -222,10 +222,10 @@ function drawmenu() {
 
 
 
-function runGame() { //will let the game  start once game state is different
+function runGame() { //will let the game  start once game state is different / BACKGROUND N SCORE CHANGE IN HERE
 
     //thank you geek for geeks and w3school and reddit .reddit the most love you nerds
-    //background will change with score
+    //background will change with score BACKGROUND CHANGE 
     if (score > -100) {
         targetColor = color("#aef2ff"); // very light blue (OH HAPPY DAYYYYYY)
     }
@@ -259,6 +259,10 @@ function runGame() { //will let the game  start once game state is different
     background(bgColor);
 
 
+
+
+
+
     //regular fonction (organizing myself )
     moveFly();
     drawFly();
@@ -266,22 +270,24 @@ function runGame() { //will let the game  start once game state is different
     moveTongue();
     drawFrog();
 
-
     checkTongueFlyOverlap();
     checkInputKeyboard();
 
-    // 🕷️ Show spider image once score is in a certain range
+    
+    
+    
+    //spider START CRAWLING  once score is in a certain range
     if (score <= -250 && score > -600) {
-        image(spideytop, -5, 0, 600, 350);
+        image(spideytop, 5, 0, 750, 350);
     }
     else if (score <= -600 && score > -1200) {
-        image(spideyleft, -5, 0, 600, 350);
+        image(spideyleft, 5, 0, 750, 350);
     }
     else if (score <= -1200 && score > -2000) {
-        image(spideyright, 15, 0, 600, 450);
+        image(spideyright, 5, 0, 750, 350);
     }
     else if (score <= -2000) {
-        image(spideybottom, -5, 0, 600, 600);
+        image(spideybottom, 0, 0, 600, 600);
     }
 
     //Write score on corner left screen
@@ -294,32 +300,24 @@ function runGame() { //will let the game  start once game state is different
 
 
 
-/* draw void of spiders
- game state = game over
- display text 
- 
-     
-}
 
-/* Moves the fly according to its speed  Resets the fly if it gets all the way to the right*/
+/* Moves the fly with perlinnoise */
 function moveFly() {
     // Perlin noise movement
     fly.x = noise(noiseOffsetX) * width;
     fly.y = noise(noiseOffsetY) * 300; // vertical range for motion
 
-    // Increment noise which impact motion
+    // Increment noise which impact motion pf the fly movements ehhhh
     noiseOffsetX += 0.01;
     noiseOffsetY += 0.01;
 
-    // Handle the fly going off the canvas
+    // Handle the fly going off the canvas 
     if (fly.x > width - 10) {
         resetFly();
     }
 }
 
-
-// Draws the fly as a black circle
-
+// Draws the fly as a black circle 
 function drawFly() {
     push();
     noStroke();
@@ -328,14 +326,15 @@ function drawFly() {
     pop();
 }
 
-//Resets the fly to the left with a random y
+//Resets the fly to the left with a random n change size/speed
 function resetFly() {
     // Randomize start so fly paths different
     noiseOffsetX = random(0, 1000);
     noiseOffsetY = random(1000, 2000);
 
-    // Optional: adjust fly speed or size to vary behavior a bit
+    // fly speed AND size to make it more alive with random
     fly.size = random(8, 14);
+    fly.speed = random (3,9)
 }
 
 //Moves the frog with keyboard input + constraint body so not off screen
