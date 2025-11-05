@@ -14,6 +14,24 @@
  */
 
 "use strict";
+//game states for navigation will start on title screen
+let gameState = "menu";
+
+// 🟩 Menu Start Button
+let startButton = {
+    x: 220,
+    y: 350,
+    w: 200,
+    h: 50,
+    cornerRadius: 20,
+    baseColor: '#9ACC7E',     // normal
+    hoverColor: '#B5E68C',    // when hovered
+    textColor: '#192E18',
+    label: "Click here to start"
+};
+
+// Track mouse press state (so we only trigger once per click)
+let wasMousePressed = false;
 //score system
 let score = 0;
 
@@ -25,8 +43,7 @@ let targetColor;
 let noiseOffsetX = 0;
 let noiseOffsetY = 1000;
 
-//game states for navigation will start on title screen
-let gameState = "menu";
+
 
 //music time
 let titleMusic;
@@ -45,10 +62,10 @@ function preload() {
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
     spideyright = loadImage('./assets/images/SpiderRight.png');
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
-    
+
     //music n sounds
-    //titleMusic = loadSound('./assets/sounds/calmbeat.mp3');
-    //gameMusic = loadSound ('.assets/sounds/game.mp3');
+    titleMusic = loadSound('./assets/sounds/calmbeat.mp3');
+    gameMusic = loadSound('./assets/sounds/game.mp3');
 
 
 
@@ -90,18 +107,89 @@ function setup() {
     bgColor = color("#87ceeb"); // light sky blue start
     targetColor = bgColor;
 }
+
+
+function drawButton(btn) {
+    // Check if the mouse is over the button
+    let isHovering = mouseX > btn.x && mouseX < btn.x + btn.w &&
+        mouseY > btn.y && mouseY < btn.y + btn.h;
+
+    // Choose color based on hover
+    fill(isHovering ? btn.hoverColor : btn.baseColor);
+    noStroke();
+    rect(btn.x, btn.y, btn.w, btn.h, btn.cornerRadius);
+
+    // Button text
+    fill(btn.textColor);
+    textAlign(CENTER, CENTER);
+    textSize(20);
+    text(btn.label, btn.x + btn.w / 2, btn.y + btn.h / 2);
+
+    // Cursor change for feedback
+    if (isHovering) {
+        cursor(HAND);
+    } else {
+        cursor(ARROW);
+    }
+
+    // Return whether the button was clicked this frame
+    let clicked = false;
+    if (isHovering && mouseIsPressed && !wasMousePressed) {
+        clicked = true;
+    }
+
+    // Update click tracking
+    wasMousePressed = mouseIsPressed;
+
+    return clicked;
+}
+function startGame() {
+    // Switch game state
+    gameState = "game";
+
+    // Stop menu music and start game music (optional)
+    if (titleMusic.isPlaying()) {
+        titleMusic.stop();
+    }
+    if (!gameMusic.isPlaying()) {
+        gameMusic.loop();
+    }
+
+    // Reset the frog and score
+    frog.body.x = width / 2;
+    frog.body.y = height - 50;
+    frog.tongue.y = frog.body.y - 40;
+    frog.tongue.state = "idle";
+    score = 0;
+}
+
+
+
 function draw() { //where the gamestate come alive
+
     if (gameState === "menu") { //will be at title scren
         drawmenu();
     }
-    else if (gameState === "game") { //will be in game
-        runGame();
+    // Draw button n check  click
+    let clicked = drawButton(startButton);
+
+
+    // If clicked, change state
+    if (clicked && gameState === "menu") {
+        console.log("Button clicked! Starting game...");
+        gameState = "game";
     }
 
-    /*else if (gameState=== "over") { //will be over
-        runOver();
-}*/
+    //  when in "game"
+    if (gameState === "game") { //will be in game
+        runGame();
+    }
 }
+
+/*else if (gameState=== "over") { //will be over
+    runOver();
+}*/
+
 
 //a gradiant title screen going from ligth green to dark green+Click here to start function 
 function drawmenu() {
@@ -128,21 +216,11 @@ function drawmenu() {
         rect(0, y, width, stripeHeight);
     }
 
-    //CLICK TO START BUTTON VALUES //draw the click to start button
-    fill('#9ACC7E')
-    rect(220, 350, 200, 50, 20) //button start draw
-
-    textSize(20);
-    fill("#192E18");
-    text("Click here to start", 240, 385); //text for fake button
-    //Start the game by clicking button area ONLY 
-    if (mouseX >= 200 && mouseX <= 420 && mouseY >= 345 && mouseY <= 400 && mouseIsPressed == true) { //if FAKE BUTTON area was clicked game will start
-        if (gameState === "menu") {
-            gameState = "game";
-        }
-    }
 
 }
+
+
+
 
 function runGame() { //will let the game  start once game state is different
 

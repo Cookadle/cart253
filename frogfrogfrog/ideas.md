@@ -16,26 +16,7 @@ negative value ,every fly eaten is one less annoying frog in this damned world
  u can only lose no winning hahahgahaahahahahahaha
 
 
- visual/audio
-sound for frogeating is gulp 
-sound for title screen is nature sound
-regular game beam
 
-
-
- fly movements
- fly flying down 
---
-
- briing fly to frfog mouth when caught
-
-
-
-
-
-
- a new control system (done)
-move frog left to rigth
-
- extra:
- Constraint frog so it doesnt go off screen (done)
+ending + end screen
+instrution screen n title 
+music
