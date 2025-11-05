@@ -1,6 +1,18 @@
 # Frogfrogfrog
 
-A game about catching flies.
+A game about catching flies. 
+ Greedy frog
+ * 
+ * 
+ * A game of catching flies with your frog-tongue
+ * Original concept by : Pippin Bar (add his link)
+ * Modded by : Jeany Corrius 
+ * 
+ * Instructions:
+ * - Move the frog with the left right key arrows
+ * - Press up arrow to launch the tongue
+ * - Catch flies
+ * 
 
 [Play it!](https://cookadle.github.io/cart253/frogfrogfrog/)
 

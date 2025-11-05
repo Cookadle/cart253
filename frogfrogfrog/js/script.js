@@ -3,6 +3,8 @@
  * 
  * 
  * A game of catching flies with your frog-tongue
+ * Original concept by : Pippin Bar
+ * Modded by : Jeany Corrius 
  * 
  * Instructions:
  * - Move the frog with the left right key arrows
@@ -17,21 +19,22 @@
 //game states for navigation will start on title screen
 let gameState = "menu";
 
-// 🟩 Menu Start Button
+//Start Button
 let startButton = {
     x: 220,
     y: 350,
     w: 200,
     h: 50,
     cornerRadius: 20,
-    baseColor: '#9ACC7E',     // normal
-    hoverColor: '#B5E68C',    // when hovered
+    baseColor: '#9ACC7E',
+    hoverColor: '#B5E68C',// when hovered
     textColor: '#192E18',
     label: "Click here to start"
 };
 
-// Track mouse press state (so we only trigger once per click)
+// mouse press state (so we only trigger once per click)
 let wasMousePressed = false;
+
 //score system
 let score = 0;
 
@@ -64,8 +67,8 @@ function preload() {
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
 
     //music n sounds
-    titleMusic = loadSound('./assets/sounds/calmbeat.mp3');
-    gameMusic = loadSound('./assets/sounds/game.mp3');
+
+    gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
 
 
 
@@ -99,40 +102,42 @@ const fly = {
     speed: 3
 };
 
-/* Creates the canvas and initializes the fly*/
+/* Creates the canvas and initializes the fly + background color start (sky blue)*/
 function setup() {
     createCanvas(640, 480);
     // Give the fly its first random position
     resetFly();
-    bgColor = color("#87ceeb"); // light sky blue start
-    targetColor = bgColor;
+
+    bgColor = color("#87ceeb"); // light sky blue start dont remove or game wont start even if you call this later in score
+    targetColor = bgColor; //backgroung 
+
 }
 
 
 function drawButton(btn) {
-    // Check if the mouse is over the button
+    // wll check if the mouse is over the button
     let isHovering = mouseX > btn.x && mouseX < btn.x + btn.w &&
         mouseY > btn.y && mouseY < btn.y + btn.h;
 
-    // Choose color based on hover
+    // Choose color based on hover settingss
     fill(isHovering ? btn.hoverColor : btn.baseColor);
     noStroke();
     rect(btn.x, btn.y, btn.w, btn.h, btn.cornerRadius);
 
-    // Button text
+    // button text positioning
     fill(btn.textColor);
     textAlign(CENTER, CENTER);
     textSize(20);
     text(btn.label, btn.x + btn.w / 2, btn.y + btn.h / 2);
 
-    // Cursor change for feedback
+    // Cursor change 
     if (isHovering) {
         cursor(HAND);
     } else {
         cursor(ARROW);
     }
 
-    // Return whether the button was clicked this frame
+    //whether the button was clicked 
     let clicked = false;
     if (isHovering && mouseIsPressed && !wasMousePressed) {
         clicked = true;
@@ -143,25 +148,8 @@ function drawButton(btn) {
 
     return clicked;
 }
-function startGame() {
-    // Switch game state
-    gameState = "game";
 
-    // Stop menu music and start game music (optional)
-    if (titleMusic.isPlaying()) {
-        titleMusic.stop();
-    }
-    if (!gameMusic.isPlaying()) {
-        gameMusic.loop();
-    }
 
-    // Reset the frog and score
-    frog.body.x = width / 2;
-    frog.body.y = height - 50;
-    frog.tongue.y = frog.body.y - 40;
-    frog.tongue.state = "idle";
-    score = 0;
-}
 
 
 
@@ -176,7 +164,7 @@ function draw() { //where the gamestate come alive
 
     // If clicked, change state
     if (clicked && gameState === "menu") {
-        console.log("Button clicked! Starting game...");
+
         gameState = "game";
     }
 
@@ -185,6 +173,10 @@ function draw() { //where the gamestate come alive
         runGame();
     }
 }
+
+
+
+
 
 /*else if (gameState=== "over") { //will be over
     runOver();
