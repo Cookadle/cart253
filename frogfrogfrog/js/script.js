@@ -45,6 +45,7 @@ function preload() {
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
     spideyright = loadImage('./assets/images/SpiderRight.png');
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
+    
     //music n sounds
     //titleMusic = loadSound('./assets/sounds/calmbeat.mp3');
     //gameMusic = loadSound ('.assets/sounds/game.mp3');
