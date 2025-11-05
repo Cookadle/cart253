@@ -273,9 +273,9 @@ function runGame() { //will let the game  start once game state is different / B
     checkTongueFlyOverlap();
     checkInputKeyboard();
 
-    
-    
-    
+
+
+
     //spider START CRAWLING  once score is in a certain range
     if (score <= -250 && score > -600) {
         image(spideytop, 5, 0, 750, 350);
@@ -334,7 +334,7 @@ function resetFly() {
 
     // fly speed AND size to make it more alive with random
     fly.size = random(8, 14);
-    fly.speed = random (3,9)
+    fly.speed = random(3, 9)
 }
 
 //Moves the frog with keyboard input + constraint body so not off screen
