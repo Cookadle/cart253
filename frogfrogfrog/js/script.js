@@ -15,11 +15,11 @@
 
 "use strict";
 //score system
-let score = 0; 
+let score = 0;
 
 //background and fading
-let bgColor; 
-let targetColor; 
+let bgColor;
+let targetColor;
 
 //Perlin noise (future jeany remember to set them far apart so they arent the same)
 let noiseOffsetX = 0;
@@ -27,6 +27,11 @@ let noiseOffsetY = 1000;
 
 //game states for navigation will start on title screen
 let gameState = "menu";
+
+//music time
+let titleMusic;
+let gameMusic;
+
 
 //let images of spidey BE
 let spideytop;
@@ -40,6 +45,12 @@ function preload() {
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
     spideyright = loadImage('./assets/images/SpiderRight.png');
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
+    //music n sounds
+    //titleMusic = loadSound('./assets/sounds/calmbeat.mp3');
+    //gameMusic = loadSound ('.assets/sounds/game.mp3');
+
+
+
 }
 
 // Our frog
@@ -169,7 +180,7 @@ function runGame() { //will let the game  start once game state is different
     background(bgColor);
 
 
-//regular fonction (organizing myself )
+    //regular fonction (organizing myself )
     moveFly();
     drawFly();
     moveFrog();
@@ -221,7 +232,7 @@ function moveFly() {
     noiseOffsetX += 0.01;
     noiseOffsetY += 0.01;
 
- // Handle the fly going off the canvas
+    // Handle the fly going off the canvas
     if (fly.x > width - 10) {
         resetFly();
     }
