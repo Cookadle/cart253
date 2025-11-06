@@ -30,8 +30,17 @@ let startButton = {
     hoverColor: '#B5E68C',// when hovered
     textColor: '#192E18',
     label: "Click here to start"
-};
+}
 
+let gameOver = false ;
+let gameOverMessages =[
+    "Such a greedy frog you are,you just couldn't stop",
+"My my my,your greediness got you killed eh",
+"God lord think of all those larvae eggs you ate",
+"Oh froggy,you are just the greediest",
+
+];
+let currentGameOverMessage = "";
 // mouse press state (so we only trigger once per click)
 let wasMousePressed = false;
 
@@ -171,7 +180,20 @@ function draw() { //where the gamestate come alive
     //  when in "game"
     if (gameState === "game") { //will be in game
         runGame();
+    } }
+   /* 
+    if (gamestate === "gameOver") {
+
+fill ("#821D04");
+textSize (50);
+textAlign(CENTER,CENTER);
+text("Welp...", width / 2, height / 2 - 50);
+fill (0)
+ 
+
     }
+
+
 }
 
 
@@ -242,7 +264,7 @@ function runGame() { //will let the game  start once game state is different / B
     else if (score <= -2300 && score > -3000) {
         targetColor = color("#632a2a"); // deep brown-red (WAIT WAIT SPIDEY)
     }
-    else {
+    else { 
         targetColor = color("#0f0f0f"); // near black (DEAD?)
     }
     //  fade between colors
@@ -287,9 +309,24 @@ function runGame() { //will let the game  start once game state is different / B
     textAlign(CENTER);
     textSize(25);
     text("Score : " + score, 130, 50);
+    
+}
+/*function mousePressed (){
+if (gameState=== 'runGame')
+ userStartAudio ();
+if !
 }
 
+*/
+function checkGameOver  (){
+    if (score => -3000)
+        if (!gameOver) { 
+            gameOver=true ;
+             // Select a random element directly from the array
+      currentGameOverMessage = random(gameOverMessages);
+    }
 
+        }
 
 
 
