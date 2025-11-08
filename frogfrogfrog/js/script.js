@@ -436,7 +436,7 @@ function drawFrog() {
     }
 }
 
-//Handles the tongue overlapping the fly + score value n display.Why here and not in run game you ask? I DONT KNOW 
+//Handles the tongue overlapping the fly + score value n display.Why here and not in run game you ask? I DONT KNOW k
 function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
     const d = dist(frog.tongue.x, frog.tongue.y, fly.x, fly.y);
