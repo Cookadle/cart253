@@ -65,7 +65,8 @@ function preload() {
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
     spideyright = loadImage('./assets/images/SpiderRight.png');
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
-
+upkey= loadImage ('./assets/images/upkey.png')
+movingkey = loadImage ('./assets/images/Movingkey.png')
     //music n sounds
 
     gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
