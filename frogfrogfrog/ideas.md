@@ -1,5 +1,4 @@
 # Starting points
-title and instructions screen
 button start in the middle frog frog frog written after if you have time 
 
 

@@ -67,6 +67,8 @@ let spideytop;
 let spideybottom;
 let spideyleft;
 let spideyright;
+let upkey;
+let movingkey;
 
 // Load all the images.
 function preload() {
@@ -74,8 +76,8 @@ function preload() {
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
     spideyright = loadImage('./assets/images/SpiderRight.png');
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
-upkey= loadImage ('./assets/images/upkey.png')
-movingkey = loadImage ('./assets/images/Movingkey.png')
+    upkey = loadImage ('./assets/images/upkey.png')
+    movingkey = loadImage ('./assets/images/Movingkey.png')
     //music n sounds
 
     gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
@@ -206,15 +208,16 @@ fill (0)
 }*/
 
 
-//a gradiant title screen going from ligth green to dark green+Click here to start function 
+//a gradiant title screen going from ligth green to dark green 
 function drawmenu() {
+        
     rectMode();
 
     colorMode(HSB);
     noStroke();
     // Top color Hue: 100°, Saturation: 90%, Brightness: 100%
     let colorA = color(150, 90, 100);
-    // Bottom color
+    
     let colorB = color(120, 80, 20);
     //stripes
     let stripeCount = 7;
@@ -230,9 +233,16 @@ function drawmenu() {
         fill(betweenColor);
         rect(0, y, width, stripeHeight);
     }
-
-
+    image(upkey,50, 10,40,40);
+    image(movingkey,25, 55,90,40);
+ // Add some text label
+  fill(0);
+  textSize(16);
+  text("Press ↑ to launch your tongue!", 210,30);
+   text("Press ←→ to move frog !", 210,70);
 }
+
+
 
 
 
