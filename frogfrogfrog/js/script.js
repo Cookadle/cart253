@@ -40,7 +40,10 @@ let gameOverMessages = [
     "Oh froggy,you are just the greediest",
 
 ];
+ let isGameOver = false;
+
 let currentGameOverMessage = "";
+
 // mouse press state (so we only trigger once per click)
 let wasMousePressed = false;
 
@@ -69,6 +72,7 @@ let spideyleft;
 let spideyright;
 let upkey;
 let movingkey;
+//let gameMusic;
 
 // Load all the images.
 function preload() {
@@ -78,9 +82,10 @@ function preload() {
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
     upkey = loadImage('./assets/images/upkey.png')
     movingkey = loadImage('./assets/images/Movingkey.png')
+
     //music n sounds
 
-    gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
+    //gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
 
 
 
@@ -184,29 +189,13 @@ function draw() { //where the gamestate come alive
     if (gameState === "game") { //will be in game
         runGame();
     }
+
+  else if (gameState === "gameOver") { //game is done
+     showgameOver();
 }
-/* 
- if (gamestate === "gameOver") {
-
-fill ("#821D04");
-textSize (50);
-textAlign(CENTER,CENTER);
-text("Welp...", width / 2, height / 2 - 50);
-fill (0)
- 
-
- }
-
-
 }
 
 
-
-
-
-/*else if (gameState=== "over") { //will be over
- runOver();
-}*/
 
 
 //a gradiant title screen going from ligth green to dark green 
@@ -243,11 +232,6 @@ function drawmenu() {
     text("Press ←→ to move the frog !", 225, 70);
 }
 
-
-
-
-
-
 function runGame() { //will let the game  start once game state is different / BACKGROUND N SCORE CHANGE IN HERE
 
     //thank you geek for geeks and w3school and reddit .reddit the most love you nerds
@@ -279,16 +263,16 @@ function runGame() { //will let the game  start once game state is different / B
     else {
         targetColor = color("#0f0f0f"); // near black (DEAD?)
     }
+
+
     //  fade between colors
     bgColor = lerpColor(bgColor, targetColor, 0.02);
+
     // draw background
     background(bgColor);
+
     // no cursor ingame will disseaper once in canvas
     noCursor();
-
-
-
-
 
     //regular fonction (organizing myself )
     moveFly();
@@ -297,25 +281,30 @@ function runGame() { //will let the game  start once game state is different / B
     moveTongue();
     drawFrog();
 
+
     checkTongueFlyOverlap();
     checkInputKeyboard();
 
 
+//spider START CRAWLING  once score is in a certain range + game over condition
+if (score <= -3000) {
+    gameState = "gameOver";
+    return; // stop updating game
+}
+else if (score <= -250 && score > -600) {
+    image(spideytop, 5, 0, 750, 350);
+}
+else if (score <= -600 && score > -1200) {
+    image(spideyleft, 5, 0, 750, 350);
+}
+else if (score <= -1200 && score > -2000) {
+    image(spideyright, 5, 0, 750, 350);
+}
+else if (score <= -2000 && score > -3000) {
+    image(spideybottom, 0, 0, 600, 600);
+}
 
 
-    //spider START CRAWLING  once score is in a certain range
-    if (score <= -250 && score > -600) {
-        image(spideytop, 5, 0, 750, 350);
-    }
-    else if (score <= -600 && score > -1200) {
-        image(spideyleft, 5, 0, 750, 350);
-    }
-    else if (score <= -1200 && score > -2000) {
-        image(spideyright, 5, 0, 750, 350);
-    }
-    else if (score <= -2000) {
-        image(spideybottom, 0, 0, 600, 600);
-    }
 
     //Write score on corner left screen
     fill("black");
@@ -324,22 +313,29 @@ function runGame() { //will let the game  start once game state is different / B
     text("Score : " + score, 130, 50);
 
 }
-/*function mousePressed (){
-if (gameState=== 'runGame')
- userStartAudio ();
-if !
+
+function showgameOver() {
+    background("#240303ff");
+
+    // choose a random message once
+    if (!isGameOver) {
+        currentGameOverMessage = random(gameOverMessages);
+        isGameOver = true;
+    }
+
+    fill("white");
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    text("GAME OVER", width / 2, height / 2 - 60);
+
+    textSize(18);
+    text(currentGameOverMessage, width / 2, height / 2);
+
+    textSize(16);
+    text("Click anywhere to restart", width / 2, height / 2 + 60);
 }
 
-*/
-function checkGameOver() {
-    if (score => -3000)
-        if (!gameOver) {
-            gameOver = true;
-            // Select a random element directly from the array
-            currentGameOverMessage = random(gameOverMessages);
-        }
 
-}
 
 
 
@@ -393,7 +389,7 @@ function moveFrog() {
     if (keyIsDown(RIGHT_ARROW)) {
         frog.body.x += 5;
     }
-    // Constrain the frog position
+    // Constrain the frog position to not go off canvas
     frog.body.x = constrain(frog.body.x, 0, 640);
 }
 
@@ -447,6 +443,7 @@ function drawFrog() {
         ellipse(frog.body.x, frog.body.y, frog.body.size);
         pop();
         //draw eyes
+
         push();
         noStroke();
         circle()
@@ -486,3 +483,13 @@ function checkInputKeyboard() {
 
 }
 
+function mousePressed() {
+    if (gameState === "gameOver") {
+        score = 0;
+        gameState = "menu";
+        frog.tongue.state = "idle";
+        frog.body.x = 320;
+        frog.tongue.y = 480;
+        isGameOver = false; // reset flag so new message appears next time
+    }
+}
