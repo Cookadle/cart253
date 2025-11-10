@@ -238,8 +238,8 @@ function drawmenu() {
  // Add some text label
   fill(0);
   textSize(16);
-  text("Press ↑ to launch your tongue!", 210,30);
-   text("Press ←→ to move frog !", 210,70);
+  text("Press ↑ to launch his tongue!", 200,30);
+   text("Press ←→ to move the frog !", 225,70);
 }
 
 
@@ -282,7 +282,8 @@ function runGame() { //will let the game  start once game state is different / B
     bgColor = lerpColor(bgColor, targetColor, 0.02);
     // draw background
     background(bgColor);
-
+  // no cursor ingame will disseaper once in canvas
+    noCursor();
 
 
 
@@ -444,6 +445,10 @@ function drawFrog() {
         noStroke();
         ellipse(frog.body.x, frog.body.y, frog.body.size);
         pop();
+        //draw eyes
+        push ();
+        noStroke();
+        circle()
     }
 }
 
