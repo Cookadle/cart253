@@ -32,12 +32,12 @@ let startButton = {
     label: "Click here to start"
 }
 
-let gameOver = false ;
-let gameOverMessages =[
+let gameOver = false;
+let gameOverMessages = [
     "Such a greedy frog you are,you just couldn't stop",
-"My my my,your greediness got you killed eh",
-"God lord think of all those larvae eggs you ate",
-"Oh froggy,you are just the greediest",
+    "My my my,your greediness got you killed eh",
+    "God lord think of all those larvae eggs you ate",
+    "Oh froggy,you are just the greediest",
 
 ];
 let currentGameOverMessage = "";
@@ -76,8 +76,8 @@ function preload() {
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
     spideyright = loadImage('./assets/images/SpiderRight.png');
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
-    upkey = loadImage ('./assets/images/upkey.png')
-    movingkey = loadImage ('./assets/images/Movingkey.png')
+    upkey = loadImage('./assets/images/upkey.png')
+    movingkey = loadImage('./assets/images/Movingkey.png')
     //music n sounds
 
     gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
@@ -183,9 +183,10 @@ function draw() { //where the gamestate come alive
     //  when in "game"
     if (gameState === "game") { //will be in game
         runGame();
-    } }
-   /* 
-    if (gamestate === "gameOver") {
+    }
+}
+/* 
+ if (gamestate === "gameOver") {
 
 fill ("#821D04");
 textSize (50);
@@ -194,7 +195,7 @@ text("Welp...", width / 2, height / 2 - 50);
 fill (0)
  
 
-    }
+ }
 
 
 }
@@ -204,20 +205,20 @@ fill (0)
 
 
 /*else if (gameState=== "over") { //will be over
-    runOver();
+ runOver();
 }*/
 
 
 //a gradiant title screen going from ligth green to dark green 
 function drawmenu() {
-        
+
     rectMode();
 
     colorMode(HSB);
     noStroke();
     // Top color Hue: 100°, Saturation: 90%, Brightness: 100%
     let colorA = color(150, 90, 100);
-    
+
     let colorB = color(120, 80, 20);
     //stripes
     let stripeCount = 7;
@@ -233,13 +234,13 @@ function drawmenu() {
         fill(betweenColor);
         rect(0, y, width, stripeHeight);
     }
-    image(upkey,50, 10,40,40);
-    image(movingkey,25, 55,90,40);
- // Add some text label
-  fill(0);
-  textSize(16);
-  text("Press ↑ to launch his tongue!", 200,30);
-   text("Press ←→ to move the frog !", 225,70);
+    image(upkey, 50, 10, 40, 40);
+    image(movingkey, 25, 55, 90, 40);
+    // Add some text label
+    fill(0);
+    textSize(16);
+    text("Press ↑ to launch his tongue!", 200, 30);
+    text("Press ←→ to move the frog !", 225, 70);
 }
 
 
@@ -275,14 +276,14 @@ function runGame() { //will let the game  start once game state is different / B
     else if (score <= -2300 && score > -3000) {
         targetColor = color("#632a2a"); // deep brown-red (WAIT WAIT SPIDEY)
     }
-    else { 
+    else {
         targetColor = color("#0f0f0f"); // near black (DEAD?)
     }
     //  fade between colors
     bgColor = lerpColor(bgColor, targetColor, 0.02);
     // draw background
     background(bgColor);
-  // no cursor ingame will disseaper once in canvas
+    // no cursor ingame will disseaper once in canvas
     noCursor();
 
 
@@ -321,7 +322,7 @@ function runGame() { //will let the game  start once game state is different / B
     textAlign(CENTER);
     textSize(25);
     text("Score : " + score, 130, 50);
-    
+
 }
 /*function mousePressed (){
 if (gameState=== 'runGame')
@@ -330,15 +331,15 @@ if !
 }
 
 */
-function checkGameOver  (){
+function checkGameOver() {
     if (score => -3000)
-        if (!gameOver) { 
-            gameOver=true ;
-             // Select a random element directly from the array
-      currentGameOverMessage = random(gameOverMessages);
-    }
-
+        if (!gameOver) {
+            gameOver = true;
+            // Select a random element directly from the array
+            currentGameOverMessage = random(gameOverMessages);
         }
+
+}
 
 
 
@@ -446,7 +447,7 @@ function drawFrog() {
         ellipse(frog.body.x, frog.body.y, frog.body.size);
         pop();
         //draw eyes
-        push ();
+        push();
         noStroke();
         circle()
     }
