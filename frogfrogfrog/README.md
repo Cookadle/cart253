@@ -80,8 +80,11 @@ In Game:https://pixabay.com/music/video-games-sinnesl%c3%b6schen-beam-117362/
 
 
 Shout out and credits to :
+
 (PERLIN NOISE)https://thecodingtrain.com/tracks/noise/noc/perlin/intro-to-perlin-noise (Very great youtuber when it comes to learning new function on js p5)
+
 (Title gradiant)https://p5js.org/examples/repetition-color-interpolation/
+
 (hmmmm i forgot)https://github.com/Lartu/p5.clickable?tab=readme-ov-file
 
 
