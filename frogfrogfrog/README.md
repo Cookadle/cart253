@@ -17,9 +17,13 @@ Instructions:
 -[Ideas](./ideas.md)
 
 -Added title screen with instruction
+
 -Added button title screen
+
 -Added score which impact game background and more
+
 -Constrain the frog so doesnt fly off canvas
+
 -Brand new dances move for the fly (BEAUTIFUL FLY MOVEMENTS WOW MY BABY IS A DANCER)
 
 
