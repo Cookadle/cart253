@@ -1,7 +1,7 @@
 # Cars procreate with dino
 Jeany Corrius
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://cookadle.github.io/cart253/data-challenges/)
 
  I stopped after step 6.
 ## Attribution
