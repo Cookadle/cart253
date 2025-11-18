@@ -12,7 +12,10 @@ Instructions:
 - Move the frog with the left right key arrows
 - Press up arrow to launch the tongue
 - Catch flies
- 
+
+
+
+  
 
 [Play it!](https://cookadle.github.io/cart253/frogfrogfrog/)
 
@@ -30,8 +33,11 @@ Instructions:
 
 
 
-
-
+Credit;
+Loik my partner
+Ai paddle:
+ https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
+https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
 
 
 

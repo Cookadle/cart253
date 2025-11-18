@@ -19,33 +19,35 @@
  */
 
 "use strict";
-//game states for navigation will start on title screen
+// Possible states: menu, variationMenu, game, pingpong, gameOver,etc
 let gameState = "menu";
 
 //Start Button
 let startButton = {
-    x: 220,
+    x: 190,
     y: 350,
-    w: 200,
+    w: 280,
     h: 50,
     cornerRadius: 20,
     baseColor: '#9ACC7E',
     hoverColor: '#B5E68C',// when hovered
     textColor: '#192E18',
-    label: "Click here to start"
+    label: "Click here to play Greedy Frog"
 }
 // Variation Menu Button
 let variationButton = {
-    x: 220, y: 420, w: 200, h: 50, cornerRadius: 20,
+    x: 220,
+    y: 420,
+    w: 200,
+    h: 50,
+    cornerRadius: 20,
     baseColor: '#FFD27F',
     hoverColor: '#FFE6B3',
     textColor: '#000',
-    label: "Variations"
+    label: "More of greedy frog"
 };
 
-
-
-let gameOver = false;
+//Game Over variables for froggreedy regular
 let gameOverMessages = [
     "Such a greedy frog you are,you just couldn't stop...",
     "My my my,your greediness got you killed eh?",
@@ -71,12 +73,9 @@ let targetColor;
 let noiseOffsetX = 0;
 let noiseOffsetY = 1000;
 
-
-
 //music time
 let titleMusic;
 let gameMusic;
-
 
 //let images of spidey BE
 let spideytop;
@@ -87,6 +86,10 @@ let upkey;
 let movingkey;
 //let gameMusic;
 
+let keys = {
+    up: false,
+    down: false
+};
 
 
 // PingPong game variables
@@ -104,7 +107,7 @@ let pingPongButton = {
     baseColor: '#9ACC7E',
     hoverColor: '#B5E68C',
     textColor: '#000',
-    label: "Ping Pong Mode"
+    label: "Ping Pong Frog"
 };
 
 let backButton = {
@@ -161,7 +164,7 @@ const fly = {
     speed: 3
 };
 
-/* Creates the canvas and initializes the fly + background color start (sky blue)*/
+/* Creates the canvas and start the fly + background color start (sky blue)*/
 function setup() {
     createCanvas(640, 480);
     // Give the fly its first random position
@@ -170,13 +173,15 @@ function setup() {
     bgColor = color("#87ceeb"); // light sky blue start dont remove or game wont start even if you call this later in score
     targetColor = bgColor; //backgroung 
 
+    // start ping pong ball
+    resetPingPong();
 }
-
 
 function drawButton(btn) {
     // wll check if the mouse is over the button
     let isHovering = mouseX > btn.x && mouseX < btn.x + btn.w &&
         mouseY > btn.y && mouseY < btn.y + btn.h;
+
 
     // Choose color based on hover settingss
     fill(isHovering ? btn.hoverColor : btn.baseColor);
@@ -195,68 +200,38 @@ function drawButton(btn) {
     } else {
         cursor(ARROW);
     }
-
-
     return isHovering; // just return hover, handle click elsewhere
 }
 
 
-
-
-
 function draw() { //where the gamestate come alive
-// MAIN MENU
+    // here is the main menu
     if (gameState === "menu") { //will be at title scren
         drawmenu();
-    
- // Start button
-        if (drawButton(startButton)) {
-            gameState = "game";
-        }
-    /*
-    // Draw button n check  click
-    let clicked = drawButton(startButton);
-    // If clicked, change state
-    if (clicked && gameState === "menu") {
-        gameState = "game";
+    // variation and the menu button
+        drawButton(startButton);
+        drawButton(variationButton);
+        return;
     }
-*/
-
-    // Variation menu button
-   if (drawButton(variationButton)) {
-            gameState = "variationMenu"; 
-   }
-            return;
-        
-}
-if (gameState === "variationMenu") {
-    drawVariationMenu();
-    return;
+    if (gameState === "variationMenu") {
+        drawVariationMenu();
+        return;
     }
-
-
     //  when in "game"
     if (gameState === "game") { //will be in game
         runGame();
-         return;
+        return;
     }
-    
-     // --- PING PONG MODE ---
+    // ping pong frog mode
     if (gameState === "pingpong") {
         runPingPong();
         return;
     }
-
-
     else if (gameState === "gameOver") { //game is done
         showgameOver();
         return;
     }
 }
-
-
-
-
 
 //a gradiant title screen going from ligth green to dark green 
 function drawmenu() {
@@ -290,25 +265,23 @@ function drawmenu() {
     textSize(16);
     text("Press ↑ to launch his tongue!", 200, 30);
     text("Press ←→ to move the frog !", 225, 70);
+text("Press M to return to menu!", 105, 120);
 }
+
+// --- Variation Menu ---
 function drawVariationMenu() {
     background("#d6f5d6");
-
+    // Title
     fill(0);
     textAlign(CENTER, CENTER);
     textSize(32);
-    text("Variations", width / 2, 100);
+    text("More greed...", width / 2, 100);
 
-    if (drawButton(pingPongButton)) {
-        resetPingPong();
-        gameState = "pingpong";
-    }
+    // Draw Ping Pong button handle hover + cursor change only (clicks are handled in mousePressed)
+    let hoveringPing = drawButton(pingPongButton);
+    let hoveringBack = drawButton(backButton);
 
-    if (drawButton(backButton)) {
-        gameState = "menu";
-    }
 }
-
 
 function runGame() { //will let the game  start once game state is different / BACKGROUND N SCORE CHANGE IN HERE
 
@@ -381,8 +354,6 @@ function runGame() { //will let the game  start once game state is different / B
     else if (score <= -2000 && score > -3000) {
         image(spideybottom, 0, 0, 600, 600);
     }
-
-
 
     //Write score on corner left screen
     fill("black");
@@ -520,16 +491,16 @@ function drawFrog() {
         noStroke();
         ellipse(frog.body.x, frog.body.y, frog.body.size);
         pop();
-    // frog eyes
-    fill(255);
-    ellipse(frog.body.x - 30, frog.body.y - 50, 30);
-    ellipse(frog.body.x + 30, frog.body.y - 50, 30);
+        // frog eyes
+        fill(255);
+        ellipse(frog.body.x - 30, frog.body.y - 50, 30);
+        ellipse(frog.body.x + 30, frog.body.y - 50, 30);
 
-    fill(0);
-    ellipse(frog.body.x - 30, frog.body.y - 50, 10);
-    ellipse(frog.body.x + 30, frog.body.y - 50, 10);
-}
+        fill(0);
+        ellipse(frog.body.x - 30, frog.body.y - 50, 10);
+        ellipse(frog.body.x + 30, frog.body.y - 50, 10);
     }
+}
 
 
 //Handles the tongue overlapping the fly + score value n display.Why here and not in run game you ask? I DONT KNOW k
@@ -564,18 +535,28 @@ function checkInputKeyboard() {
     }
 
 }
-function runPingPong() {
+function runPingPong() {//the game of ping pong start here
     background(0);
 
     // Ball
     fill(255);
     ellipse(pingBallX, pingBallY, 20);
 
-    // Left paddle
-    rect(20, paddleLeftY, 10, 80);
-
-    // Right paddle
+    // Right paddle (player controlled)
+    if (keys.up) paddleRightY -= 5;   // adjust speed here
+    if (keys.down) paddleRightY += 5;
+    paddleRightY = constrain(paddleRightY, 0, height - 80);
     rect(width - 30, paddleRightY, 10, 80);
+
+    // Left paddle (AI controlled)
+    let aiSpeed = 4; // adjust to make AI easier/harder
+    if (pingBallY < paddleLeftY + 40) {
+        paddleLeftY -= aiSpeed;
+    } else if (pingBallY > paddleLeftY + 40) {
+        paddleLeftY += aiSpeed;
+    }
+    paddleLeftY = constrain(paddleLeftY, 0, height - 80);
+    rect(20, paddleLeftY, 10, 80);
 
     // Move ball
     pingBallX += pingBallSpeedX;
@@ -607,11 +588,13 @@ function runPingPong() {
 
     drawPingPongHelp();
 }
-function drawPingPongHelp() {
+
+
+function drawPingPongHelp() { //instructions on ping pong screen
     fill(255);
     textAlign(CENTER);
     textSize(16);
-    text("W/S = left paddle   |   ↑/↓ = right paddle", width / 2, 30);
+    text(" ↑/↓ = right paddle", width / 2, 30);
     text("Press M to return to Menu", width / 2, height - 20);
 }
 
@@ -621,43 +604,81 @@ function resetPingPong() {
     pingBallSpeedX = random([-5, 5]);
     pingBallSpeedY = random([-3, 3]);
 }
-
+//Ping Pong controls .The mplayer controls only the right paddle
 function keyPressed() {
+     if (key === 'm' || key === 'M') {
+        gameState = "menu";
+ // Reset game variables
+        isGameOver = false; // allow game over messages to reset
+        frog.tongue.state = "idle";
+        frog.body.x = 320;
+        score = 0;
+        // Reset pingpong variables
+        resetPingPong();
+        paddleRightY = 200;
+        paddleLeftY = 200;
+        keys.up = false;
+        keys.down = false;
+        return; // stop further processing
+    }
 
+    // Ping Pong controls
     if (gameState === "pingpong") {
-
-        // Return to main menu
-        if (key === 'm' || key === 'M') {
-            gameState = "menu";
-        }
-
-        // Paddle controls
-        if (key === 'w' || key === 'W') paddleLeftY -= paddleSpeed;
-        if (key === 's' || key === 'S') paddleLeftY += paddleSpeed;
-
-        if (keyCode === UP_ARROW) paddleRightY -= paddleSpeed;
-        if (keyCode === DOWN_ARROW) paddleRightY += paddleSpeed;
+        if (keyCode === UP_ARROW) keys.up = true;
+        if (keyCode === DOWN_ARROW) keys.down = true;
+    }
+}
+        
+//handle Ping Pong paddle controls when in pingpong state
+function keyReleased() {
+    if (gameState === "pingpong") {
+        if (keyCode === UP_ARROW) keys.up = false;
+        if (keyCode === DOWN_ARROW) keys.down = false;
     }
 }
 
+
+// Mouse click handling for menus lord help me
 function mousePressed() {
-     if (gameState === "menu") {
+    // --- MAIN MENU ---
+    if (gameState === "menu") {
+        // Start button
         if (mouseX > startButton.x && mouseX < startButton.x + startButton.w &&
             mouseY > startButton.y && mouseY < startButton.y + startButton.h) {
-            gameState = "game";
+            gameState = "game"; // go to main game
         }
 
+        // Variations button
         if (mouseX > variationButton.x && mouseX < variationButton.x + variationButton.w &&
             mouseY > variationButton.y && mouseY < variationButton.y + variationButton.h) {
-            gameState = "variationMenu";
+            gameState = "variationMenu"; // go to variations menu
         }
     }
-    if (gameState === "gameOver") {
+
+    // --- VARIATION MENU ---
+    else if (gameState === "variationMenu") {
+        // Ping Pong mode button click
+        if (mouseX > pingPongButton.x && mouseX < pingPongButton.x + pingPongButton.w &&
+            mouseY > pingPongButton.y && mouseY < pingPongButton.y + pingPongButton.h) {
+            resetPingPong();   // reset ball + paddles
+            gameState = "pingpong"; // enter ping pong mode
+        }
+
+        // Back button click
+        if (mouseX > backButton.x && mouseX < backButton.x + backButton.w &&
+            mouseY > backButton.y && mouseY < backButton.y + backButton.h) {
+            gameState = "menu"; // return to main menu
+        }
+    }
+
+    // --- GAME OVER ---
+    else if (gameState === "gameOver") {
+        // Reset everything to restart game
         score = 0;
         gameState = "menu";
         frog.tongue.state = "idle";
         frog.body.x = 320;
         frog.tongue.y = 480;
-        isGameOver = false; // reset flag so new message appears next time
+        isGameOver = false; // allow new game over message next time
     }
 }
