@@ -2,8 +2,7 @@
 button start in the middle frog frog frog written after if you have time 
 
 
-
-
+make frog eyes bigger
 
 scoring system
 negative value ,every fly eaten is one less annoying frog in this damned world
