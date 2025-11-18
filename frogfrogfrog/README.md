@@ -3,7 +3,9 @@
 A game about catching flies.
  
 A game of catching flies with your frog-tongue
-Original concept by : Pippin Bar (add his link)
+
+Original concept by : [Pippin Bar](https://pippinbarr.com/frogfrogfrog/)
+
 Modded by : Jeany Corrius 
 
 Instructions:
