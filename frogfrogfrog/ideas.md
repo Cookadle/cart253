@@ -19,3 +19,5 @@ negative value ,every fly eaten is one less annoying frog in this damned world
 ending + end screen
 instrution screen n title 
 music
+for ping pong frog
+you need to add a fly that will inmpact score  which will be static

@@ -30,7 +30,7 @@ let startButton = {
     h: 50,
     cornerRadius: 20,
     baseColor: '#9ACC7E',
-    hoverColor: '#B5E68C',// when hovered
+    hoverColor: '#B5E68C',
     textColor: '#192E18',
     label: "Click here to play Greedy Frog"
 }
@@ -47,7 +47,7 @@ let variationButton = {
     label: "More of greedy frog"
 };
 
-//Game Over variables for froggreedy regular
+//Game Over messages for froggreedy regular
 let gameOverMessages = [
     "Such a greedy frog you are,you just couldn't stop...",
     "My my my,your greediness got you killed eh?",
@@ -93,6 +93,8 @@ let keys = {
 
 
 // PingPong game variables
+
+let pingBallImg;
 let pingBallX, pingBallY;
 let pingBallSpeedX = 5;
 let pingBallSpeedY = 3;
@@ -127,6 +129,9 @@ function preload() {
     spideybottom = loadImage('./assets/images/SpiderBottomnDetail.png');
     upkey = loadImage('./assets/images/upkey.png')
     movingkey = loadImage('./assets/images/Movingkey.png')
+   pingBallImg = loadImage('./assets/images/frog.png'); 
+
+
 
     //music n sounds
 
@@ -176,14 +181,14 @@ function setup() {
     // start ping pong ball
     resetPingPong();
 }
-
+ // draw button and handle hover state
 function drawButton(btn) {
     // wll check if the mouse is over the button
     let isHovering = mouseX > btn.x && mouseX < btn.x + btn.w &&
         mouseY > btn.y && mouseY < btn.y + btn.h;
 
 
-    // Choose color based on hover settingss
+    // color based on hover settingss
     fill(isHovering ? btn.hoverColor : btn.baseColor);
     noStroke();
     rect(btn.x, btn.y, btn.w, btn.h, btn.cornerRadius);
@@ -200,7 +205,7 @@ function drawButton(btn) {
     } else {
         cursor(ARROW);
     }
-    return isHovering; // just return hover, handle click elsewhere
+    return isHovering; // just return hover, handle click elsewhere bc itll crash
 }
 
 
@@ -268,16 +273,16 @@ function drawmenu() {
 text("Press M to return to menu!", 105, 120);
 }
 
-// --- Variation Menu ---
+// variation Menu 
 function drawVariationMenu() {
     background("#d6f5d6");
-    // Title
+    // title variation menu
     fill(0);
     textAlign(CENTER, CENTER);
     textSize(32);
     text("More greed...", width / 2, 100);
 
-    // Draw Ping Pong button handle hover + cursor change only (clicks are handled in mousePressed)
+    // draw Ping Pong button handle hover 
     let hoveringPing = drawButton(pingPongButton);
     let hoveringBack = drawButton(backButton);
 
@@ -536,11 +541,12 @@ function checkInputKeyboard() {
 
 }
 function runPingPong() {//the game of ping pong start here
-    background(0);
+    background("#A5DB84");
 
     // Ball
     fill(255);
-    ellipse(pingBallX, pingBallY, 20);
+   imageMode(CENTER); 
+image(pingBallImg, pingBallX, pingBallY, 60, 60); // x, y, width, height
 
     // Right paddle (player controlled)
     if (keys.up) paddleRightY -= 5;   // adjust speed here
