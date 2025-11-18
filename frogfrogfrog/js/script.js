@@ -2,7 +2,10 @@
  * Frogfrogfrog
  * 
  * 
- * A game of catching flies with your frog-tongue
+ * A multigame of catching flies in original ways
+ * 1.frog cath
+ * 2.pingfrog.
+ * 3.obstacle frog
  * Original concept by : Pippin Bar
  * Modded by : Jeany Corrius 
  * 
@@ -31,16 +34,26 @@ let startButton = {
     textColor: '#192E18',
     label: "Click here to start"
 }
+// Variation Menu Button
+let variationButton = {
+    x: 220, y: 420, w: 200, h: 50, cornerRadius: 20,
+    baseColor: '#FFD27F',
+    hoverColor: '#FFE6B3',
+    textColor: '#000',
+    label: "Variations"
+};
+
+
 
 let gameOver = false;
 let gameOverMessages = [
-    "Such a greedy frog you are,you just couldn't stop",
-    "My my my,your greediness got you killed eh",
-    "God lord think of all those larvae eggs you ate",
-    "Oh froggy,you are just the greediest",
+    "Such a greedy frog you are,you just couldn't stop...",
+    "My my my,your greediness got you killed eh?",
+    "God lord think of all those larvae eggs you ate!",
+    "Oh froggy,you are just the greediest.",
 
 ];
- let isGameOver = false;
+let isGameOver = false;
 
 let currentGameOverMessage = "";
 
@@ -73,6 +86,35 @@ let spideyright;
 let upkey;
 let movingkey;
 //let gameMusic;
+
+
+
+// PingPong game variables
+let pingBallX, pingBallY;
+let pingBallSpeedX = 5;
+let pingBallSpeedY = 3;
+
+let paddleLeftY = 200;
+let paddleRightY = 200;
+let paddleSpeed = 20;
+
+// Buttons inside variation menu
+let pingPongButton = {
+    x: 220, y: 250, w: 200, h: 50, cornerRadius: 20,
+    baseColor: '#9ACC7E',
+    hoverColor: '#B5E68C',
+    textColor: '#000',
+    label: "Ping Pong Mode"
+};
+
+let backButton = {
+    x: 220, y: 330, w: 200, h: 50, cornerRadius: 20,
+    baseColor: '#FFD27F',
+    hoverColor: '#FFE6B3',
+    textColor: '#000',
+    label: "Back"
+};
+
 
 // Load all the images.
 function preload() {
@@ -154,16 +196,8 @@ function drawButton(btn) {
         cursor(ARROW);
     }
 
-    //whether the button was clicked 
-    let clicked = false;
-    if (isHovering && mouseIsPressed && !wasMousePressed) {
-        clicked = true;
-    }
 
-    // Update click tracking
-    wasMousePressed = mouseIsPressed;
-
-    return clicked;
+    return isHovering; // just return hover, handle click elsewhere
 }
 
 
@@ -171,29 +205,55 @@ function drawButton(btn) {
 
 
 function draw() { //where the gamestate come alive
-
+// MAIN MENU
     if (gameState === "menu") { //will be at title scren
         drawmenu();
-    }
+    
+ // Start button
+        if (drawButton(startButton)) {
+            gameState = "game";
+        }
+    /*
     // Draw button n check  click
     let clicked = drawButton(startButton);
-
-
     // If clicked, change state
     if (clicked && gameState === "menu") {
-
         gameState = "game";
     }
+*/
+
+    // Variation menu button
+   if (drawButton(variationButton)) {
+            gameState = "variationMenu"; 
+   }
+            return;
+        
+}
+if (gameState === "variationMenu") {
+    drawVariationMenu();
+    return;
+    }
+
 
     //  when in "game"
     if (gameState === "game") { //will be in game
         runGame();
+         return;
+    }
+    
+     // --- PING PONG MODE ---
+    if (gameState === "pingpong") {
+        runPingPong();
+        return;
     }
 
-  else if (gameState === "gameOver") { //game is done
-     showgameOver();
+
+    else if (gameState === "gameOver") { //game is done
+        showgameOver();
+        return;
+    }
 }
-}
+
 
 
 
@@ -231,6 +291,24 @@ function drawmenu() {
     text("Press ↑ to launch his tongue!", 200, 30);
     text("Press ←→ to move the frog !", 225, 70);
 }
+function drawVariationMenu() {
+    background("#d6f5d6");
+
+    fill(0);
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    text("Variations", width / 2, 100);
+
+    if (drawButton(pingPongButton)) {
+        resetPingPong();
+        gameState = "pingpong";
+    }
+
+    if (drawButton(backButton)) {
+        gameState = "menu";
+    }
+}
+
 
 function runGame() { //will let the game  start once game state is different / BACKGROUND N SCORE CHANGE IN HERE
 
@@ -286,23 +364,23 @@ function runGame() { //will let the game  start once game state is different / B
     checkInputKeyboard();
 
 
-//spider START CRAWLING  once score is in a certain range + game over condition
-if (score <= -3000) {
-    gameState = "gameOver";
-    return; // stop updating game
-}
-else if (score <= -250 && score > -600) {
-    image(spideytop, 5, 0, 750, 350);
-}
-else if (score <= -600 && score > -1200) {
-    image(spideyleft, 5, 0, 750, 350);
-}
-else if (score <= -1200 && score > -2000) {
-    image(spideyright, 5, 0, 750, 350);
-}
-else if (score <= -2000 && score > -3000) {
-    image(spideybottom, 0, 0, 600, 600);
-}
+    //spider START CRAWLING  once score is in a certain range + game over condition
+    if (score <= -3000) {
+        gameState = "gameOver";
+        return; // stop updating game
+    }
+    else if (score <= -250 && score > -600) {
+        image(spideytop, 5, 0, 750, 350);
+    }
+    else if (score <= -600 && score > -1200) {
+        image(spideyleft, 5, 0, 750, 350);
+    }
+    else if (score <= -1200 && score > -2000) {
+        image(spideyright, 5, 0, 750, 350);
+    }
+    else if (score <= -2000 && score > -3000) {
+        image(spideybottom, 0, 0, 600, 600);
+    }
 
 
 
@@ -442,13 +520,17 @@ function drawFrog() {
         noStroke();
         ellipse(frog.body.x, frog.body.y, frog.body.size);
         pop();
-        //draw eyes
+    // frog eyes
+    fill(255);
+    ellipse(frog.body.x - 30, frog.body.y - 50, 30);
+    ellipse(frog.body.x + 30, frog.body.y - 50, 30);
 
-        push();
-        noStroke();
-        circle()
-    }
+    fill(0);
+    ellipse(frog.body.x - 30, frog.body.y - 50, 10);
+    ellipse(frog.body.x + 30, frog.body.y - 50, 10);
 }
+    }
+
 
 //Handles the tongue overlapping the fly + score value n display.Why here and not in run game you ask? I DONT KNOW k
 function checkTongueFlyOverlap() {
@@ -482,8 +564,94 @@ function checkInputKeyboard() {
     }
 
 }
+function runPingPong() {
+    background(0);
+
+    // Ball
+    fill(255);
+    ellipse(pingBallX, pingBallY, 20);
+
+    // Left paddle
+    rect(20, paddleLeftY, 10, 80);
+
+    // Right paddle
+    rect(width - 30, paddleRightY, 10, 80);
+
+    // Move ball
+    pingBallX += pingBallSpeedX;
+    pingBallY += pingBallSpeedY;
+
+    // Bounce top/bottom
+    if (pingBallY < 10 || pingBallY > height - 10) {
+        pingBallSpeedY *= -1;
+    }
+
+    // Bounce left paddle
+    if (pingBallX < 30 &&
+        pingBallY > paddleLeftY &&
+        pingBallY < paddleLeftY + 80) {
+        pingBallSpeedX *= -1;
+    }
+
+    // Bounce right paddle
+    if (pingBallX > width - 40 &&
+        pingBallY > paddleRightY &&
+        pingBallY < paddleRightY + 80) {
+        pingBallSpeedX *= -1;
+    }
+
+    // Reset if ball is out
+    if (pingBallX < 0 || pingBallX > width) {
+        resetPingPong();
+    }
+
+    drawPingPongHelp();
+}
+function drawPingPongHelp() {
+    fill(255);
+    textAlign(CENTER);
+    textSize(16);
+    text("W/S = left paddle   |   ↑/↓ = right paddle", width / 2, 30);
+    text("Press M to return to Menu", width / 2, height - 20);
+}
+
+function resetPingPong() {
+    pingBallX = width / 2;
+    pingBallY = height / 2;
+    pingBallSpeedX = random([-5, 5]);
+    pingBallSpeedY = random([-3, 3]);
+}
+
+function keyPressed() {
+
+    if (gameState === "pingpong") {
+
+        // Return to main menu
+        if (key === 'm' || key === 'M') {
+            gameState = "menu";
+        }
+
+        // Paddle controls
+        if (key === 'w' || key === 'W') paddleLeftY -= paddleSpeed;
+        if (key === 's' || key === 'S') paddleLeftY += paddleSpeed;
+
+        if (keyCode === UP_ARROW) paddleRightY -= paddleSpeed;
+        if (keyCode === DOWN_ARROW) paddleRightY += paddleSpeed;
+    }
+}
 
 function mousePressed() {
+     if (gameState === "menu") {
+        if (mouseX > startButton.x && mouseX < startButton.x + startButton.w &&
+            mouseY > startButton.y && mouseY < startButton.y + startButton.h) {
+            gameState = "game";
+        }
+
+        if (mouseX > variationButton.x && mouseX < variationButton.x + variationButton.w &&
+            mouseY > variationButton.y && mouseY < variationButton.y + variationButton.h) {
+            gameState = "variationMenu";
+        }
+    }
     if (gameState === "gameOver") {
         score = 0;
         gameState = "menu";
