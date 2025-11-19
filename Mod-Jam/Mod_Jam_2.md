@@ -4,6 +4,8 @@
 
 I think the tutorial is very cool, very well implemented. Made the game mechanics quite clear for someone who doesn't have access to Lanna [Github](https://github.com/lannacheck-ops/cart253/tree/main/mod-jam/frogfrogfrog). I like how the frog and his other body parts were part of the experience as well.Bringing the frog to life by making each body part have his own function in the game was a great touch.As you get hungrier and hungrier the tongue length  get  shorten which also signal the player they have to get better or die. The eyes of the frog follow the mouse cursor from left to right and as your health get worse the icon of the frog get  sadder.I love how creative this part was. Beyond that, I think Lanna game is perfect in the way that all the functions demanded were implemented correctly while also making this project her own.
 
+I think the create fly function was a great code as well.I was wondering how you could make different fly with different colours and sizes appear that way.She pushed it even more by applying random to the fly wings.
+
 The only improvements I would add are :
 
 This is more of a personal matter, but I think if music is to be implemented to also have a mute button. Not everyone enjoy the same music, and adding a mute button would ensure the user can still enjoy the game without being turned off by the music.
@@ -13,9 +15,12 @@ Also, once the tutorial is over, the instructions loop over and over. I understa
 ## [Kaim](https://kaim-bit.github.io/cart253/topics/Mod-Jam/frogfrogfrog/)
 This [“frog” game](https://github.com/kaim-bit/cart253/tree/main/topics/Mod-Jam/frogfrogfrog) was not what I expected at all, there's not even a frog anymore but a canon instead, which is a unique concept  I have not seen in this class. To have the canon ball bounce back down the screen instead of just making it disappear when it goes upwards is also a cool detail. It  doesn't change much to the game, but it strangely satisfies me as a player/viewer. The backstory in the instructions was a great idea, I  actually got excited to try the game  after reading it.
 
-As I identify as an artist (my opinion could be bias) before I identify as a  programmer, I do have to say the lack of “art” does make steer away from the game after 2/3 tries. Not to say art isn't present, but it feels a bit flat. I thought maybe the game over screen would be a bit pushed like the instructions screen but was greeted with a dark blue screen who would just bring me back to the menu
+As I identify as an artist (my opinion could be bias) before I identify as a  programmer, I do have to say the lack of “art” does make steer away from the game after 2/3 tries. Not to say art isn't present, but it feels a bit flat. 
 
-While the menu is not what you would typically find for starting screen, I do find it a bit frustrating to have to hover over a moving square to get to the game as well.
+I thought maybe the game over screen would be a bit pushed like the instructions screen but was greeted with a dark blue screen who would just bring me back to the menu.
+I took a look at the function game over ( if (menu.state === "Lost") {) to see maybe I had to reach a certain point to get a special background or maybe it did not load correctly but found that this functions focused solely on making the bg blue and bringing back the flying button. 
+
+While the menu is not what you would typically find for starting screen(+1 for creativity), I do find it a bit frustrating to have to hover over a moving square to get to the game or instructions menu.
 
 
 ## [Kerven](https://yatsukki.github.io/cart253/topic/events/flying-frogs/)
