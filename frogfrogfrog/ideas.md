@@ -18,5 +18,16 @@ negative value ,every fly eaten is one less annoying frog in this damned world
 ending + end screen
 instrution screen n title 
 music
+
+
 for ping pong frog
 you need to add a fly that will inmpact score  which will be static
+set a limit for how many point will make it reach game over 
+increase speed of ball after 20 is reached
+
+
+
+
+
+Super Frog Bros(working title)
+  https://github.com/Dajuuu/2D-Platformer-p5
