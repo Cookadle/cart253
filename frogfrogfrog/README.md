@@ -36,8 +36,10 @@ Instructions:
 Credit;
 Loik my partner
 Ai paddle:
- https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
+https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
+https://editor.p5js.org/bardyl/sketches/Tut4pb0zj
+https://stackoverflow.com/questions/69834133/how-can-i-change-an-objects-speed-in-p5-js-if-the-mouse-is-pressed-in-oop
 
 
 
@@ -69,24 +71,6 @@ In Game:https://pixabay.com/music/video-games-sinnesl%c3%b6schen-beam-117362/
 
  Gulp:https://pixabay.com/sound-effects/gulp-48452/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Shout out and credits to :
 
 (PERLIN NOISE)https://thecodingtrain.com/tracks/noise/noc/perlin/intro-to-perlin-noise (Very great youtuber when it comes to learning new function on js p5)
@@ -95,6 +79,10 @@ Shout out and credits to :
 
 (hmmmm i forgot)https://github.com/Lartu/p5.clickable?tab=readme-ov-file
 
+organisaion of files 
+  https://github.com/Dajuuu/2D-Platformer-p5
+
+ 
 
 
 

@@ -30,4 +30,8 @@ increase speed of ball after 20 is reached
 
 
 Super Frog Bros(working title)
+platform game to escape the den of spider
+enemies;spider
+collect flies?
   https://github.com/Dajuuu/2D-Platformer-p5
+  https://editor.p5js.org/bardyl/sketches/Tut4pb0zj?utm_source=chatgpt.com
