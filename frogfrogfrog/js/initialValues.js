@@ -26,7 +26,7 @@ let startButton = {
     textColor: '#192E18',
     label: "Click here to play Greedy Frog"
 }
-// more of button
+// more of greedy frog button
 let variationButton = {
     x: 220,
     y: 420,

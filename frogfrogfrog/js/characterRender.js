@@ -23,14 +23,14 @@ function drawFrog() {
         ellipse(frog.tongue.x, frog.tongue.y, frog.tongue.size);
         pop();
 
-        // Draw the rest of the tongue
+        //draw the rest of the tongue
         push();
         stroke("#ff6666");
         strokeWeight(frog.tongue.size / 2);
         line(frog.tongue.x, frog.tongue.y, frog.body.x, frog.body.y);
         pop();
 
-        // Draw the frog's body
+        //draw the frog body
         push();
         fill("#32CD32");
         noStroke();
