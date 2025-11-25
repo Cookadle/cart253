@@ -1,19 +1,21 @@
 /**
- * Frogfrogfrog
+ * Frogfrogfrog :The Saga
  * 
  * Game directory-
- * script.js              -setup,functions,draw,key controls ,menu CONTROLS/IMPLEMENTATIONS,
- * initialValues.js       -values,variables,array,objects etc
- * backgroundRender.js     -scenary such as the background,score,BUTTONS and ill see what else
+ * script.js                -setup,functions,draw,key controls ,menu CONTROLS/IMPLEMENTATIONS,
+ * initialValues.js         -values,variables,array,objects etc
+ * backgroundRender.js      -scenary such as the background,score,BUTTONS and ill see what else
  * characterRender.js       -frongs and paddle and fly are in there mostly drawing of the object followed with their moving mecanisms
- * 
- * 
- * 
+ * p5.min.js                - p5 main library
+ * p5.sound.min.js          - p5 sound library
+ * index.html               - html file
+ * images folder            -all images asre stored here
+ * sounds folder            -all sound effects or music will be kept here
  * 
  *  A multigame of catching flies in original ways
  * 1.frog cath
  * 2.pingfrog.
- * 3.obstacle frog
+ * 3.obstacle frog maybe
  * Original concept by : Pippin Bar
  * Modded by : Jeany Corrius 
  * 
