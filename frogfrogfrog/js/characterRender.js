@@ -11,39 +11,46 @@
 
 "use strict";
 
-//frog drawing and moving mecanism
+//frog drawing 
 
 //Displays the tongue (tip and line connection) and the frog (body)
 function drawFrog() {
     // Draw the tongue tip
     if (gameState === "game") {
         push();
-        fill("#ff4d4d");
+        fill("#ff6666");
         noStroke();
         ellipse(frog.tongue.x, frog.tongue.y, frog.tongue.size);
         pop();
 
         // Draw the rest of the tongue
         push();
-        stroke("#ff0000");
-        strokeWeight(frog.tongue.size);
+        stroke("#ff6666");
+        strokeWeight(frog.tongue.size / 2);
         line(frog.tongue.x, frog.tongue.y, frog.body.x, frog.body.y);
         pop();
 
         // Draw the frog's body
         push();
-        fill("#00ff00");
+        fill("#32CD32");
         noStroke();
-        ellipse(frog.body.x, frog.body.y, frog.body.size);
+        ellipse(frog.body.x, frog.body.y, frog.body.size, frog.body.size * 1.3);
         pop();
-        // frog eyes
-        fill(255);
-        ellipse(frog.body.x - 30, frog.body.y - 50, 30);
-        ellipse(frog.body.x + 30, frog.body.y - 50, 30);
 
-        fill(0);
-        ellipse(frog.body.x - 30, frog.body.y - 50, 10);
-        ellipse(frog.body.x + 30, frog.body.y - 50, 10);
+        //eyes
+        push();
+        fill("#ffffffff");                
+        stroke("#3d5a3dff");        
+        strokeWeight(2);
+       ellipse(frog.body.x - 25, frog.body.y - 55, 40, 50); // left eye 
+        ellipse(frog.body.x + 25, frog.body.y - 55, 40, 50); // right eye
+
+        //pupila
+        fill(0);                
+        ellipse(frog.body.x - 25, frog.body.y - 55, 20);
+        ellipse(frog.body.x + 25, frog.body.y - 55, 20);
+        pop();
+
     }
 }
 
