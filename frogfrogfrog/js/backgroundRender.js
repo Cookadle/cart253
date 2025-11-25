@@ -29,12 +29,13 @@ function drawmenu() {
     }
     image(upkey, 50, 10, 40, 40);
     image(movingkey, 25, 55, 90, 40);
-    // Add some text label
+    
+    // Add some text label for main screen tiitle
     fill(0);
     textSize(16);
     text("Press ↑ to launch his tongue!", 200, 30);
     text("Press ←→ to move the frog !", 225, 70);
-    text("Press M to return to menu!", 105, 120);
+    text("Press M to return here!", 105, 120);
 }
 
 function runGame() { //will let the game  start once game state is different / BACKGROUND N SCORE CHANGE IN HERE
