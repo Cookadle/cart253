@@ -68,7 +68,7 @@ function drawFrog() {
         ellipse(frog.body.x - 25, frog.body.y - 55, 40, 50); // left eye 
         ellipse(frog.body.x + 25, frog.body.y - 55, 40, 50); // right eye
 
-        //pupila
+        //pupil
         fill(0);
         ellipse(frog.body.x - 25, frog.body.y - 55, 20);
         ellipse(frog.body.x + 25, frog.body.y - 55, 20);
@@ -211,73 +211,5 @@ function drawPingFly() {
 
 ////////////////PING PONG PART THIS IS PING PONG PART///////////////////////////////////
 
-//the game of ping pong start here //included heree because character render touch on assets such as paddle
-function runPingPong() {
-    background("#A5DB84");
 
-    // Ball for ping pong
-    fill(255);
-    imageMode(CENTER);
-    image(pingBallImg, pingBallX, pingBallY, 60, 60); // x, y, width, height reminder for myself cause i always forget
-    // faster ball speed n AI paddle speed when player score reaches number(15 or 30 idk )
-    if (rightScore >= 15) {
-        pingBallSpeedX = pingBallSpeedX > 0 ? 8 : -8; // faster speed hor
-        pingBallSpeedY = pingBallSpeedY > 0 ? 5 : -5; // faster speed vert
-        aiSpeed = 6; // faster AI
-    }
-    // Right paddle (player controlled with up down keys )
-    //  adjust the speed here too 
-    if (keys.up) paddleRightY -= 5;
-    if (keys.down) paddleRightY += 5;
 
-    // Keep paddle inside the screen just like frog
-    paddleRightY = constrain(paddleRightY, 0, height - 80);
-
-    // Draw right paddle 
-    rect(width - 30, paddleRightY, 10, 80);
-
-    // Left paddle (kinda ai controlled) aiSpeed controls difficulty of ai paddle
-    //speed adjust here
-    if (pingBallY < paddleLeftY + 40) {
-        paddleLeftY -= aiSpeed;
-
-    } else if (pingBallY > paddleLeftY + 40) {
-        paddleLeftY += aiSpeed;
-    }
-    // AI paddle inside constrained like frogy
-    paddleLeftY = constrain(paddleLeftY, 0, height - 80);
-
-    // draw left paddle
-    rect(20, paddleLeftY, 10, 80);
-
-    // ball movement x=horizontal y=vertical
-    pingBallX += pingBallSpeedX;
-    pingBallY += pingBallSpeedY;
-
-    // will reverse in the y direction when hit bottom or top also collision
-    if (pingBallY < 10 || pingBallY > height - 10) {
-        pingBallSpeedY *= -1;
-    }
-
-    // collision for left paddle
-    if (pingBallX < 30 &&
-        pingBallY > paddleLeftY &&
-        pingBallY < paddleLeftY + 80) {
-        pingBallSpeedX *= -1;
-    }
-
-    //collision for right paddle
-    if (pingBallX > width - 40 &&
-        pingBallY > paddleRightY &&
-        pingBallY < paddleRightY + 80) {
-        pingBallSpeedX *= -1;
-    }
-    //ping pong fly get drawn then he check distance will be running 
-    drawPingFly();
-    updatePingFly();
-
-    // Draw  instructions 
-    drawPingPongHelp();
-    //handle score 
-    drawScorepingpong();
-}

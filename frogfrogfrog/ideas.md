@@ -14,7 +14,7 @@ music
 
 for ping pong frog
 set a limit for how many point will make it reach game over 
-increase speed of ball after 20 is reached
+
 
 
 

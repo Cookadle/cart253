@@ -125,13 +125,18 @@ let pingBallSpeedY = 3;
 let paddleLeftY = 200;
 let paddleRightY = 200;
 let paddleSpeed = 20;
-let aiSpeed = 4; // adjustnumber to make AI paddle player easier/harder
-let leftScore = 0;//score for ai might not be right
+let aiSpeed = 4; // adjustnumber to make AI paddle player easier/harder at start
+let leftScore = 0;//score for ai 
 let rightScore = 0;//SCORE for player
 // Ping Pong fly
 let pingFlyX = 0;
 let pingFlyY = 0;
 let pingFlySize = 30;
+// Spider paddle ai
+let spiderX = 300; // 
+let spiderY = 200; 
+let spiderSize = 50; // 
+
 
 // Buttons inside variation menu aka more of greedy frog
 let pingPongButton = {

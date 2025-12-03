@@ -43,6 +43,7 @@ Oh you want **more**?
 
 
 ## New function/attributes
+translate()
 
 ## Attribution
 -Loik my partner
