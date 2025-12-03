@@ -10,10 +10,10 @@ Instructions for Greedy Frog:
 - Catch flies until you can't
 **Can you get to 3000?**
 
-Instructions for Ping Pong Frog :
+Instructions for Ping Pong Frog:
 -Move the paddle with the up and down key arrows
--Catch the flies <br>
-**Can you get to 35or will the AI beat you?**
+-Catch the flies 
+**-Can you get to 35 or will the AI beat you?**
 
 General:
 -Press M to go back to the main menu
