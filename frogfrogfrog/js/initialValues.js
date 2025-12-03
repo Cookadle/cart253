@@ -141,11 +141,17 @@ let spiders = [];
 let spiderCount = 5;
 
 
-// Add new variable for custom message
+// Add new variable for custom message for ping frog
 let pingPongGameOverMessage = "Oooof they ate you up Mr.Greedy!";
 
-
-
+//for frogsnake game
+let frogHead; 
+let frogDirection = { x: 0, y: 0 }; // initial movement direction (no movement at start)
+let frogSize = 20; 
+let frogSpeed = 20; 
+let snakeFrogScore = 0; 
+let frogImg;  
+let flyImg;
 // Buttons inside variation menu aka more of greedy frog
 let pingPongButton = {
     x: 220, y: 250, w: 200, h: 50, cornerRadius: 20,
@@ -153,6 +159,13 @@ let pingPongButton = {
     hoverColor: '#B5E68C',
     textColor: '#000',
     label: "Ping Frog"
+};
+let snakeFrogButton = {
+    x: 220, y: 170, w: 200, h: 50, cornerRadius: 20,
+    baseColor: '#9ACC7E',
+    hoverColor: '#B5E68C',
+    textColor: '#000',
+    label: "Snake Frog"
 };
 
 let backButton = {
@@ -174,7 +187,9 @@ function preload() {
     movingkey = loadImage('./assets/images/Movingkey.png')
     //ping pong asset
     pingBallImg = loadImage('./assets/images/frog.png');
-
+//snake frog
+    frogImg = loadImage('./assets/images/frog.png'); 
+    flyImg = loadImage('./assets/images/fly.png'); 
 
 
     //music n sounds

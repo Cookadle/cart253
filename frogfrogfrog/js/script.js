@@ -62,7 +62,10 @@ function setup() {
 
     // give balls n paddle its starting setting
     resetPingPong();
+    //frog
+frogHead = { x: 100, y: 100 };  //frogHead is initialized before use
 }
+
 
 
 
@@ -100,6 +103,11 @@ function draw() { //where the gamestate come alive
     //ai winning game over
     if (gameState === "pingpongGameOver") {
         showPingPongGameOver();
+        return;
+    }
+    // when in "game"
+    if (gameState === "frogsnake") {
+        drawSnakeFrog(); // Calling the Snake Frog game logic
         return;
     }
 }
@@ -364,6 +372,44 @@ function keyReleased() {
         if (keyCode === DOWN_ARROW) keys.down = false;
     }
 }
+
+/////////SNAKE GAME/////////////////
+function setupSnakeFrogGame() {
+    frogHead = createVector(width / 2, height / 2); // frog starting position
+    frogDirection = { x: 0, y: 0 }; 
+    createFly(); 
+}
+// Move the frog for snake game
+function moveFrog() {
+   
+    if (keyIsDown(UP_ARROW)) frogDirection = { x: 0, y: -1 }; 
+    if (keyIsDown(DOWN_ARROW)) frogDirection = { x: 0, y: 1 }; 
+    if (keyIsDown(LEFT_ARROW)) frogDirection = { x: -1, y: 0 }; 
+    if (keyIsDown(RIGHT_ARROW)) frogDirection = { x: 1, y: 0 }; 
+
+  
+    frogHead.x += frogDirection.x * frogSpeed;
+    frogHead.y += frogDirection.y * frogSpeed;
+}
+
+function checkCollision() {
+    // Check for collision with walls
+    if (frogHead.x < 0 || frogHead.x >= width || frogHead.y < 0 || frogHead.y >= height) {
+        gameState = "gameOver"; // Game over if frog hits boundary
+    }
+}
+function createFly() {
+    fly.x = random(width);
+    fly.y = random(height);
+    fly.size = random(10, 20); // Randomize fly size slightly
+}
+function resetSnakeFrog() {
+    frogHead = createVector(width / 2, height / 2); // Reset frog position
+    frogDirection = { x: 0, y: 0 }; // Reset direction
+    snakeFrogScore = 0; // Reset score
+    createFly(); // Create a new fly
+}
+
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
 // Mouse click handling for menus lord help me
@@ -393,7 +439,12 @@ function mousePressed() {
             resetPingFly();
             gameState = "pingpong";
         }
-
+        // When snake frog button is clicked, start Snake Frog game
+    if (mouseX > snakeFrogButton.x && mouseX < snakeFrogButton.x + snakeFrogButton.w &&
+        mouseY > snakeFrogButton.y && mouseY < snakeFrogButton.y + snakeFrogButton.h) {
+        //setupSnakeFrogGame();
+        gameState = "frogsnake"; 
+    }
         // if back button is clicked it will then go back to menu duh
         if (mouseX > backButton.x && mouseX < backButton.x + backButton.w &&
             mouseY > backButton.y && mouseY < backButton.y + backButton.h) {
@@ -410,8 +461,8 @@ function mousePressed() {
         paddleRightY = 200;
         gameState = "pingpong";
     }
-    // Handle mouse press to reset the game after game over
-    function mousePressed() {
+
+     //Handle mouse press to reset the game after game over(might be an isue in the future)
         if (gameState === "pingpong" && rightScore >= 35) {
             resetPingPong();
             resetPingFly();
@@ -422,4 +473,3 @@ function mousePressed() {
             gameState = "pingpong";
         }
     }
-}

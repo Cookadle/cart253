@@ -62,7 +62,7 @@ translate()
 -Title gradiant:
 - https://p5js.org/examples/repetition-color-interpolation/
 
--Pixel Art:Cookadle (me)
+-Pixel Art Frog:Cookadle (me)
 
 -Inspiration for organisation of files: 
 - https://github.com/Dajuuu/2D-Platformer-p5

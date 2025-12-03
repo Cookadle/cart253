@@ -316,6 +316,11 @@ function drawVariationMenu() {
     textSize(32);
     text("More greed...", width / 2, 100);
 
+
+    // Draw Snake Frog button here because i cant remmember what i did
+     let hoveringSnake = drawButton(snakeFrogButton);
+
+   
     // draw Ping Pong  frog and back button that user will be able to click to navigate // leave this function here 
     let hoveringPing = drawButton(pingPongButton);
     let hoveringBack = drawButton(backButton);
