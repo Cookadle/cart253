@@ -1,14 +1,37 @@
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * Frogfrogfrog :The Saga
+ * 
+ * Game directory-
+ * script.js                -setup,functions,draw,key controls ,menu CONTROLS/IMPLEMENTATIONS,
+ * initialValues.js         -values,variables,array,objects etc
+ * backgroundRender.js      -scenary such as the background,score,BUTTONS and ill see what else
+ * characterRender.js       -frongs , paddle and fly are in there mostly drawing of the object followed with their moving mecanisms like move tongue
+ * p5.min.js                - p5 main library
+ * p5.sound.min.js          - p5 sound library
+ * index.html               - html file
+ * images folder            -all images asre stored here
+ * sounds folder            -all sound effects or music will be kept here
+ * 
+ *  A multigame of catching flies in original ways
+ * 1.frog cath
+ * 2.pingfrog.
+ 
+ * Original concept by : Pippin Bar
+ * Modded by : Jeany Corrius 
+ * 
+ * Instructions for Greedy Frog:
+ * - Move the frog with the left right key arrows
+ * - Press up arrow to launch the tongue
+ * - Catch flies until you can't
+ * 
+ * Instructions for Ping Pong Frog :
+ * -Move the paddle with the up and down key arrows
+ * -Catch the flies
+ * 
+ * Made with p5
+ * https://p5js.org/
+ */
+//welcome to the cast of happy character 
 "use strict";
 
 //frog drawing 
@@ -129,7 +152,7 @@ function checkInputKeyboard() {
         frog.body.x += 3;
     }
 }
-/////////////////////TTHIS IS THE FLY PART ,FLY STAY HERE/////////////////////////
+/////////////////////TTHIS IS THE FLY NEST ,FLY SlEEP HERE/////////////////////////
 
 // Draws the fly as a black circle 
 function drawFly() {
@@ -139,12 +162,47 @@ function drawFly() {
     ellipse(fly.x, fly.y, fly.size);
     pop();
 }
-
+//ping pong fly here
 function drawPingFly() {
-    push();
-    fill(0);
+ push();
     noStroke();
-    ellipse(pingFlyX, pingFlyY, pingFlySize);
+    translate(pingFlyX, pingFlyY);
+//dont forge to add this in new functions
+// Moves the origin of the drawing to the fly's position.
+// then all shapes (body, wings, eyes) are drawn relative to (0,0),
+// which represents the fly's current x and y on  canvas.
+// This makes it much easier to position wings and body consistently.
+   
+
+// wings 
+    fill("#96C8FF80")
+
+
+    rotate(-PI / 6); // tilt diagonally left
+    ellipse(-pingFlySize * 0.6, -pingFlySize * 0.2, pingFlySize * 1.1, pingFlySize * 0.55);
+    rotate(PI / 3);  // tilt diagonally right
+    ellipse(pingFlySize * 0.6, -pingFlySize * 0.2, pingFlySize * 1.1, pingFlySize * 0.55);
+    rotate(-PI / 6); // return to center
+
+    // fly whole body beyond wings
+    // fly belly
+    fill("#1E1E1E");
+    ellipse(0, 0, pingFlySize * 1.1, pingFlySize * 0.9);
+
+    // flyhead
+  fill("#252424ff"); 
+    ellipse(0, -pingFlySize * 0.45, pingFlySize * 0.75);
+
+    //eyes
+      fill("#FF3232");
+    ellipse(-pingFlySize * 0.22, -pingFlySize * 0.55, pingFlySize * 0.22);
+    ellipse(pingFlySize * 0.22, -pingFlySize * 0.55, pingFlySize * 0.22);
+
+    //highlight eyes
+    fill("#FFFFFFDD");
+    ellipse(-pingFlySize * 0.26, -pingFlySize * 0.60, pingFlySize * 0.08);
+    ellipse(pingFlySize * 0.18, -pingFlySize * 0.60, pingFlySize * 0.08);
+
     pop();
 }
 

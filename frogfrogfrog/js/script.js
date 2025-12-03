@@ -5,7 +5,7 @@
  * script.js                -setup,functions,draw,key controls ,menu CONTROLS/IMPLEMENTATIONS,
  * initialValues.js         -values,variables,array,objects etc
  * backgroundRender.js      -scenary such as the background,score,BUTTONS and ill see what else
- * characterRender.js       -frongs and paddle and fly are in there mostly drawing of the object followed with their moving mecanisms
+ * characterRender.js       -frongs , paddle and fly are in there mostly drawing of the object followed with their moving mecanisms like move tongue
  * p5.min.js                - p5 main library
  * p5.sound.min.js          - p5 sound library
  * index.html               - html file
@@ -15,18 +15,23 @@
  *  A multigame of catching flies in original ways
  * 1.frog cath
  * 2.pingfrog.
- * 3.obstacle frog maybe
+ 
  * Original concept by : Pippin Bar
  * Modded by : Jeany Corrius 
  * 
- * Instructions:
+ * Instructions for Greedy Frog:
  * - Move the frog with the left right key arrows
  * - Press up arrow to launch the tongue
- * - Catch flies
+ * - Catch flies until you can't
+ * 
+ * Instructions for Ping Pong Frog :
+ * -Move the paddle with the up and down key arrows
+ * -Catch the flies
  * 
  * Made with p5
  * https://p5js.org/
  */
+//this where i run this game and the likes 
 
 "use strict";
 
