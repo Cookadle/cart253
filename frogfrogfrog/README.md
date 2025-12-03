@@ -23,47 +23,52 @@ Instructions:
 ## Description 
 A modded version of Pippin Bar frog frog game.
 Two games following the life of Greedy frog ,a frog who can't stop eating flies.
-What will happen???
 
+***What will happen???***
+---------------------------------------------------------
 
 ## Screenshot(s)
-Welcome to our menu!What will it be today?
+###  Welcome to our menu!
+ What will it be today?
 ![menu screen](assets/images/Main_Menu.png)
-Ah a classic Greedy Frog...
+Ah a classic *Greedy Frog...*
 ![In game screen for Greedy Frog](assets/images/Greedy_Frog.png)
-Oh you want more?
+Oh you want **more** ?
 ![Variation menu ](assets/images/Variations_Menu.png)
-Try beating the game ai then!
+***Try beating the game ai then!***
 ![In game screen for Ping Pong Frog](assets/images/PingPong_Frog.png)
 
 
-## New function/attributes:
+## New function/attributes
 
 ## Attribution
 Loik my partner
-Ai Game:
+-Ai Game:
 https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
 https://editor.p5js.org/bardyl/sketches/Tut4pb0zj
 https://stackoverflow.com/questions/69834133/how-can-i-change-an-objects-speed-in-p5-js-if-the-mouse-is-pressed-in-oop
 https://p5js.org/examples/games-ping-pong/
-Perlin noise: 
+
+-Perlin noise: 
 https://thecodingtrain.com/tracks/noise/noc/perlin/intro-to-perlin-noise (Very great youtuber when it comes to learning new function on js p5)
-Title gradiant:
+
+-Title gradiant:
 https://p5js.org/examples/repetition-color-interpolation/
 
-Pixel Art:Cookadle (me)
-Inspiration for organisation of files: 
+-Pixel Art:Cookadle (me)
+
+-Inspiration for organisation of files: 
 https://github.com/Dajuuu/2D-Platformer-p5
 
-Sounds: 
+-Sounds: 
 
-Title : https://pixabay.com/sound-effects/nature-sounds-splashing-water-birds-singing-frog-croak-brook-108620/
+-Title : https://pixabay.com/sound-effects/nature-sounds-splashing-water-birds-singing-frog-croak-brook-108620/
 
-In Game:https://pixabay.com/music/video-games-sinnesl%c3%b6schen-beam-117362/
+-In Game:https://pixabay.com/music/video-games-sinnesl%c3%b6schen-beam-117362/
 
 
- Gulp:https://pixabay.com/sound-effects/gulp-48452/
+-Gulp:https://pixabay.com/sound-effects/gulp-48452/
 
 ## License
 
