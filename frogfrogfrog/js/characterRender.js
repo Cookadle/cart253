@@ -168,11 +168,6 @@ function drawPingFly() {
     noStroke();
     translate(pingFlyX, pingFlyY);
     //dont forge to add this in new functions
-    // Moves the origin of the drawing to the fly's position.
-    // then all shapes (body, wings, eyes) are drawn relative to (0,0),
-    // which represents the fly's current x and y on  canvas.
-    // This makes it much easier to position wings and body consistently.
-
 
     // wings 
     fill("#96C8FF80")

@@ -70,13 +70,17 @@ https://github.com/Dajuuu/2D-Platformer-p5
 
 -Sounds: 
 
--Title : https://pixabay.com/sound-effects/nature-sounds-splashing-water-birds-singing-frog-croak-brook-108620/
+-Title : 
+https://pixabay.com/sound-effects/nature-sounds-splashing-water-birds-singing-frog-croak-brook-108620/
 
--In Game:https://pixabay.com/music/video-games-sinnesl%c3%b6schen-beam-117362/
+-In Game:
+https://pixabay.com/music/video-games-sinnesl%c3%b6schen-beam-117362/
 
 
--Gulp:https://pixabay.com/sound-effects/gulp-48452/
+-Gulp:
+https://pixabay.com/sound-effects/gulp-48452/
 
+https://p5js.org/reference/p5/bezier/
 ## License
 
 > This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.

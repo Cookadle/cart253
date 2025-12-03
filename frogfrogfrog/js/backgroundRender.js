@@ -208,60 +208,100 @@ function drawButton(btn) {
     return isHovering; // just return hover, handle click elsewhere bc itll crash
 
 }
-function drawSpiders() { 
+function drawSpiders() {
     //loop spider in the spiders array
-  for (let spider of spiders) {
-    //,move spider
-    spider.x += spider.speedX;
-    spider.y += spider.speedY;
+    for (let spider of spiders) {
+        //move spider
+        spider.x += spider.speedX;
+        spider.y += spider.speedY;
 
-    // bounce off eedges of the canvas
-    if (spider.x < spider.size / 2 || spider.x > width - spider.size / 2) spider.speedX *= -1;
-    if (spider.y < spider.size / 2 || spider.y > height - spider.size / 2) spider.speedY *= -1;
+        // bounce off eedges of the canvas
+        if (spider.x < spider.size / 2 || spider.x > width - spider.size / 2) spider.speedX *= -1;
+        if (spider.y < spider.size / 2 || spider.y > height - spider.size / 2) spider.speedY *= -1;
 
-    push(); 
-    translate(spider.x, spider.y);
+        push();
+        translate(spider.x, spider.y);
 
-     // draw legs (semi-transparent, curved)
-    stroke('#00000080'); // 50% opacity
-    strokeWeight(4); 
-    let legLength = spider.size * 0.6;
-    for (let i = -1; i <= 1; i += 2) { 
 
-      // top legs (two per side using bezier curves for a wiggly effect)
-      bezier(0, 0, legLength * i * 0.5, -legLength * 0.3, legLength * i * 0.7, -legLength * 0.5, legLength * i, -legLength * 0.6);
-      bezier(0, 0, legLength * i * 0.5, -legLength * 0.1, legLength * i * 0.8, -legLength * 0.2, legLength * i, -legLength * 0.3);
-      // down legs
-      bezier(0, 0, legLength * i * 0.5, legLength * 0.3, legLength * i * 0.7, legLength * 0.5, legLength * i, legLength * 0.6);
-      bezier(0, 0, legLength * i * 0.5, legLength * 0.1, legLength * i * 0.8, legLength * 0.2, legLength * i, legLength * 0.3);
+        if (rightScore >= 35) {
+            //spider evil look
+            stroke(0);
+            strokeWeight(4);
+            //legs 
+            let legLength = spider.size * 0.7;
+            for (let i = -1; i <= 1; i += 2) {
+                //top legs 
+                bezier(0, 0, legLength * i * 0.5, -legLength * 0.3, legLength * i * 0.7, -legLength * 0.5, legLength * i, -legLength * 0.6);
+                bezier(0, 0, legLength * i * 0.5, -legLength * 0.1, legLength * i * 0.8, -legLength * 0.2, legLength * i, -legLength * 0.3);
+
+                //bottom legs 
+                bezier(0, 0, legLength * i * 0.5, legLength * 0.3, legLength * i * 0.7, legLength * 0.5, legLength * i, legLength * 0.6);
+                bezier(0, 0, legLength * i * 0.5, legLength * 0.1, legLength * i * 0.8, legLength * 0.2, legLength * i, legLength * 0.3);
+            }
+            //evilspider body
+            fill('#FF0000');
+            noStroke();
+            ellipse(0, 0, spider.size, spider.size);
+
+            // evilspider Eyes
+            fill('#FFFFFF');
+            ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
+            ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
+            fill('#000000');
+            ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
+            ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
+
+            // Simple Spider Horns
+            stroke('#FF0000');
+            strokeWeight(6);  
+
+            // left horn 
+            line(-spider.size * 0.4, -spider.size * 0.8, -spider.size * 0.7, -spider.size * 1.2);
+
+            // right horn
+            line(spider.size * 0.4, -spider.size * 0.8, spider.size * 0.7, -spider.size * 1.2);
+        }
+        else {
+            //regular spider look
+            push();
+            stroke(0);
+            strokeWeight(4);
+            let legLength = spider.size * 0.7;
+
+            //spider legs
+            for (let i = -1; i <= 1; i += 2) {
+                //top legs
+                bezier(0, 0, legLength * i * 0.5, -legLength * 0.3, legLength * i * 0.7, -legLength * 0.5, legLength * i, -legLength * 0.6);
+                bezier(0, 0, legLength * i * 0.5, -legLength * 0.1, legLength * i * 0.8, -legLength * 0.2, legLength * i, -legLength * 0.3);
+
+                //down legs
+                bezier(0, 0, legLength * i * 0.5, legLength * 0.3, legLength * i * 0.7, legLength * 0.5, legLength * i, legLength * 0.6);
+                bezier(0, 0, legLength * i * 0.5, legLength * 0.1, legLength * i * 0.8, legLength * 0.2, legLength * i, legLength * 0.3);
+            }
+            pop();
+
+            // Regular spider body 
+            fill('#000000');
+            ellipse(0, 0, spider.size, spider.size);
+            //eyes normal spider
+            fill('#FFFFFF');
+            ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
+            ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
+            // Pupils for normal spider eye 
+            fill('#000000');
+            ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
+            ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
+
+            // Smile 4 normal spider
+            stroke('#8a2f64ff');
+            strokeWeight(2);
+            arc(0, spider.size * 0.15, spider.size * 0.4, spider.size * 0.25, 0, PI);
+        }
+
+        pop();
     }
-
-    // body
-    fill('#000000');
-    noStroke();
-    ellipse(0, 0, spider.size, spider.size);
-
-    //eyes 
-    fill('#FFFFFF');
-    //left eye
-    ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
-    //right eye
-    ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
-// pupils
-    fill('#000000'); 
-    ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
-    ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
-
-    //smile 
-    noFill();
-    stroke('#8a2f64ff');
-    strokeWeight(2);
-    arc(0, spider.size * 0.15, spider.size * 0.4, spider.size * 0.25, 0, PI);
-
-
-    pop(); 
-  }
 }
+
 // variation menu aka more of greedy frog 
 function drawVariationMenu() {
     background("#d6f5d6");

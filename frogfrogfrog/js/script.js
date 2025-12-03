@@ -139,7 +139,12 @@ function resetFly() {
 /////////////////////////////////////////////////the game of ping pong start here /////////////////////////////////////////////////////
 function runPingPong() {
     background("#bbe6a1ff");
-
+    drawSpiders();
+    // Check if the player has won (score >= 35)
+    if (rightScore >= 35) {
+        showPlayerGameOver(); // Display player-specific game over
+        return;
+    }
     // darken screen if player score >= 25
     if (rightScore >= 25) {
         push();
@@ -148,14 +153,19 @@ function runPingPong() {
         rect(0, 0, width, height);
         pop();
     }
-   drawSpiders();// put before the ball and paddles ,so spiders appear behind stuff
+    drawSpiders();// put before the ball and paddles ,so spiders appear behind stuff
 
+    //playe reaching 35 4 game over
+    if (rightScore >= 35) {
+        gameState = "gameOver";
+        return;
+    }
     // Ball for ping pong
-   
+
     fill(255);
     imageMode(CENTER);
     image(pingBallImg, pingBallX, pingBallY, 60, 60); // x, y, width, height reminder for myself cause i always forget
-   
+
     // faster ball speed n AI paddle speed when player score reaches number(15 or 30 idk )
     if (rightScore >= 15) {
         pingBallSpeedX = pingBallSpeedX > 0 ? 8 : -8; // faster speed hor
@@ -226,7 +236,7 @@ function runPingPong() {
 
 
 
-    
+
     //ping pong fly get drawn then he check distance will be running 
     drawPingFly();
     updatePingFly();
@@ -243,7 +253,7 @@ function drawPingPongHelp() { //instructions on ping pong screen
     textSize(16);
     text(" Move the paddle with ↑ / ↓", width / 2, 30);
     text("Press M to return to the main menu", width / 2, height - 20);
-pop();
+    pop();
 }
 // Resets Ping Pong game n place the ball in  center n give random direction n speed.
 function resetPingPong() {
@@ -270,7 +280,7 @@ function drawScorepingpong() {
     text(leftScore, width / 4, 40);
     text(rightScore, width * 3 / 4, 40);
     pop();
-    
+
     // Ping Pong game over with AI winning 
     if (leftScore >= 30) {
         gameState = "pingpongGameOver";
@@ -295,9 +305,23 @@ function updatePingFly() {
         resetPingFly();
     }
 }
+function showPlayerGameOver() {
+    push();
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    text("GAME OVER", width / 2, height / 2 - 60);
+
+    textSize(18);
+    text("Oh Mr.Greedy,you never learn your lesson, do ya?", width / 2, height / 2);
+
+    textSize(16);
+    text("Click anywhere to restart", width / 2, height / 2 + 60);
+    pop();
+}
 //game over with ai winning 
 function showPingPongGameOver() {
-    background("#240303"); // dark red / black background
+    background("#000000ff");
 
     fill("white");
     textAlign(CENTER, CENTER);
@@ -340,32 +364,6 @@ function keyReleased() {
         if (keyCode === DOWN_ARROW) keys.down = false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
 // Mouse click handling for menus lord help me
@@ -402,8 +400,8 @@ function mousePressed() {
             gameState = "menu";
         }
     }
-   // restart Ping Frog once game over with ai
-    else if (gameState === "pingpongGameOver") {
+    // restart Ping Frog once game over with ai
+    if (gameState === "pingpongGameOver") {
         resetPingPong();
         resetPingFly();
         leftScore = 0;
@@ -411,5 +409,17 @@ function mousePressed() {
         paddleLeftY = 200;
         paddleRightY = 200;
         gameState = "pingpong";
+    }
+    // Handle mouse press to reset the game after game over
+    function mousePressed() {
+        if (gameState === "pingpong" && rightScore >= 35) {
+            resetPingPong();
+            resetPingFly();
+            leftScore = 0;
+            rightScore = 0;
+            paddleLeftY = 200;
+            paddleRightY = 200;
+            gameState = "pingpong";
+        }
     }
 }

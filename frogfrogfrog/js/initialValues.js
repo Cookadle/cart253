@@ -137,8 +137,8 @@ let pingFlyX = 0;
 let pingFlyY = 0;
 let pingFlySize = 30;
 //crawling spider return for ping pong
-let spiders = []; 
-let spiderCount = 5; 
+let spiders = [];
+let spiderCount = 5;
 
 
 // Add new variable for custom message
