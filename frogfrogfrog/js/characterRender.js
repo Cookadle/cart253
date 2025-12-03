@@ -62,14 +62,14 @@ function drawFrog() {
 
         //eyes
         push();
-        fill("#ffffffff");                
-        stroke("#3d5a3dff");        
+        fill("#ffffffff");
+        stroke("#3d5a3dff");
         strokeWeight(2);
-       ellipse(frog.body.x - 25, frog.body.y - 55, 40, 50); // left eye 
+        ellipse(frog.body.x - 25, frog.body.y - 55, 40, 50); // left eye 
         ellipse(frog.body.x + 25, frog.body.y - 55, 40, 50); // right eye
 
         //pupila
-        fill(0);                
+        fill(0);
         ellipse(frog.body.x - 25, frog.body.y - 55, 20);
         ellipse(frog.body.x + 25, frog.body.y - 55, 20);
         pop();
@@ -164,17 +164,17 @@ function drawFly() {
 }
 //ping pong fly here
 function drawPingFly() {
- push();
+    push();
     noStroke();
     translate(pingFlyX, pingFlyY);
-//dont forge to add this in new functions
-// Moves the origin of the drawing to the fly's position.
-// then all shapes (body, wings, eyes) are drawn relative to (0,0),
-// which represents the fly's current x and y on  canvas.
-// This makes it much easier to position wings and body consistently.
-   
+    //dont forge to add this in new functions
+    // Moves the origin of the drawing to the fly's position.
+    // then all shapes (body, wings, eyes) are drawn relative to (0,0),
+    // which represents the fly's current x and y on  canvas.
+    // This makes it much easier to position wings and body consistently.
 
-// wings 
+
+    // wings 
     fill("#96C8FF80")
 
 
@@ -190,11 +190,11 @@ function drawPingFly() {
     ellipse(0, 0, pingFlySize * 1.1, pingFlySize * 0.9);
 
     // flyhead
-  fill("#252424ff"); 
+    fill("#252424ff");
     ellipse(0, -pingFlySize * 0.45, pingFlySize * 0.75);
 
     //eyes
-      fill("#FF3232");
+    fill("#FF3232");
     ellipse(-pingFlySize * 0.22, -pingFlySize * 0.55, pingFlySize * 0.22);
     ellipse(pingFlySize * 0.22, -pingFlySize * 0.55, pingFlySize * 0.22);
 
@@ -219,7 +219,12 @@ function runPingPong() {
     fill(255);
     imageMode(CENTER);
     image(pingBallImg, pingBallX, pingBallY, 60, 60); // x, y, width, height reminder for myself cause i always forget
-
+    // faster ball speed n AI paddle speed when player score reaches number(15 or 30 idk )
+    if (rightScore >= 15) {
+        pingBallSpeedX = pingBallSpeedX > 0 ? 8 : -8; // faster speed hor
+        pingBallSpeedY = pingBallSpeedY > 0 ? 5 : -5; // faster speed vert
+        aiSpeed = 6; // faster AI
+    }
     // Right paddle (player controlled with up down keys )
     //  adjust the speed here too 
     if (keys.up) paddleRightY -= 5;

@@ -36,7 +36,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 Anything related to background assets such as button bg menu etc will be here
-*/ 
+*/
 "use strict";
 //GREEDY FROG
 
@@ -67,7 +67,7 @@ function drawmenu() {
     }
     image(upkey, 50, 10, 40, 40);
     image(movingkey, 25, 55, 90, 40);
-    
+
     // Add some text label for main screen tiitle
     fill(0);
     textSize(16);

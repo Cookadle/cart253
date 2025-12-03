@@ -125,8 +125,8 @@ function drawPingPongHelp() { //instructions on ping pong screen
     fill(255);
     textAlign(CENTER);
     textSize(16);
-    text(" ↑/↓ = right paddle", width / 2, 30);
-    text("Press M to return to Menu", width / 2, height - 20);
+    text(" Move the paddle with ↑ / ↓", width / 2, 30);
+    text("Press M to return to the main menu", width / 2, height - 20);
 }
 // Resets Ping Pong game n place the ball in  center n give random direction n speed.
 function resetPingPong() {
@@ -145,12 +145,12 @@ function drawScorepingpong() {
         leftScore += 1; // ai player scores a point
         resetPingPong(); // Reset the ball position
     }
-     // Draw the score on the screen
+    // Draw the score on the screen
     fill(255);
     textAlign(CENTER);
     textSize(32);
-    text(leftScore, width / 4, 40); 
-    text(rightScore, width * 3 / 4, 40); 
+    text(leftScore, width / 4, 40);
+    text(rightScore, width * 3 / 4, 40);
 }
 //my little ping pong fly is reset here
 function resetPingFly() {
@@ -250,7 +250,7 @@ function mousePressed() {
         if (mouseX > pingPongButton.x && mouseX < pingPongButton.x + pingPongButton.w &&
             mouseY > pingPongButton.y && mouseY < pingPongButton.y + pingPongButton.h) {
             resetPingPong();
-             resetPingFly();
+            resetPingFly();
             gameState = "pingpong";
         }
 

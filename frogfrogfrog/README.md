@@ -1,9 +1,5 @@
 # Greedy frog
 
-A game about catching flies.
- 
-A game of catching flies with your frog-tongue
-
 Original concept by : [Pippin Bar](https://pippinbarr.com/frogfrogfrog/)
 
 Modded by : Jeany Corrius 
@@ -28,7 +24,8 @@ General:
 -[Ideas](./ideas.md)
 ## Description 
 A modded version of Pippin Bar frog frog game.
-Two games following the life of Greedy frog ,a frog who can't stop eating flies.
+Introducing Greedy Greedy frog who love eating flies any way he can!
+Two games following the life of Mr.Greedy frog !
 
 *What will happen???*
 ---------------------------------------------------------
@@ -49,7 +46,7 @@ Oh you want **more**?
 
 ## Attribution
 -Loik my partner
--Ai Game:
+-Ai(ish)configuration +Ping Pong:
 https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
 https://editor.p5js.org/bardyl/sketches/Tut4pb0zj

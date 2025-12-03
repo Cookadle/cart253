@@ -193,7 +193,7 @@ const frog = {
 // Our fly Has a position, size, and speed of horizontal movement
 const fly = {
     x: 0,
-    y: 200, 
+    y: 200,
     size: 10,
     speed: 3
 };
