@@ -9,9 +9,12 @@ Instructions for Greedy Frog:
 - Press up arrow to launch the tongue
 - Catch flies until you can't
 
+Can you get to 3000?
+
 Instructions for Ping Pong Frog :
 -Move the paddle with the up and down key arrows
 -Catch the flies
+Can you get to ?
 
 General:
 -Press M to go back to the main menu

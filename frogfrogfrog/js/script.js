@@ -40,6 +40,17 @@
 /* Creates the canvas and start the fly + background color start (sky blue)*/
 function setup() {
     createCanvas(640, 480);
+    // Initialize spiders hihi my first array
+    for (let i = 0; i < spiderCount; i++) {
+        spiders.push({
+            x: random(width),
+            y: random(height),
+            speedX: random(-1.5, 1.5),
+            speedY: random(-1.5, 1.5),
+            size: random(20, 40)
+        });
+    }
+
     // Give the fly its first random position
     resetFly();
     //same but for pingpong frog
@@ -76,13 +87,19 @@ function draw() { //where the gamestate come alive
         runGame();
         return;
     }
-    // ping pong frog mode
+    // ping pong frog mode mostly starting here 
     if (gameState === "pingpong") {
         runPingPong();
         return;
     }
-    else if (gameState === "gameOver") { //game is done
+    //greedy frog game over
+    else if (gameState === "gameOver") {
         showgameOver();
+        return;
+    }
+    //ai winning game over
+    if (gameState === "pingpongGameOver") {
+        showPingPongGameOver();
         return;
     }
 }
@@ -119,23 +136,26 @@ function resetFly() {
 }
 
 
-//the game of ping pong start here 
+/////////////////////////////////////////////////the game of ping pong start here /////////////////////////////////////////////////////
 function runPingPong() {
     background("#bbe6a1ff");
+
     // darken screen if player score >= 25
     if (rightScore >= 25) {
         push();
         noStroke();
-        fill(0, 50);
+        fill("#1c38039f");
         rect(0, 0, width, height);
         pop();
     }
-
+   drawSpiders();// put before the ball and paddles ,so spiders appear behind stuff
 
     // Ball for ping pong
+   
     fill(255);
     imageMode(CENTER);
     image(pingBallImg, pingBallX, pingBallY, 60, 60); // x, y, width, height reminder for myself cause i always forget
+   
     // faster ball speed n AI paddle speed when player score reaches number(15 or 30 idk )
     if (rightScore >= 15) {
         pingBallSpeedX = pingBallSpeedX > 0 ? 8 : -8; // faster speed hor
@@ -217,11 +237,13 @@ function runPingPong() {
     drawScorepingpong();
 }
 function drawPingPongHelp() { //instructions on ping pong screen
+    push();
     fill(255);
     textAlign(CENTER);
     textSize(16);
     text(" Move the paddle with ↑ / ↓", width / 2, 30);
     text("Press M to return to the main menu", width / 2, height - 20);
+pop();
 }
 // Resets Ping Pong game n place the ball in  center n give random direction n speed.
 function resetPingPong() {
@@ -234,24 +256,34 @@ function resetPingPong() {
 function drawScorepingpong() {
     if (pingBallX < 0) {
         rightScore += 1; //  player scores a point
-        resetPingPong(); // Reset the ball position
+        resetPingPong(); // reset the ball position
     }
     else if (pingBallX > width) {
-        leftScore += 1; // ai player scores a point
-        resetPingPong(); // Reset the ball position
+        leftScore += 1; // ai scores a point
+        resetPingPong(); // reset the ball position
     }
     // Draw the score on the screen
+    push();
     fill(255);
     textAlign(CENTER);
     textSize(32);
     text(leftScore, width / 4, 40);
     text(rightScore, width * 3 / 4, 40);
+    pop();
+    
+    // Ping Pong game over with AI winning 
+    if (leftScore >= 30) {
+        gameState = "pingpongGameOver";
+    }
 }
+
 //my little ping pong fly is reset here
 function resetPingFly() {
     pingFlyX = random(50, width - 50);
     pingFlyY = random(50, height - 50);
 }
+
+
 //Handles the logic for the Ping Pong fly
 // Checks ball overlaps w fly then get point n fly get respawn elsewhere
 function updatePingFly() {
@@ -263,6 +295,22 @@ function updatePingFly() {
         resetPingFly();
     }
 }
+//game over with ai winning 
+function showPingPongGameOver() {
+    background("#240303"); // dark red / black background
+
+    fill("white");
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    text("GAME OVER", width / 2, height / 2 - 60);
+
+    textSize(18);
+    text(pingPongGameOverMessage, width / 2, height / 2);
+
+    textSize(16);
+    text("Click anywhere to restart", width / 2, height / 2 + 60);
+}
+
 
 
 //Ping Pong controls .The mplayer controls only the right paddle
@@ -354,6 +402,14 @@ function mousePressed() {
             gameState = "menu";
         }
     }
-
-    //idk if i need or want a game over might add the static fly
+   // restart Ping Frog once game over with ai
+    else if (gameState === "pingpongGameOver") {
+        resetPingPong();
+        resetPingFly();
+        leftScore = 0;
+        rightScore = 0;
+        paddleLeftY = 200;
+        paddleRightY = 200;
+        gameState = "pingpong";
+    }
 }
