@@ -49,7 +49,7 @@ translate()
 
 ## Attribution
 - Loik my partner
-- Ai(ish)configuration + Ping Pong:
+- Ai(ish)configuration + Ping Pong :
 https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
 https://editor.p5js.org/bardyl/sketches/Tut4pb0zj
