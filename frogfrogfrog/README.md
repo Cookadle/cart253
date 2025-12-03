@@ -12,7 +12,7 @@ Instructions for Greedy Frog:
 
 Instructions for Ping Pong Frog :
 -Move the paddle with the up and down key arrows
--Catch the flies
+-Catch the flies <br>
 **Can you get to 35or will the AI beat you?**
 
 General:
