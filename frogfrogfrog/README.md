@@ -8,12 +8,18 @@ Original concept by : [Pippin Bar](https://pippinbarr.com/frogfrogfrog/)
 
 Modded by : Jeany Corrius 
 
-Instructions:
+Instructions for Greedy Frog:
 - Move the frog with the left right key arrows
 - Press up arrow to launch the tongue
-- Catch flies
+- Catch flies until you can't
 
+Instructions for Ping Pong Frog :
+-Move the paddle with the up and down key arrows
+-Catch the flies
 
+General:
+-Press M to go back to the main menu
+ 
 
   
 
