@@ -8,12 +8,12 @@ Instructions for Greedy Frog:
 - Move the frog with the left right key arrows
 - Press up arrow to launch the tongue
 - Catch flies until you can't
-**Can you get to 3000?**
+-**Can you get to 3000?**
 
  Instructions for Ping Pong Frog:
 - Move the paddle with the up and down key arrows
 - Catch flies until you can't
-**-Can you get to 35 or will the AI beat you?**
+-**Can you get to 35 or will the AI beat you?**
 
 General:
 -Press M to go back to the main menu
@@ -26,7 +26,7 @@ General:
 -[Ideas](./ideas.md)
 ## Description 
 A modded version of Pippin Bar frog frog game.
-Introducing Greedy Greedy frog who love eating flies any way he can!
+Introducing Greedy Greedy frog,a silly who love eating flies any way he can!
 Two games following the life of Mr.Greedy frog !
 
 *What will happen???*
