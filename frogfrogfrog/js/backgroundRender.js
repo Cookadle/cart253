@@ -208,6 +208,7 @@ function drawButton(btn) {
     return isHovering; // just return hover, handle click elsewhere bc itll crash
 
 }
+// draw moving spiders in ping pong bg 
 function drawSpiders() {
     //loop spider in the spiders array
     for (let spider of spiders) {
@@ -224,6 +225,9 @@ function drawSpiders() {
 
 
         if (rightScore >= 35) {
+
+
+
             //spider evil look
             stroke(0);
             strokeWeight(4);
@@ -238,6 +242,7 @@ function drawSpiders() {
                 bezier(0, 0, legLength * i * 0.5, legLength * 0.3, legLength * i * 0.7, legLength * 0.5, legLength * i, legLength * 0.6);
                 bezier(0, 0, legLength * i * 0.5, legLength * 0.1, legLength * i * 0.8, legLength * 0.2, legLength * i, legLength * 0.3);
             }
+            
             //evilspider body
             fill('#FF0000');
             noStroke();
@@ -252,14 +257,14 @@ function drawSpiders() {
             ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
 
             // Simple Spider Horns
-            stroke('#FF0000');
+            /*stroke('#FF0000');
             strokeWeight(6);  
 
             // left horn 
-            line(-spider.size * 0.4, -spider.size * 0.8, -spider.size * 0.7, -spider.size * 1.2);
+           line(-spider.size * 0.4, -spider.size * 0.5, -spider.size * 0.7, -spider.size * 1.0);
 
             // right horn
-            line(spider.size * 0.4, -spider.size * 0.8, spider.size * 0.7, -spider.size * 1.2);
+        line(spider.size * 0.4, -spider.size * 0.5, spider.size * 0.7, -spider.size * 1.0);*/
         }
         else {
             //regular spider look
