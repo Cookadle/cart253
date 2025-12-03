@@ -37,6 +37,9 @@ function setup() {
     createCanvas(640, 480);
     // Give the fly its first random position
     resetFly();
+    //same but for pingpong frog
+    resetPingFly();
+
 
     bgColor = color("#87ceeb"); // light sky blue start dont remove or game wont start even if you call this later in score
     targetColor = bgColor; //backgroung 
@@ -111,7 +114,7 @@ function resetFly() {
 }
 
 
-//PING PONG FROG
+////////////////////PING PONG FROG///////////////////////////////////////////
 
 function drawPingPongHelp() { //instructions on ping pong screen
     fill(255);
@@ -127,11 +130,47 @@ function resetPingPong() {
     pingBallSpeedX = random([-5, 5]);
     pingBallSpeedY = random([-3, 3]);
 }
+//handle the score keeping between ai and player
+function drawScorepingpong() {
+    if (pingBallX < 0) {
+        rightScore += 1; //  player scores a point
+        resetPingPong(); // Reset the ball position
+    }
+    else if (pingBallX > width) {
+        leftScore += 1; // ai player scores a point
+        resetPingPong(); // Reset the ball position
+    }
+     // Draw the score on the screen
+    fill(255);
+    textAlign(CENTER);
+    textSize(32);
+    text(leftScore, width / 4, 40); 
+    text(rightScore, width * 3 / 4, 40); 
+}
+//my little ping pong fly is reset here
+function resetPingFly() {
+    pingFlyX = random(50, width - 50);
+    pingFlyY = random(50, height - 50);
+}
+//Handles the logic for the Ping Pong fly
+// Checks if the ball overlaps with fly
+// then get point n fly get respawn elsewhere
+function updatePingFly() {
+    let d = dist(pingBallX, pingBallY, pingFlyX, pingFlyY);
+
+    // If ball hits fly ,score goes up n respawn
+    if (d < 30 + pingFlySize / 2) {
+        rightScore += 1;
+        resetPingFly();
+    }
+}
+
+
 //Ping Pong controls .The mplayer controls only the right paddle
 function keyPressed() {
     if (key === 'm' || key === 'M') {
         gameState = "menu";
-        // Reset pingpong variables
+        // Reset pingpong PADDLES
         resetPingPong();
         paddleRightY = 200;
         paddleLeftY = 200;
@@ -155,6 +194,32 @@ function keyReleased() {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
 // Mouse click handling for menus lord help me
 function mousePressed() {
@@ -180,6 +245,7 @@ function mousePressed() {
         if (mouseX > pingPongButton.x && mouseX < pingPongButton.x + pingPongButton.w &&
             mouseY > pingPongButton.y && mouseY < pingPongButton.y + pingPongButton.h) {
             resetPingPong();
+             resetPingFly();
             gameState = "pingpong";
         }
 

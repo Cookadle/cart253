@@ -40,6 +40,7 @@ https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
 https://editor.p5js.org/bardyl/sketches/Tut4pb0zj
 https://stackoverflow.com/questions/69834133/how-can-i-change-an-objects-speed-in-p5-js-if-the-mouse-is-pressed-in-oop
+https://p5js.org/examples/games-ping-pong/
 
 
 

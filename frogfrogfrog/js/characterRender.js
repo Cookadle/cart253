@@ -140,13 +140,20 @@ function drawFly() {
     pop();
 }
 
+function drawPingFly() {
+    push();
+    fill(0);
+    noStroke();
+    ellipse(pingFlyX, pingFlyY, pingFlySize);
+    pop();
+}
 
 
 
 
 ////////////////PING PONG PART THIS IS PING PONG PART///////////////////////////////////
 
-//the game of ping pong start here
+//the game of ping pong start here //included heree because character render touch on assets such as paddle
 function runPingPong() {
     background("#A5DB84");
 
@@ -155,26 +162,26 @@ function runPingPong() {
     imageMode(CENTER);
     image(pingBallImg, pingBallX, pingBallY, 60, 60); // x, y, width, height reminder for myself cause i always forget
 
-    // Right paddle (player controlled with up down keys ) adjust the speed here too 
+    // Right paddle (player controlled with up down keys )
+    //  adjust the speed here too 
     if (keys.up) paddleRightY -= 5;
     if (keys.down) paddleRightY += 5;
 
     // Keep paddle inside the screen just like frog
     paddleRightY = constrain(paddleRightY, 0, height - 80);
 
-    // Draw the paddle (on the right)
+    // Draw right paddle 
     rect(width - 30, paddleRightY, 10, 80);
 
-    // Left paddle (kinda ai controlled) - Move paddle toward the ball y position  and aiSpeed controls difficulty of ai paddle
-    // If ball is above the paddle go up
+    // Left paddle (kinda ai controlled) aiSpeed controls difficulty of ai paddle
+    //speed adjust here
     if (pingBallY < paddleLeftY + 40) {
         paddleLeftY -= aiSpeed;
 
-    // If ball below the paddle center go down
     } else if (pingBallY > paddleLeftY + 40) {
         paddleLeftY += aiSpeed;
     }
-    // AI paddle inside constrained
+    // AI paddle inside constrained like frogy
     paddleLeftY = constrain(paddleLeftY, 0, height - 80);
 
     // draw left paddle
@@ -202,11 +209,12 @@ function runPingPong() {
         pingBallY < paddleRightY + 80) {
         pingBallSpeedX *= -1;
     }
+    //ping pong fly get drawn then he check distance will be running 
+    drawPingFly();
+    updatePingFly();
 
-    // Reset if ball is out
-    if (pingBallX < 0 || pingBallX > width) {
-        resetPingPong();
-    }
     // Draw  instructions 
     drawPingPongHelp();
+    //handle score 
+    drawScorepingpong();
 }

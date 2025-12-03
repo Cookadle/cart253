@@ -138,6 +138,9 @@ function showgameOver() {
     textSize(16);
     text("Click anywhere to restart", width / 2, height / 2 + 60);
 }
+
+
+
 ///////////////////////////////////////PING PONG FROG /////////////////////////////////////////////
 
 // draw button and handle hover state
