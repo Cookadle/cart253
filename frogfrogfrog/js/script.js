@@ -107,7 +107,7 @@ function draw() { //where the gamestate come alive
     }
     // when in "game"
     if (gameState === "frogsnake") {
-        drawSnakeFrog(); // Calling the Snake Frog game logic
+        drawSnakeFrog(); 
         return;
     }
 }
@@ -294,7 +294,6 @@ function drawScorepingpong() {
         gameState = "pingpongGameOver";
     }
 }
-
 //my little ping pong fly is reset here
 function resetPingFly() {
     pingFlyX = random(50, width - 50);
@@ -302,7 +301,7 @@ function resetPingFly() {
 }
 
 
-//Handles the logic for the Ping Pong fly
+//Handle the Ping Pong fly
 // Checks ball overlaps w fly then get point n fly get respawn elsewhere
 function updatePingFly() {
     let d = dist(pingBallX, pingBallY, pingFlyX, pingFlyY);
@@ -342,9 +341,6 @@ function showPingPongGameOver() {
     textSize(16);
     text("Click anywhere to restart", width / 2, height / 2 + 60);
 }
-
-
-
 //Ping Pong controls .The mplayer controls only the right paddle
 function keyPressed() {
     if (key === 'm' || key === 'M') {
@@ -364,7 +360,6 @@ function keyPressed() {
         if (keyCode === DOWN_ARROW) keys.down = true;
     }
 }
-
 //handle Ping Pong paddle controls when in pingpong state
 function keyReleased() {
     if (gameState === "pingpong") {
@@ -373,41 +368,45 @@ function keyReleased() {
     }
 }
 
-/////////SNAKE GAME/////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////SNAKE GAME/////////////////////////////////////////////////
 function setupSnakeFrogGame() {
-    frogHead = createVector(width / 2, height / 2); // frog starting position
     frogDirection = { x: 0, y: 0 }; 
-    createFly(); 
+    createFlyFruit(); 
 }
+
 // Move the frog for snake game
 function moveFrog() {
-   
-    if (keyIsDown(UP_ARROW)) frogDirection = { x: 0, y: -1 }; 
-    if (keyIsDown(DOWN_ARROW)) frogDirection = { x: 0, y: 1 }; 
-    if (keyIsDown(LEFT_ARROW)) frogDirection = { x: -1, y: 0 }; 
-    if (keyIsDown(RIGHT_ARROW)) frogDirection = { x: 1, y: 0 }; 
-
-  
-    frogHead.x += frogDirection.x * frogSpeed;
-    frogHead.y += frogDirection.y * frogSpeed;
+    if (keyIsDown(87))    // W key
+        frogHead.y -= frogSpeed;
+    if (keyIsDown(83))    // S key
+        frogHead.y += frogSpeed;
+    if (keyIsDown(65))    // A key
+        frogHead.x -= frogSpeed;
+    if (keyIsDown(68))    // D key
+        frogHead.x += frogSpeed;
 }
+
+
+
 
 function checkCollision() {
     // Check for collision with walls
     if (frogHead.x < 0 || frogHead.x >= width || frogHead.y < 0 || frogHead.y >= height) {
-        gameState = "gameOver"; // Game over if frog hits boundary
+        gameState = "gameOver"; // Game over if frog hits walll
     }
 }
-function createFly() {
-    fly.x = random(width);
-    fly.y = random(height);
-    fly.size = random(10, 20); // Randomize fly size slightly
+function createFlyFruit() {
+    flyFruit.x = random(width);
+    flyFruit.y = random(height);
+    flyFruit.size = random(10, 20); // Randomize fly size slightly
 }
 function resetSnakeFrog() {
     frogHead = createVector(width / 2, height / 2); // Reset frog position
-    frogDirection = { x: 0, y: 0 }; // Reset direction
-    snakeFrogScore = 0; // Reset score
-    createFly(); // Create a new fly
+    frogDirection = { x: 0, y: 0 }; 
+    snakeFrogScore = 0; 
+    createFlyFruit(); 
 }
 
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
@@ -442,7 +441,7 @@ function mousePressed() {
         // When snake frog button is clicked, start Snake Frog game
     if (mouseX > snakeFrogButton.x && mouseX < snakeFrogButton.x + snakeFrogButton.w &&
         mouseY > snakeFrogButton.y && mouseY < snakeFrogButton.y + snakeFrogButton.h) {
-        //setupSnakeFrogGame();
+        setupSnakeFrogGame();
         gameState = "frogsnake"; 
     }
         // if back button is clicked it will then go back to menu duh

@@ -145,13 +145,15 @@ let spiderCount = 5;
 let pingPongGameOverMessage = "Oooof they ate you up Mr.Greedy!";
 
 //for frogsnake game
+let flyFruit = {}; 
 let frogHead; 
 let frogDirection = { x: 0, y: 0 }; // initial movement direction (no movement at start)
 let frogSize = 20; 
-let frogSpeed = 20; 
+let frogSpeed = 10; 
 let snakeFrogScore = 0; 
 let frogImg;  
 let flyImg;
+
 // Buttons inside variation menu aka more of greedy frog
 let pingPongButton = {
     x: 220, y: 250, w: 200, h: 50, cornerRadius: 20,

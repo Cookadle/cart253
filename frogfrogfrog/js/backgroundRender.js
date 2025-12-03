@@ -75,7 +75,7 @@ function drawmenu() {
     text("Press ←→ to move the frog !", 225, 70);
     text("Press M to return here!", 105, 120);
 }
-
+//might need to move this in script file 
 function runGame() { //will let the game  start once game state is different / BACKGROUND N SCORE CHANGE IN HERE
 
     //thank you geek for geeks and w3school and reddit .reddit the most love you nerds

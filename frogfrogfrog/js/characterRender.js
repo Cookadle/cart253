@@ -215,13 +215,13 @@ function drawSnakeFrog() {
     image(frogImg, frogHead.x, frogHead.y, frogSize, frogSize);
 
     // Check if the frog eats the fly
-    if (dist(frogHead.x, frogHead.y, fly.x, fly.y) < frogSize) {
-        snakeFrogScore++; // Increase score
-        createFly(); // Create a new fly
+    if (dist(frogHead.x, frogHead.y, flyFruit.x, flyFruit.y) < frogSize) {
+        snakeFrogScore++; 
+        createFlyFruit(); 
     }
 
     // Draw the fly
-    image(flyImg, fly.x, fly.y, fly.size, fly.size);
+    image(flyImg, flyFruit.x, flyFruit.y, flyFruit.size, flyFruit.size);
 
     // Display the score
     fill(255);
