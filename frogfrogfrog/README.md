@@ -20,48 +20,41 @@ Instructions:
 [Play it!](https://cookadle.github.io/cart253/frogfrogfrog/)
 
 -[Ideas](./ideas.md)
-
--Added title screen with instruction
-
--Added button title screen
-
--Added score which impact game background and more
-
--Constrain the frog so doesnt fly off canvas
-
--Brand new dances move for the fly (BEAUTIFUL FLY MOVEMENTS WOW MY BABY IS A DANCER)
+## Description 
+A modded version of Pippin Bar frog frog game.
+Two games following the life of Greedy frog ,a frog who can't stop eating flies.
+What will happen???
 
 
+## Screenshot(s)
+Welcome to our menu!What will it be today?
+![menu screen](assets/images/Main_Menu.png)
+Ah a classic Greedy Frog...
+![In game screen for Greedy Frog](assets/images/Greedy_Frog.png)
+Oh you want more?
+![Variation menu ](assets/images/Variations_Menu.png)
+Try beating the game ai then!
+![In game screen for Ping Pong Frog](assets/images/PingPong_Frog.png)
 
-Credit;
+
+## New function/attributes:
+
+## Attribution
 Loik my partner
-Ai paddle:
+Ai Game:
 https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
 https://editor.p5js.org/bardyl/sketches/Tut4pb0zj
 https://stackoverflow.com/questions/69834133/how-can-i-change-an-objects-speed-in-p5-js-if-the-mouse-is-pressed-in-oop
 https://p5js.org/examples/games-ping-pong/
+Perlin noise: 
+https://thecodingtrain.com/tracks/noise/noc/perlin/intro-to-perlin-noise (Very great youtuber when it comes to learning new function on js p5)
+Title gradiant:
+https://p5js.org/examples/repetition-color-interpolation/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Pixel Art:Jeany
+Pixel Art:Cookadle (me)
+Inspiration for organisation of files: 
+https://github.com/Dajuuu/2D-Platformer-p5
 
 Sounds: 
 
@@ -72,16 +65,10 @@ In Game:https://pixabay.com/music/video-games-sinnesl%c3%b6schen-beam-117362/
 
  Gulp:https://pixabay.com/sound-effects/gulp-48452/
 
-Shout out and credits to :
+## License
 
-(PERLIN NOISE)https://thecodingtrain.com/tracks/noise/noc/perlin/intro-to-perlin-noise (Very great youtuber when it comes to learning new function on js p5)
+> This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.
 
-(Title gradiant)https://p5js.org/examples/repetition-color-interpolation/
-
-(hmmmm i forgot)https://github.com/Lartu/p5.clickable?tab=readme-ov-file
-
-organisaion of files 
-  https://github.com/Dajuuu/2D-Platformer-p5
 
  
 
