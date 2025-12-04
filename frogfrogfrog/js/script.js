@@ -221,7 +221,7 @@ function runPingPong() {
 function drawPingPongHelp() { //instructions on ping pong screen
     push();
     fill(255);
-    textAlign(CENTER);
+    textAlign(CENTER);//notneed
     textSize(16);
     text(" Move the paddle with ↑ / ↓", width / 2, 30);
     text("Press M to return to the main menu", width / 2, height - 20);
@@ -339,17 +339,28 @@ function moveJumpFrog() {
         jumpFrog.isJumping = true;
         jumpFrog.velocity = -12;
     }
+     //horizontal movement (left and right)
+    if (keyIsDown(LEFT_ARROW)) {
+        jumpFrog.x -= 5; // move left
+    }
+    if (keyIsDown(RIGHT_ARROW)) {
+        jumpFrog.x += 5; //move right
+    }
 
-    // Gravity effect
+    //gravity effect
     jumpFrog.velocity += 0.5;
     jumpFrog.y += jumpFrog.velocity;
 
-    // If the frog touches the ground, stop the jump
+    //if frog touches the ground, stop the jump
     if (jumpFrog.y >= 440) {
         jumpFrog.y = 440;
         jumpFrog.isJumping = false;
         jumpFrog.velocity = 0;
     }
+     //constrain frog within the canvas a classiccccc
+    jumpFrog.x = constrain(jumpFrog.x, 0 + jumpFrog.size / 2, width - jumpFrog.size / 2);
+
+
 }
 
 function generateObstacles() {

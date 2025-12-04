@@ -309,13 +309,13 @@ function drawSpiders() {
 /////////////////JUMP FROG //////////////////////////////
 
 function showGameOverJump() {
-    background("#000000");
+    background("#318a1bff");
     fill(255);
     textSize(32);
-    textAlign(CENTER, CENTER);
+    textAlign(CENTER, CENTER);//not needed but html habits
     text("GAME OVER", width / 2, height / 2 - 40);
     textSize(18);
-    text("Score: " + jumpFrogScore, width / 2, height / 2);
+    text("to be filled  ");
     text("Click to Restart rabbit", width / 2, height / 2 + 40);
 }
 //////////////////////////////////////buttons///////////////////
@@ -325,7 +325,6 @@ function drawVariationMenu() {
     background("#d6f5d6");
     // title variation menu
     fill(0);
-    textAlign(CENTER, CENTER);
     textSize(32);
     text("More greed...", width / 2, 100);
 

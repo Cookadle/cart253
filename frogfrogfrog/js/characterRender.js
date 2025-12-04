@@ -230,7 +230,15 @@ function drawJumpFrog() {// im sill so this kinda where the game call the functi
         }
         pop();
     }
+     // Instructions because im too lazy to do a instructions screen
+   fill("#240409ff"); 
+    textSize(16);
+    text("↑ = Jump   /  ←  → = Move",  width / 2, 30); //freshly coppied from ping pong
+    textSize(18); // Smaller text for the second line
+    fill("#770505ff"); // Yellow color
+    text("Avoid obstacles and reach a high score!", width / 2, 60);
 
+    //game runnning
     moveJumpFrog();
     generateObstacles();
     moveObstacles();
