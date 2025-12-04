@@ -268,12 +268,13 @@ function drawJumpFrog() {// im silly n tired of this so this kinda where the gam
 //////////////////CLICKER FROG///////////////////////
 function drawFreeFrog() {
     background("#87ceeb"); // sky blue
-
+push();
     textAlign(CENTER);
     fill(0);
     textSize(28);
     text("Free the Frog!", width / 2, 40);
     imageMode(CENTER);
+   
     // Frog shake effect on click
     let shakeX = random(-frogShake, frogShake);
     let shakeY = random(-frogShake, frogShake);
@@ -281,11 +282,9 @@ function drawFreeFrog() {
     // Draw frog
     imageMode(CENTER);
     image(frogImg, width / 2 + shakeX, height / 2 + shakeY, 180, 190);
-
-
-
-    // Jail HP Bar
-    drawJailHP();
+     pop();
+    // Draw jail bars in front of frog
+    drawJailBars();
     // Jail HP Bar
     drawJailHP();
 
@@ -298,4 +297,17 @@ function drawFreeFrog() {
 
     // Reduce shake every frame
     frogShake = max(0, frogShake - 0.5);
+}
+// Function to draw bars
+function drawJailBars() {
+    stroke("#000000ff");        
+    strokeWeight(6);
+    let spacing = 60;//space between bars
+//vertical bar
+   for (let x = 0; x <= width; x += spacing) {
+        line(x, 0, x, height);
+    }//horizon bar
+     for (let y = 0; y <= height; y += spacing) {
+        line(0, y, width, y);
+    }
 }

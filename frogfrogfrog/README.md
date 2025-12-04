@@ -69,7 +69,9 @@ translate()
 -Fly:
 -Inspiration for organisation of files: 
 - https://github.com/Dajuuu/2D-Platformer-p5
-
+-Clicker game ressources : (structure =code was taken )
+-https://editor.p5js.org/coowill/sketches/60UssVO9L
+-https://editor.p5js.org/Mortak/sketches/uBjPns_Ft
 -Sounds: 
 
 -Title : 

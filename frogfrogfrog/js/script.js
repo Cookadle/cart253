@@ -336,7 +336,7 @@ function generateObstacles() {
             width: random(30, 50),
             height: random(30, 60),
             speed: random(3, 6),
-            type: obstacleType // Assigning type to each obstacle
+            type: obstacleType //ssigning type to each obstacle
         };
         obstacles.push(obstacle);
     }
@@ -462,7 +462,7 @@ function mousePressed() {
         gameState = "pingpong";
     }
 
-
+/////clicker frog///
 if (gameState === "freeFrogClicker" && jailHealth > 0) {
     jailHealth--;
     frogShake = 10; // little shake animation
