@@ -63,7 +63,6 @@ function setup() {
     // give balls n paddle its starting setting
     resetPingPong();
     //frog
-frogHead = { x: 100, y: 100 };  //frogHead is initialized before use
 }
 
 
@@ -371,43 +370,7 @@ function keyReleased() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////SNAKE GAME/////////////////////////////////////////////////
-function setupSnakeFrogGame() {
-    frogDirection = { x: 0, y: 0 }; 
-    createFlyFruit(); 
-}
 
-// Move the frog for snake game
-function moveFrog() {
-    if (keyIsDown(87))    // W key
-        frogHead.y -= frogSpeed;
-    if (keyIsDown(83))    // S key
-        frogHead.y += frogSpeed;
-    if (keyIsDown(65))    // A key
-        frogHead.x -= frogSpeed;
-    if (keyIsDown(68))    // D key
-        frogHead.x += frogSpeed;
-}
-
-
-
-
-function checkCollision() {
-    // Check for collision with walls
-    if (frogHead.x < 0 || frogHead.x >= width || frogHead.y < 0 || frogHead.y >= height) {
-        gameState = "gameOver"; // Game over if frog hits walll
-    }
-}
-function createFlyFruit() {
-    flyFruit.x = random(width);
-    flyFruit.y = random(height);
-    flyFruit.size = random(10, 20); // Randomize fly size slightly
-}
-function resetSnakeFrog() {
-    frogHead = createVector(width / 2, height / 2); // Reset frog position
-    frogDirection = { x: 0, y: 0 }; 
-    snakeFrogScore = 0; 
-    createFlyFruit(); 
-}
 
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
@@ -439,11 +402,11 @@ function mousePressed() {
             gameState = "pingpong";
         }
         // When snake frog button is clicked, start Snake Frog game
-    if (mouseX > snakeFrogButton.x && mouseX < snakeFrogButton.x + snakeFrogButton.w &&
-        mouseY > snakeFrogButton.y && mouseY < snakeFrogButton.y + snakeFrogButton.h) {
-        setupSnakeFrogGame();
-        gameState = "frogsnake"; 
-    }
+    //if (mouseX > snakeFrogButton.x && mouseX < snakeFrogButton.x + snakeFrogButton.w &&
+       // mouseY > snakeFrogButton.y && mouseY < snakeFrogButton.y + snakeFrogButton.h) {
+        //setupSnakeFrogGame();
+      //  gameState = "frogsnake"; 
+    //}
         // if back button is clicked it will then go back to menu duh
         if (mouseX > backButton.x && mouseX < backButton.x + backButton.w &&
             mouseY > backButton.y && mouseY < backButton.y + backButton.h) {

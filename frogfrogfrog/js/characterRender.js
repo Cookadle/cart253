@@ -206,28 +206,5 @@ function drawPingFly() {
 
 ////////////////SNAKE PART THIS IS SNAKE PART///////////////////////////////////
 
-function drawSnakeFrog() {
-    background(bgColor); // Keep the background consistent
-    moveFrog(); // Move the frog
-    checkCollision(); // Check for game over conditions
-
-    // Draw the frog's head (as an image)
-    image(frogImg, frogHead.x, frogHead.y, frogSize, frogSize);
-
-    // Check if the frog eats the fly
-    if (dist(frogHead.x, frogHead.y, flyFruit.x, flyFruit.y) < frogSize) {
-        snakeFrogScore++; 
-        createFlyFruit(); 
-    }
-
-    // Draw the fly
-    image(flyImg, flyFruit.x, flyFruit.y, flyFruit.size, flyFruit.size);
-
-    // Display the score
-    fill(255);
-    textSize(24);
-    textAlign(CENTER, TOP);
-    text(`Score: ${snakeFrogScore}`, width / 2, 10);
-}
 
 
