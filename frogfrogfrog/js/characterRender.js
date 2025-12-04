@@ -265,5 +265,37 @@ function drawJumpFrog() {// im silly n tired of this so this kinda where the gam
     moveObstacles();
 }
 
+//////////////////CLICKER FROG///////////////////////
+function drawFreeFrog() {
+    background("#87ceeb"); // sky blue
+
+    textAlign(CENTER);
+    fill(0);
+    textSize(28);
+    text("Free the Frog!", width / 2, 40);
+    imageMode(CENTER);
+    // Frog shake effect on click
+    let shakeX = random(-frogShake, frogShake);
+    let shakeY = random(-frogShake, frogShake);
+
+    // Draw frog
+    imageMode(CENTER);
+    image(frogImg, width / 2 + shakeX, height / 2 + shakeY, 180, 190);
 
 
+
+    // Jail HP Bar
+    drawJailHP();
+    // Jail HP Bar
+    drawJailHP();
+
+    // Win screen
+    if (jailHealth <= 0) {
+        textSize(32);
+        fill("#1e7a2e");
+        text("THE FROG IS FREE!!!", width / 2, height / 2 + 150);
+    }
+
+    // Reduce shake every frame
+    frogShake = max(0, frogShake - 0.5);
+}

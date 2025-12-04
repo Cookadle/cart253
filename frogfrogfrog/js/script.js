@@ -110,6 +110,12 @@ function draw() { //where the gamestate come alive
         showjumpWinner();
         return;
     }
+    // clicker frog game
+if (gameState === "freeFrogClicker") {
+    drawFreeFrog();
+    return;
+}
+
 
 
 
@@ -364,6 +370,12 @@ function resetJumpFrogGame() {
     gameTimer = 30;
 
 }
+/////////CLICKER////////////////
+function resetFreeFrog() {
+    jailHealth = maxJailHealth;
+    frogShake = 0;
+}
+
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
 // Mouse click handling for menus lord help me
@@ -404,7 +416,14 @@ function mousePressed() {
                 gameState = "jumpFrog";
 
             }
+
         }
+          // FREE FROG CLICKER 
+        if (mouseX > freeFrogButton.x && mouseX < freeFrogButton.x + freeFrogButton.w &&
+            mouseY > freeFrogButton.y && mouseY < freeFrogButton.y + freeFrogButton.h) {
+            resetFreeFrog();
+            gameState = "freeFrogClicker";
+            }
         // if back button is clicked go back to menu duh
         if (mouseX > backButton.x && mouseX < backButton.x + backButton.w &&
             mouseY > backButton.y && mouseY < backButton.y + backButton.h) {
@@ -442,6 +461,12 @@ function mousePressed() {
         paddleRightY = 200;//u know
         gameState = "pingpong";
     }
+
+
+if (gameState === "freeFrogClicker" && jailHealth > 0) {
+    jailHealth--;
+    frogShake = 10; // little shake animation
+}
 
 
 }

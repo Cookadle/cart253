@@ -395,6 +395,19 @@ function showjumpWinner() {
     fill("#00f014ff"); 
        text("Click M to go back to menu", width / 2,  height / 2 +100);
 }
+/////////////////clicker//////////////////////////////////////////
+function drawJailHP() {
+    fill("#222");
+    rect(width / 2 - 110, 70, 220, 20, 10);
+
+    fill("#ff6060");
+    let barWidth = map(jailHealth, 0, maxJailHealth, 0, 220);
+    rect(width / 2 - 110, 70, barWidth, 20, 10);
+
+    fill(255);
+    textSize(16);
+    text("Jail HP: " + jailHealth, width / 2, 105);
+}
 
 //////////////////////////////////////buttons///////////////////
 
@@ -407,12 +420,13 @@ function drawVariationMenu() {
     text("More greed...", width / 2, 100);
 
 
-    // Draw jump Frog button here 
-    let hoveringSnake = drawButton(jumpFrogButton);
+     
+   
 
 
     // draw Ping Pong  frog and back button that user will be able to click to navigate // leave this function here 
     let hoveringPing = drawButton(pingPongButton);
     let hoveringBack = drawButton(backButton);
-
+    let hoveringSnake = drawButton(jumpFrogButton);// Draw jump Frog button here
+    let hoveringFree = drawButton(freeFrogButton);freeFrogButton
 }

@@ -42,7 +42,7 @@
 
 
 "use strict";
-// Possible states so far : menu, variationMenu, game, pingpong, gameOver,etc
+// Possible states so far : menu, variationMenu, game, pingpong, gameOver,freeFrogClicker,etc
 let gameState = "menu";
 //start button
 let startButton = {
@@ -138,11 +138,15 @@ let jumpFrog = {
 let obstacles = [];
 let jumpFrogScore = 0;
 let frogImg;
-let gameTimer = 30; // Set the game duration to 30 seconds
-let gameStartTime = 0; // Variable to track when the game started
-let gameEnded = false; // Flag to track if the game has ended
+let gameTimer = 30; //Set the game 4 30 seconds
+let gameStartTime = 0;//Variable to track when the game started
+let gameEnded = false; //to track if the game has ended
 let jumpBg;
-
+//FREE THE FROG CLICKER VARIABLES
+let jailHealth = 100;   //clicks needed
+let maxJailHealth = 100; //drawing HP bar
+let frogShake = 0; //shake effect when clicked
+let cageImg;                
 // Buttons inside variation menu aka more of greedy frog
 let pingPongButton = {
     x: 220, y: 250, w: 200, h: 50, cornerRadius: 20,
@@ -165,6 +169,14 @@ let backButton = {
     textColor: '#000',
     label: "Back"
 };
+let freeFrogButton = {
+    x: 220, y: 100, w: 200, h: 50, cornerRadius: 20,
+    baseColor: '#9ACC7E',
+    hoverColor: '#B5E68C',
+    textColor: '#000',
+    label: "Free Frog"
+};
+
 // Load all the images.
 function preload() {
     spideytop = loadImage('./assets/images/SpiderTop.png');
@@ -179,6 +191,9 @@ function preload() {
     frogImg = loadImage('./assets/images/frog.png'); //the jumper
     //jump assets
  jumpBg = loadImage('./assets/images/jumpGrass.png');
+ //jail clickler 
+ cageImg = loadImage("./assets/images/jail.jpg"); 
+
     //music n sounds
     //gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
 }
