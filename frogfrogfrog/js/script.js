@@ -50,26 +50,17 @@ function setup() {
             size: random(20, 40)
         });
     }
-
-    // Give the fly its first random position
+    // Give the fly its first random position in greedy
     resetFly();
     //same but for pingpong frog
     resetPingFly();
-
-
     bgColor = color("#87ceeb"); // light sky blue start dont remove or game wont start even if you call this later in score
     targetColor = bgColor; //backgroung 
-
     // give balls n paddle its starting setting
     resetPingPong();
-    //frog
+    //jumpfrog 
 }
-
-
-
-
 //idk where to put this block of code file wise 
-
 function draw() { //where the gamestate come alive
     // main menu
     if (gameState === "menu") {
@@ -84,37 +75,38 @@ function draw() { //where the gamestate come alive
         drawVariationMenu();
         return;
     }
-    //  when in "game"
+    // start in "game" for froggy greedy regular
     if (gameState === "game") {
-        runGame();
+        runGame();//maybe im too high but in case you forget where is your run game it is in background render due to color changing code 
         return;
     }
-    // ping pong frog mode mostly starting here 
+    // ping pong froG start
     if (gameState === "pingpong") {
         runPingPong();
         return;
+    }//JUMP FROG  start game
+    if (gameState === "jumpFrog") {
+        drawJumpFrog();
     }
-    //greedy frog game over
-    else if (gameState === "gameOver") {
+    //jumpfrog game over
+    if (gameState === "gameOver") {
         showgameOver();
         return;
     }
-    //ai winning game over
+    //jumpfrog game over
+    if (gameState === "jumpgameOver") {
+        showGameOverJump();
+        return;
+    }
+    //ai winning game over ping pong
     if (gameState === "pingpongGameOver") {
         showPingPongGameOver();
         return;
     }
-    // when in "game"
-    if (gameState === "frogsnake") {
-        drawSnakeFrog(); 
-        return;
-    }
+
+
 }
-
-
-
-
-
+//////////////////////////GREEDY FROOG//////////////////////////////
 /* Moves the fly with perlinnoise */
 function moveFly() {
     // Perlin noise movement
@@ -142,7 +134,7 @@ function resetFly() {
     fly.speed = random(3, 9)
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////the game of ping pong start here /////////////////////////////////////////////////////
 function runPingPong() {
     background("#bbe6a1ff");
@@ -173,30 +165,20 @@ function runPingPong() {
     imageMode(CENTER);
     image(pingBallImg, pingBallX, pingBallY, 60, 60); // x, y, width, height reminder for myself cause i always forget
 
-    // faster ball speed n AI paddle speed when player score reaches number(15 or 30 idk )
+    // faster ball speed n fakeAI paddle speed when player score reaches number(15 or 30 idk )
     if (rightScore >= 15) {
         pingBallSpeedX = pingBallSpeedX > 0 ? 8 : -8; // faster speed hor
         pingBallSpeedY = pingBallSpeedY > 0 ? 5 : -5; // faster speed vert
-        aiSpeed = 6; // faster AI
+        aiSpeed = 6; // faster fakeAI
     }
-
-
-
     // Right paddle (player controlled with up down keys )
     //  adjust the speed here too 
     if (keys.up) paddleRightY -= 5;
     if (keys.down) paddleRightY += 5;
-
     // Keep paddle inside the screen just like frog
     paddleRightY = constrain(paddleRightY, 0, height - 80);
-
     // Draw right paddle 
     rect(width - 30, paddleRightY, 10, 80);
-
-
-
-
-
     // Left paddle (kinda ai controlled) aiSpeed controls difficulty of ai paddle
     //speed adjust here
     if (pingBallY < paddleLeftY + 40) {
@@ -205,49 +187,32 @@ function runPingPong() {
     } else if (pingBallY > paddleLeftY + 40) {
         paddleLeftY += aiSpeed;
     }
-
-
     // AI paddle inside constrained like frogy
     paddleLeftY = constrain(paddleLeftY, 0, height - 80);
-
-
     // draw left paddle
     rect(20, paddleLeftY, 10, 80);
-
-
     // ball movement x=horizontal y=vertical
     pingBallX += pingBallSpeedX;
     pingBallY += pingBallSpeedY;
-
-
-
     // will reverse in the y direction when hit bottom or top also collision
     if (pingBallY < 10 || pingBallY > height - 10) {
         pingBallSpeedY *= -1;
     }
-
     // collision for left paddle
     if (pingBallX < 30 &&
         pingBallY > paddleLeftY &&
         pingBallY < paddleLeftY + 80) {
         pingBallSpeedX *= -1;
     }
-
     //collision for right paddle
     if (pingBallX > width - 40 &&
         pingBallY > paddleRightY &&
         pingBallY < paddleRightY + 80) {
         pingBallSpeedX *= -1;
     }
-
-
-
-
-
     //ping pong fly get drawn then he check distance will be running 
     drawPingFly();
     updatePingFly();
-
     // Draw  instructions 
     drawPingPongHelp();
     //handle score 
@@ -273,11 +238,11 @@ function resetPingPong() {
 function drawScorepingpong() {
     if (pingBallX < 0) {
         rightScore += 1; //  player scores a point
-        resetPingPong(); // reset the ball position
+        resetPingPong();
     }
     else if (pingBallX > width) {
         leftScore += 1; // ai scores a point
-        resetPingPong(); // reset the ball position
+        resetPingPong();
     }
     // Draw the score on the screen
     push();
@@ -298,8 +263,6 @@ function resetPingFly() {
     pingFlyX = random(50, width - 50);
     pingFlyY = random(50, height - 50);
 }
-
-
 //Handle the Ping Pong fly
 // Checks ball overlaps w fly then get point n fly get respawn elsewhere
 function updatePingFly() {
@@ -369,9 +332,65 @@ function keyReleased() {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////SNAKE GAME/////////////////////////////////////////////////
+/////////////////////////////////Jump frog jump jump jump/////////////////////////////////////////////////
+// Handle frog's jumping mechanics
+function moveJumpFrog() {
+    if (keyIsDown(UP_ARROW) && !jumpFrog.isJumping) {
+        jumpFrog.isJumping = true;
+        jumpFrog.velocity = -12;
+    }
 
+    // Gravity effect
+    jumpFrog.velocity += 0.5;
+    jumpFrog.y += jumpFrog.velocity;
 
+    // If the frog touches the ground, stop the jump
+    if (jumpFrog.y >= 440) {
+        jumpFrog.y = 440;
+        jumpFrog.isJumping = false;
+        jumpFrog.velocity = 0;
+    }
+}
+
+function generateObstacles() {
+    if (frameCount % 60 === 0) { //lanna check frog potion code was used to my needs
+        let obstacleType = random(["rock", "log", "spike"]); //random obstacle(rock, log, spike)
+        let obstacle = {
+            x: width,
+            y: 440,
+            width: random(30, 50),
+            height: random(30, 60),
+            speed: random(3, 6),
+            type: obstacleType // Assigning type to each obstacle
+        };
+        obstacles.push(obstacle);
+    }
+}
+
+//stolen code with credit in read me 
+function moveObstacles() {
+    for (let i = obstacles.length - 1; i >= 0; i--) {
+        obstacles[i].x -= obstacles[i].speed;  // Move obstacles left
+
+        // Check if the frog collides with an obstacle
+        if (dist(jumpFrog.x, jumpFrog.y, obstacles[i].x, obstacles[i].y) < (jumpFrog.size / 2 + obstacles[i].width / 2)) {
+            gameState = "jumpgameOver";
+            return;
+        }
+
+        // If the obstacle moves off the screen, remove it
+        if (obstacles[i].x < -obstacles[i].width) {
+            obstacles.splice(i, 1);
+            jumpFrogScore++;  // Increase score for avoiding the obstacle
+        }
+    }
+}
+//reset variables
+function resetJumpFrogGame() {
+    jumpFrog.y = 440;
+    jumpFrogScore = 0;
+    obstacles = [];
+}
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
 // Mouse click handling for menus lord help me
@@ -393,7 +412,7 @@ function mousePressed() {
     }
 
     //more of greedy frog clicking handling menu blabla
-    else if (gameState === "variationMenu") {
+    if (gameState === "variationMenu") {
         // once this is clicked ping pong will start
         if (mouseX > pingPongButton.x && mouseX < pingPongButton.x + pingPongButton.w &&
             mouseY > pingPongButton.y && mouseY < pingPongButton.y + pingPongButton.h) {
@@ -401,19 +420,26 @@ function mousePressed() {
             resetPingFly();
             gameState = "pingpong";
         }
-        // When snake frog button is clicked, start Snake Frog game
-    //if (mouseX > snakeFrogButton.x && mouseX < snakeFrogButton.x + snakeFrogButton.w &&
-       // mouseY > snakeFrogButton.y && mouseY < snakeFrogButton.y + snakeFrogButton.h) {
-        //setupSnakeFrogGame();
-      //  gameState = "frogsnake"; 
-    //}
-        // if back button is clicked it will then go back to menu duh
+        if (gameState === "variationMenu") {
+            // Check Jump Frog button is clicked
+            if (mouseX > jumpFrogButton.x && mouseX < jumpFrogButton.x + jumpFrogButton.w &&
+                mouseY > jumpFrogButton.y && mouseY < jumpFrogButton.y + jumpFrogButton.h) {
+                resetJumpFrogGame();
+                gameState = "jumpFrog";
+
+            }
+        }
+        // if back button is clicked go back to menu duh
         if (mouseX > backButton.x && mouseX < backButton.x + backButton.w &&
             mouseY > backButton.y && mouseY < backButton.y + backButton.h) {
             gameState = "menu";
         }
+    }  // Game Over screen reset for Greedy Frog
+    if (gameState === "gameOver") {
+
+        gameState = "menu"; 
     }
-    // restart Ping Frog once game over with ai
+    // restart Ping Frog once game over with fakeai
     if (gameState === "pingpongGameOver") {
         resetPingPong();
         resetPingFly();
@@ -423,15 +449,23 @@ function mousePressed() {
         paddleRightY = 200;
         gameState = "pingpong";
     }
-
-     //Handle mouse press to reset the game after game over(might be an isue in the future)
-        if (gameState === "pingpong" && rightScore >= 35) {
-            resetPingPong();
-            resetPingFly();
-            leftScore = 0;
-            rightScore = 0;
-            paddleLeftY = 200;
-            paddleRightY = 200;
-            gameState = "pingpong";
-        }
+    // Handle restart for Jump Frog after Game Over
+    if (gameState === "jumpgameOver") {
+        // Check if mouse was clicked whengame is over in Jump Frog
+        resetJumpFrogGame();
+        gameState = "jumpFrog";
     }
+
+    //Handle mouse press to reset the game after game over(might be an isue in the future keep an eye out(it wasnt im just silly and turn out i dont need to put this function with the othe game state above it works the same))
+    if (gameState === "pingpong" && rightScore >= 35) {
+        resetPingPong();
+        resetPingFly();
+        leftScore = 0;//reset thee game seeting like score n paddle positon
+        rightScore = 0;//same
+        paddleLeftY = 200;//yeah
+        paddleRightY = 200;//u know
+        gameState = "pingpong";
+    }
+
+
+}

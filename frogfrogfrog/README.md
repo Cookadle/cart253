@@ -48,7 +48,7 @@ Oh you want **more**?
 translate()
 
 ## Attribution
-- Loik my partner
+- Loik my partner(Ostolen code hihi)
 - Ai(ish)configuration + Ping Pong :
 - https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 - https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
@@ -63,7 +63,7 @@ translate()
 - https://p5js.org/examples/repetition-color-interpolation/
 
 -Pixel Art Frog:Cookadle (me)
-
+-Fly:
 -Inspiration for organisation of files: 
 - https://github.com/Dajuuu/2D-Platformer-p5
 

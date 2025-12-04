@@ -33,9 +33,7 @@
  */
 //welcome to the cast of happy character 
 "use strict";
-
 //frog drawing 
-
 //Displays the tongue (tip and line connection) and the frog (body)
 function drawFrog() {
     // Draw the tongue tip
@@ -76,7 +74,6 @@ function drawFrog() {
 
     }
 }
-
 // Handles moving the tongue based on its state 
 function moveTongue() {
     // Tongue matches the frog's x
@@ -119,8 +116,6 @@ function moveFrog() {
     // Constrain the frog position to not go off canvas
     frog.body.x = constrain(frog.body.x, 0, 640);
 }
-
-
 //Handles the tongue overlapping the fly + score value n display.Why here and not in run game you ask? I DONT KNOW k
 function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
@@ -200,11 +195,46 @@ function drawPingFly() {
 
     pop();
 }
+////////////////jumpfrog PART THIS IS jumpfrog///////////////////////////////////
+function drawJumpFrog() {// im sill so this kinda where the game call the function to run the game **to reorganize later or separate into two codes cause im lazy rn**
+    background("#87ceeb"); //general backgroun ill change it to an image 
 
+    // Draw greedy frog
+    push();
+        imageMode(CENTER);
+         image(frogImg, jumpFrog.x, jumpFrog.y, jumpFrog.size, jumpFrog.size * 1.2);  
+        pop();
+    // Draw obstacles //stolen from phil beauchemin flies
+    for (let obstacle of obstacles) {
+         push();
+        translate(obstacle.x, obstacle.y); // Move to obstacle's position
 
+        //Random rooooootttttttttation loose variables here put its to make them shake so feels more alive 
+        let rotation = random(-PI / 8, PI / 8);
+        rotate(rotation);
 
+        //Draw depending on type of obstacle
+        if (obstacle.type === "rock") {
+            fill("#969696"); //Gray rocks
+            noStroke();
+            ellipse(0, 0, obstacle.width, obstacle.height); 
+        } else if (obstacle.type === "log") {
+            fill("#8B4513"); //Brownlogs
+            noStroke();
+            rect(-obstacle.width / 2, -obstacle.height / 2, obstacle.width, obstacle.height);
+        } else if (obstacle.type === "spike") {
+            fill("#FF0000"); //Red spikes
+            stroke(0);
+            strokeWeight(2);
+            triangle(-obstacle.width / 2, 0, obstacle.width / 2, 0, 0, -obstacle.height); 
+        }
+        pop();
+    }
 
-////////////////SNAKE PART THIS IS SNAKE PART///////////////////////////////////
+    moveJumpFrog();
+    generateObstacles();
+    moveObstacles();
+}
 
 
 

@@ -44,7 +44,6 @@
 "use strict";
 // Possible states so far : menu, variationMenu, game, pingpong, gameOver,etc
 let gameState = "menu";
-
 //start button
 let startButton = {
     x: 190,
@@ -69,7 +68,6 @@ let variationButton = {
     textColor: '#000',
     label: "More of greedy frog"
 };
-
 //Game Over messages for froggreedy regular
 let gameOverMessages = [
     "Such a greedy frog you are,you just couldn't stop...",
@@ -79,27 +77,20 @@ let gameOverMessages = [
 
 ];
 let isGameOver = false;
-
 let currentGameOverMessage = "";
-
 // mouse press state (so we only trigger once per click)
 let wasMousePressed = false;
-
 //score system
 let score = 0;
-
 //background and fading
 let bgColor;
 let targetColor;
-
 //Perlin noise (future jeany remember to set them far apart so they arent the same)
 let noiseOffsetX = 0;
 let noiseOffsetY = 1000;
-
 //music time
 let titleMusic;
 let gameMusic;
-
 //let images of spidey BE
 let spideytop;
 let spideybottom;
@@ -108,30 +99,21 @@ let spideyright;
 let upkey;
 let movingkey;
 //let gameMusic;
-
 let keys = {
     up: false,
     down: false
 };
-
-
 // PingPong game variables
-
 let pingBallImg;
 let pingBallX, pingBallY;
 let pingBallSpeedX = 5;
 let pingBallSpeedY = 3;
-
 let paddleLeftY = 200;
 let paddleRightY = 200;
 let paddleSpeed = 20;
-
 let aiSpeed = 4; // adjustnumber to make AI paddle player easier/harder at start
-
 let leftScore = 0;//score for ai 
 let rightScore = 0;//SCORE for player
-
-
 // Ping Pong fly
 let pingFlyX = 0;
 let pingFlyY = 0;
@@ -139,16 +121,24 @@ let pingFlySize = 30;
 //crawling spider return for ping pong
 let spiders = [];
 let spiderCount = 5;
-
-
 // Add new variable for custom message for ping frog
 let pingPongGameOverMessage = "Oooof they ate you up Mr.Greedy!";
+//for frogjump game variables
+let jumpFrog = {
+    x: 320,
+    y: 440, 
+    size: 50,
+    jumpHeight: 120,  
+    isJumping: false,
+    jumpSpeed: 0,
+    velocity: 0
+};
 
-//for frogsnake game
+let obstacles = [];  // Array to store obstacles
+let jumpFrogScore = 0;
+
 let frogImg;  
 let flyImg;
-
-
 // Buttons inside variation menu aka more of greedy frog
 let pingPongButton = {
     x: 220, y: 250, w: 200, h: 50, cornerRadius: 20,
@@ -157,14 +147,13 @@ let pingPongButton = {
     textColor: '#000',
     label: "Ping Frog"
 };
-let snakeFrogButton = {
+let jumpFrogButton = {
     x: 220, y: 170, w: 200, h: 50, cornerRadius: 20,
     baseColor: '#9ACC7E',
     hoverColor: '#B5E68C',
     textColor: '#000',
-    label: "Snake Frog"
+    label: "Jump Frog"
 };
-
 let backButton = {
     x: 220, y: 330, w: 200, h: 50, cornerRadius: 20,
     baseColor: '#FFD27F',
@@ -172,8 +161,6 @@ let backButton = {
     textColor: '#000',
     label: "Back"
 };
-
-
 // Load all the images.
 function preload() {
     spideytop = loadImage('./assets/images/SpiderTop.png');
@@ -187,14 +174,8 @@ function preload() {
 //snake frog
     frogImg = loadImage('./assets/images/frog.png'); 
     flyImg = loadImage('./assets/images/fly.png'); 
-
-
     //music n sounds
-
     //gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
-
-
-
 }
 // Our frog
 const frog = {

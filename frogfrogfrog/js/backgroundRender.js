@@ -155,7 +155,7 @@ function runGame() { //will let the game  start once game state is different / B
     text("Score : " + score, 130, 50);
 
 }
-
+//greedy frog game over once 3500 reached
 function showgameOver() {
     background("#240303ff");
 
@@ -174,7 +174,7 @@ function showgameOver() {
     text(currentGameOverMessage, width / 2, height / 2);
 
     textSize(16);
-    text("Click anywhere to restart", width / 2, height / 2 + 60);
+    text("Click anywhere to return to menu", width / 2, height / 2 + 60);
 }
 
 
@@ -306,6 +306,19 @@ function drawSpiders() {
         pop();
     }
 }
+/////////////////JUMP FROG //////////////////////////////
+
+function showGameOverJump() {
+    background("#000000");
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    text("GAME OVER", width / 2, height / 2 - 40);
+    textSize(18);
+    text("Score: " + jumpFrogScore, width / 2, height / 2);
+    text("Click to Restart rabbit", width / 2, height / 2 + 40);
+}
+//////////////////////////////////////buttons///////////////////
 
 // variation menu aka more of greedy frog 
 function drawVariationMenu() {
@@ -317,8 +330,8 @@ function drawVariationMenu() {
     text("More greed...", width / 2, 100);
 
 
-    // Draw Snake Frog button here because i cant remmember what i did
-     let hoveringSnake = drawButton(snakeFrogButton);
+    // Draw jump Frog button here 
+     let hoveringSnake = drawButton(jumpFrogButton);
 
    
     // draw Ping Pong  frog and back button that user will be able to click to navigate // leave this function here 
