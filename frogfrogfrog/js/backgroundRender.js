@@ -208,6 +208,36 @@ function drawButton(btn) {
     return isHovering; // just return hover, handle click elsewhere bc itll crash
 
 }
+//game over with ai winning 
+function showPingPongGameOver() {
+    background("#000000ff");
+
+    fill("white");
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    text("GAME OVER", width / 2, height / 2 - 60);
+
+    textSize(18);
+    text(pingPongGameOverMessage, width / 2, height / 2);
+
+    textSize(16);
+    text("Click anywhere to restart", width / 2, height / 2 + 60);
+}
+function showPlayerGameOver() {
+    push();
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(32);
+    text("GAME OVER", width / 2, height / 2 - 60);
+
+    textSize(18);
+    text("Oh Mr.Greedy,you never learn your lesson, do ya?", width / 2, height / 2);
+
+    textSize(16);
+    text("Click anywhere to restart", width / 2, height / 2 + 60);
+    pop();
+}
+
 // draw moving spiders in ping pong bg 
 function drawSpiders() {
     //loop spider in the spiders array
@@ -242,7 +272,7 @@ function drawSpiders() {
                 bezier(0, 0, legLength * i * 0.5, legLength * 0.3, legLength * i * 0.7, legLength * 0.5, legLength * i, legLength * 0.6);
                 bezier(0, 0, legLength * i * 0.5, legLength * 0.1, legLength * i * 0.8, legLength * 0.2, legLength * i, legLength * 0.3);
             }
-            
+
             //evilspider body
             fill('#FF0000');
             noStroke();
@@ -306,18 +336,66 @@ function drawSpiders() {
         pop();
     }
 }
+function drawPingPongHelp() { //instructions on ping pong screen
+    push();
+    fill(255);
+    textAlign(CENTER);//notneed
+    textSize(16);
+    text(" Move the paddle with ↑ / ↓", width / 2, 30);
+    text("Press M to return to the main menu", width / 2, height - 20);
+    pop();
+}
+//handle the score keeping between ai and player
+function drawScorepingpong() {
+    if (pingBallX < 0) {
+        rightScore += 1; //  player scores a point
+        resetPingPong();
+    }
+    else if (pingBallX > width) {
+        leftScore += 1; // ai scores a point
+        resetPingPong();
+    }
+    //raw the score on the screen
+    push();
+    fill(255);
+    textAlign(CENTER);
+    textSize(32);
+    text(leftScore, width / 4, 40);
+    text(rightScore, width * 3 / 4, 40);
+    pop();
+
+    //ping Pong game over with AI winning 
+    if (leftScore >= 30) {
+        gameState = "pingpongGameOver";
+    }
+}
 /////////////////JUMP FROG //////////////////////////////
 
 function showGameOverJump() {
     background("#318a1bff");
     fill(255);
     textSize(32);
-    textAlign(CENTER, CENTER);//not needed but html habits
+    textAlign(CENTER, CENTER);//not needed herebut html habits
     text("GAME OVER", width / 2, height / 2 - 40);
     textSize(18);
     text("to be filled  ");
     text("Click to Restart rabbit", width / 2, height / 2 + 40);
 }
+function showjumpWinner() {
+    background("#3242cdff"); 
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, CENTER);
+    text("YOU WON!", width / 2, height / 2 - 40);
+    textSize(18);
+    text("Congratulations! You avoided all obstacles Mr.Greedy!", width / 2, height / 2 + 40);
+    textSize(18); 
+    fill("#ff0000ff"); 
+    text("You made it to jail!", width / 2,  height / 2 +80);
+    fill("#00f014ff"); 
+       text("Click M to go back to menu", width / 2,  height / 2 +100);
+}
+
 //////////////////////////////////////buttons///////////////////
 
 // variation menu aka more of greedy frog 
@@ -330,9 +408,9 @@ function drawVariationMenu() {
 
 
     // Draw jump Frog button here 
-     let hoveringSnake = drawButton(jumpFrogButton);
+    let hoveringSnake = drawButton(jumpFrogButton);
 
-   
+
     // draw Ping Pong  frog and back button that user will be able to click to navigate // leave this function here 
     let hoveringPing = drawButton(pingPongButton);
     let hoveringBack = drawButton(backButton);

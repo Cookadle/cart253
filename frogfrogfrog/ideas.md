@@ -8,20 +8,12 @@ negative value ,every fly eaten is one less annoying frog in this damned world
 ** Draw aserite of three eggs larvae as currency next to score I
 
 
-
-
-for ping pong frog
-set a limit for how many point will make it reach game over 
-
-
-
-
-snake frog fuck it
-simple snake game but frog is the snake 
-fruit is the fly 
-
-Super Frog Bros(working title)
-platform game to escape the den of spider
-enemies;spider
-collect flies?
 https://github.com/Dajuuu/2D-Platformer-p5
+
+last game: 
+clicker game 
+frog in jail 
+short length
+click 20 times to free frog
+once freed spider come out
+you get eaten game over 

@@ -40,7 +40,14 @@
 /* Creates the canvas and start the fly + background color start (sky blue)*/
 function setup() {
     createCanvas(640, 480);
-    // Initialize spiders hihi my first array
+    bgColor = color("#87ceeb"); // light sky blue start dont remove or game wont start even if you call this later in score
+
+
+    // Give the fly its first random position in greedy
+    resetFly();
+    //same but for pingpong frog
+    resetPingFly();
+    // Initialize spiders for pong frong hihi my first array
     for (let i = 0; i < spiderCount; i++) {
         spiders.push({
             x: random(width),
@@ -50,15 +57,10 @@ function setup() {
             size: random(20, 40)
         });
     }
-    // Give the fly its first random position in greedy
-    resetFly();
-    //same but for pingpong frog
-    resetPingFly();
-    bgColor = color("#87ceeb"); // light sky blue start dont remove or game wont start even if you call this later in score
-    targetColor = bgColor; //backgroung 
     // give balls n paddle its starting setting
     resetPingPong();
     //jumpfrog 
+
 }
 //idk where to put this block of code file wise 
 function draw() { //where the gamestate come alive
@@ -95,6 +97,7 @@ function draw() { //where the gamestate come alive
     }
     //jumpfrog game over
     if (gameState === "jumpgameOver") {
+        resetJumpFrogGame();
         showGameOverJump();
         return;
     }
@@ -103,6 +106,11 @@ function draw() { //where the gamestate come alive
         showPingPongGameOver();
         return;
     }
+    if (gameState === "jumpWinner") {
+        showjumpWinner();
+        return;
+    }
+
 
 
 }
@@ -218,53 +226,21 @@ function runPingPong() {
     //handle score 
     drawScorepingpong();
 }
-function drawPingPongHelp() { //instructions on ping pong screen
-    push();
-    fill(255);
-    textAlign(CENTER);//notneed
-    textSize(16);
-    text(" Move the paddle with ↑ / ↓", width / 2, 30);
-    text("Press M to return to the main menu", width / 2, height - 20);
-    pop();
-}
-// Resets Ping Pong game n place the ball in  center n give random direction n speed.
+
+//reset Ping Pong game n place the ball in  center n give random direction n speed.
 function resetPingPong() {
     pingBallX = width / 2;
     pingBallY = height / 2;
     pingBallSpeedX = random([-5, 5]);
     pingBallSpeedY = random([-3, 3]);
 }
-//handle the score keeping between ai and player
-function drawScorepingpong() {
-    if (pingBallX < 0) {
-        rightScore += 1; //  player scores a point
-        resetPingPong();
-    }
-    else if (pingBallX > width) {
-        leftScore += 1; // ai scores a point
-        resetPingPong();
-    }
-    // Draw the score on the screen
-    push();
-    fill(255);
-    textAlign(CENTER);
-    textSize(32);
-    text(leftScore, width / 4, 40);
-    text(rightScore, width * 3 / 4, 40);
-    pop();
 
-    // Ping Pong game over with AI winning 
-    if (leftScore >= 30) {
-        gameState = "pingpongGameOver";
-    }
-}
 //my little ping pong fly is reset here
 function resetPingFly() {
     pingFlyX = random(50, width - 50);
     pingFlyY = random(50, height - 50);
 }
-//Handle the Ping Pong fly
-// Checks ball overlaps w fly then get point n fly get respawn elsewhere
+//checks ball overlaps w fly then get point n fly get respawn elsewhere
 function updatePingFly() {
     let d = dist(pingBallX, pingBallY, pingFlyX, pingFlyY);
 
@@ -274,36 +250,8 @@ function updatePingFly() {
         resetPingFly();
     }
 }
-function showPlayerGameOver() {
-    push();
-    fill(255);
-    textAlign(CENTER, CENTER);
-    textSize(32);
-    text("GAME OVER", width / 2, height / 2 - 60);
 
-    textSize(18);
-    text("Oh Mr.Greedy,you never learn your lesson, do ya?", width / 2, height / 2);
-
-    textSize(16);
-    text("Click anywhere to restart", width / 2, height / 2 + 60);
-    pop();
-}
-//game over with ai winning 
-function showPingPongGameOver() {
-    background("#000000ff");
-
-    fill("white");
-    textAlign(CENTER, CENTER);
-    textSize(32);
-    text("GAME OVER", width / 2, height / 2 - 60);
-
-    textSize(18);
-    text(pingPongGameOverMessage, width / 2, height / 2);
-
-    textSize(16);
-    text("Click anywhere to restart", width / 2, height / 2 + 60);
-}
-//Ping Pong controls .The mplayer controls only the right paddle
+//ping Pong controls .The mplayer controls only the right paddle
 function keyPressed() {
     if (key === 'm' || key === 'M') {
         gameState = "menu";
@@ -333,13 +281,14 @@ function keyReleased() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////Jump frog jump jump jump/////////////////////////////////////////////////
-// Handle frog's jumping mechanics
+//frog jumping 
 function moveJumpFrog() {
+    if (gameEnded) return;
     if (keyIsDown(UP_ARROW) && !jumpFrog.isJumping) {
         jumpFrog.isJumping = true;
         jumpFrog.velocity = -12;
     }
-     //horizontal movement (left and right)
+    //horizontal movement (left and right)
     if (keyIsDown(LEFT_ARROW)) {
         jumpFrog.x -= 5; // move left
     }
@@ -357,12 +306,21 @@ function moveJumpFrog() {
         jumpFrog.isJumping = false;
         jumpFrog.velocity = 0;
     }
-     //constrain frog within the canvas a classiccccc
+    //constrain frog within the canvas a classiccccc
     jumpFrog.x = constrain(jumpFrog.x, 0 + jumpFrog.size / 2, width - jumpFrog.size / 2);
+    // Update the timer every frame
+    if (gameStartTime > 0) {
+        let elapsedTime = (frameCount - gameStartTime) / 60; // Convert frames to seconds
+        gameTimer = Math.max(30 - Math.floor(elapsedTime), 0); // 30 seconds countdown
+    }
 
-
+    // Check if time is up
+    if (gameTimer <= 0) {
+        gameState = "jumpWinner"; // Switch to winner screen when time's up
+        gameEnded = true; // Mark game as ended
+    }
 }
-
+//randomly sized obstacles will be spawned
 function generateObstacles() {
     if (frameCount % 60 === 0) { //lanna check frog potion code was used to my needs
         let obstacleType = random(["rock", "log", "spike"]); //random obstacle(rock, log, spike)
@@ -401,6 +359,10 @@ function resetJumpFrogGame() {
     jumpFrog.y = 440;
     jumpFrogScore = 0;
     obstacles = [];
+    gameStartTime = frameCount; //TIMER 
+    gameEnded = false;   //RESET so game doesn't auto-end
+    gameTimer = 30;
+
 }
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
@@ -436,6 +398,9 @@ function mousePressed() {
             if (mouseX > jumpFrogButton.x && mouseX < jumpFrogButton.x + jumpFrogButton.w &&
                 mouseY > jumpFrogButton.y && mouseY < jumpFrogButton.y + jumpFrogButton.h) {
                 resetJumpFrogGame();
+                gameStartTime = frameCount; //TIMER 
+                gameEnded = false;          //RESET so game doesn't auto-end
+                gameTimer = 30;             //RESET TIMER
                 gameState = "jumpFrog";
 
             }
@@ -448,7 +413,7 @@ function mousePressed() {
     }  // Game Over screen reset for Greedy Frog
     if (gameState === "gameOver") {
 
-        gameState = "menu"; 
+        gameState = "menu";
     }
     // restart Ping Frog once game over with fakeai
     if (gameState === "pingpongGameOver") {

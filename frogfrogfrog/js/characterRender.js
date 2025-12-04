@@ -196,17 +196,20 @@ function drawPingFly() {
     pop();
 }
 ////////////////jumpfrog PART THIS IS jumpfrog///////////////////////////////////
-function drawJumpFrog() {// im sill so this kinda where the game call the function to run the game **to reorganize later or separate into two codes cause im lazy rn**
-    background("#87ceeb"); //general backgroun ill change it to an image 
+function drawJumpFrog() {// im silly n tired of this so this kinda where the game call the function to run the game **to reorganize later or separate into two codes cause im lazy rn**
+    background("#87ceeb");
+    imageMode(CORNER);
+    image(jumpBg, 0, 0, width, height);//grass stuff
+
 
     // Draw greedy frog
     push();
-        imageMode(CENTER);
-         image(frogImg, jumpFrog.x, jumpFrog.y, jumpFrog.size, jumpFrog.size * 1.2);  
-        pop();
-    // Draw obstacles //stolen from phil beauchemin flies
+    imageMode(CENTER);
+    image(frogImg, jumpFrog.x, jumpFrog.y, jumpFrog.size, jumpFrog.size * 1.2);
+    pop();
+    // Draw obstacles //stolen from lana potion flies
     for (let obstacle of obstacles) {
-         push();
+        push();
         translate(obstacle.x, obstacle.y); // Move to obstacle's position
 
         //Random rooooootttttttttation loose variables here put its to make them shake so feels more alive 
@@ -217,7 +220,7 @@ function drawJumpFrog() {// im sill so this kinda where the game call the functi
         if (obstacle.type === "rock") {
             fill("#969696"); //Gray rocks
             noStroke();
-            ellipse(0, 0, obstacle.width, obstacle.height); 
+            ellipse(0, 0, obstacle.width, obstacle.height);
         } else if (obstacle.type === "log") {
             fill("#8B4513"); //Brownlogs
             noStroke();
@@ -226,17 +229,35 @@ function drawJumpFrog() {// im sill so this kinda where the game call the functi
             fill("#FF0000"); //Red spikes
             stroke(0);
             strokeWeight(2);
-            triangle(-obstacle.width / 2, 0, obstacle.width / 2, 0, 0, -obstacle.height); 
+            triangle(-obstacle.width / 2, 0, obstacle.width / 2, 0, 0, -obstacle.height);
         }
         pop();
+
     }
-     // Instructions because im too lazy to do a instructions screen
-   fill("#240409ff"); 
+    // Instructions because im too lazy to do a instructions screen
+    textAlign(CENTER, TOP);
+    fill("#240409ff");
     textSize(16);
-    text("↑ = Jump   /  ←  → = Move",  width / 2, 30); //freshly coppied from ping pong
-    textSize(18); // Smaller text for the second line
-    fill("#770505ff"); // Yellow color
-    text("Avoid obstacles and reach a high score!", width / 2, 60);
+    text("↑ = Jump   /  ←  → = Move", width / 2, 30); //freshly coppied from ping pong
+    textSize(18);
+    fill("#770505ff");
+    text("Avoid obstacles !", width / 2, 60);
+
+
+
+    //Draw timer+ loose time variables here
+    let elapsedTime = Math.floor((frameCount - gameStartTime) / frameRate()); // Time in seconds
+    let remainingTime = gameTimer - elapsedTime;
+    fill(0);
+    textSize(24);
+    textAlign(RIGHT);
+    text("Time: " + remainingTime + "s", width - 20, 30);
+
+    // If time runs out
+    if (remainingTime <= 0 && !gameEnded) {
+        gameEnded = true;
+        gameState = "jumpWinner";  // Switch to game over state
+    }
 
     //game runnning
     moveJumpFrog();

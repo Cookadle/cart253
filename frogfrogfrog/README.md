@@ -27,7 +27,7 @@ General
 ## Description 
 A modded version of Pippin Bar frog frog game.
 Introducing Greedy Greedy frog,a silly who love eating flies any way he can!
-Two games following the life of Mr.Greedy frog !
+Three games following the life of Mr.Greedy frog !
 
 *What will happen???*
 ---------------------------------------------------------
@@ -62,6 +62,9 @@ translate()
 -Title gradiant:
 - https://p5js.org/examples/repetition-color-interpolation/
 
+-Jump Frog:
+-General idea/code/concept :https://editor.p5js.org/mlg583/sketches/d5q1UExau (didnt use millis cause im not comfortable yet i guess)
+-Timer : https://editor.p5js.org/marynotari/sketches/S1T2ZTMp-
 -Pixel Art Frog:Cookadle (me)
 -Fly:
 -Inspiration for organisation of files: 

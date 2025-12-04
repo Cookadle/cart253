@@ -123,22 +123,26 @@ let spiders = [];
 let spiderCount = 5;
 // Add new variable for custom message for ping frog
 let pingPongGameOverMessage = "Oooof they ate you up Mr.Greedy!";
+
 //for frogjump game variables
 let jumpFrog = {
     x: 320,
-    y: 440, 
+    y: 440,
     size: 50,
-    jumpHeight: 120,  
+    jumpHeight: 120,
     isJumping: false,
     jumpSpeed: 0,
     velocity: 0
 };
 
-let obstacles = [];  // Array to store obstacles
+let obstacles = [];
 let jumpFrogScore = 0;
+let frogImg;
+let gameTimer = 30; // Set the game duration to 30 seconds
+let gameStartTime = 0; // Variable to track when the game started
+let gameEnded = false; // Flag to track if the game has ended
+let jumpBg;
 
-let frogImg;  
-let flyImg;
 // Buttons inside variation menu aka more of greedy frog
 let pingPongButton = {
     x: 220, y: 250, w: 200, h: 50, cornerRadius: 20,
@@ -170,10 +174,11 @@ function preload() {
     upkey = loadImage('./assets/images/upkey.png')
     movingkey = loadImage('./assets/images/Movingkey.png')
     //ping pong asset
-    pingBallImg = loadImage('./assets/images/frog.png');
-//snake frog
-    frogImg = loadImage('./assets/images/frog.png'); 
-    flyImg = loadImage('./assets/images/fly.png'); 
+    pingBallImg = loadImage('./assets/images/frog.png');//the ball
+
+    frogImg = loadImage('./assets/images/frog.png'); //the jumper
+    //jump assets
+ jumpBg = loadImage('./assets/images/jumpGrass.png');
     //music n sounds
     //gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
 }
