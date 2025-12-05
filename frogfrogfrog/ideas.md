@@ -10,11 +10,17 @@ negative value ,every fly eaten is one less annoying frog in this damned world
 
 https://github.com/Dajuuu/2D-Platformer-p5
 
-last game: 
+Ping pong frog;
+make it so that if spider collides with fly ai get point?
+
 clicker game 
-frog in jail 
-short length
-click 20 times to free frog
-once freed spider come out
-you get eaten game over 
-ADD 
+once freed
+spider come out
+you get eaten
+game over
+
+jump frog game
+add spider character on the other side of the screen where obstacles come out
+
+Files
+ORGANIZE YOUR FILES PER GAMES AND NOT ASSETS SILLY

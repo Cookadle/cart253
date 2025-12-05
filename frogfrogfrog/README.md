@@ -1,6 +1,7 @@
 # Greedy frog
 
 Original concept by : [Pippin Bar](https://pippinbarr.com/frogfrogfrog/)
+(Pippin if you are reading this I swear Ill get a better organisation for my files here but not this week I am too tired,it is still my code so I know where stuff is )
 
 Modded by : Jeany Corrius 
 
@@ -10,18 +11,17 @@ Instructions for Greedy Frog:
 - Catch flies until you can't
 - **Can you get to 3000?**
 
- Instructions for Ping Frog:
+Instructions for Ping Frog:
 - Move the paddle with the up and down key arrows
 - Catch flies until you can't
 - **Can you get to 35 or will the AI beat you?**
 
-  
 Instructions for Free Frog:
 - Move the frog with the left right key arrows
 - Press up arrow to jump
 - **Can you outrun your enemies?**
 
- Instructions for Free Frog:
+Instructions for Free Frog:
 - Click away
 
 General:
@@ -90,7 +90,7 @@ Well if it isn't the actions of your own consequences...
 
 -Pixel Art Frog: Cookadle (me)
 
-- Inspiration for organisation of files 
+- Inspiration for organisation of files (will be worked on soon)
 - https://github.com/Dajuuu/2D-Platformer-p5
 
 -Clicker game ressources:(structure+code was taken )
