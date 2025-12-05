@@ -19,12 +19,12 @@ Instructions for Greedy Frog:
 Instructions for Free Frog:
 - Move the frog with the left right key arrows
 - Press up arrow to jump
-- **Can you outrun your enemies**
+- **Can you outrun your enemies?**
 
  Instructions for Free Frog:
- -Click away
+- Click away
 
-General
+General:
 - Press M to go back to the main menu
  
 
@@ -50,11 +50,11 @@ Follow the adventures of Mr.Greedy frog in this short story made by me!
 Ah a classic *Greedy Frog...*
 ![In game screen for Greedy Frog](assets/images/Greedy_Frog.png)
 Oh you want **more**?
-![Variation menu ](assets/images/Variations_Menu.png)
+![Variation menu ](assets/images/variationmenu.png)
 ***Try beating the game ai then!***
 ![In game screen for Ping Pong Frog](assets/images/PingPong_Frog.png)
 Guess you won't stop at anything
-![In game screen Jump Frog](assets/images/JumpFrogSC.png.png)
+![In game screen Jump Frog](assets/images/JumpFrogSC.png)
 Well if it isn't the actions of your own consequences...
 ![In game screen Free Frog](assets/images/FreeFrog.png)
 
@@ -85,18 +85,18 @@ Well if it isn't the actions of your own consequences...
 - https://p5js.org/examples/repetition-color-interpolation/
 
 -Jump Frog:
--General idea/code/concept :https://editor.p5js.org/mlg583/sketches/d5q1UExau (didnt use millis cause im not comfortable yet i guess)
--Timer : https://editor.p5js.org/marynotari/sketches/S1T2ZTMp-
--Pixel Art Frog:Cookadle (me)
--Fly:
--Inspiration for organisation of files: 
+- General idea/code/concept :https://editor.p5js.org/mlg583/sketches/d5q1UExau (didnt use millis cause im not comfortable yet i guess)
+- Timer : https://editor.p5js.org/marynotari/sketches/S1T2ZTMp-
+- Pixel Art Frog : Cookadle (me)
+- Fly:
+- Inspiration for organisation of files: 
 - https://github.com/Dajuuu/2D-Platformer-p5
 
--Clicker game ressources : (structure+code was taken )
--https://editor.p5js.org/coowill/sketches/60UssVO9L
--https://editor.p5js.org/Mortak/sketches/uBjPns_Ft
+- Clicker game ressources :(structure+code was taken )
+- https://editor.p5js.org/coowill/sketches/60UssVO9L
+- https://editor.p5js.org/Mortak/sketches/uBjPns_Ft
 
--Sounds: 
+-Sounds: (Soon to be implemented)
 
 -Title : 
 - https://pixabay.com/sound-effects/nature-sounds-splashing-water-birds-singing-frog-croak-brook-108620/
