@@ -62,7 +62,7 @@ Well if it isn't the actions of your own consequences...
 - translate()
 - rotate() (for obstacles movements)
 - bezier
-**Known Bugs/Issues**
+- **Known Bugs/Issues below**
 - Paddle player for Ping glitching with ball sometimes
 - Timer for Jump Frog not counting down smoothly
 
@@ -71,7 +71,7 @@ Well if it isn't the actions of your own consequences...
 - Lanna Check
 - Phillipe Beauchemin
 
-- Ai(ish)configuration + Ping Pong :
+-Ai(ish)configuration + Ping Pong:
 - https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 - https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
 - https://editor.p5js.org/bardyl/sketches/Tut4pb0zj
@@ -87,12 +87,13 @@ Well if it isn't the actions of your own consequences...
 -Jump Frog:
 - General idea/code/concept :https://editor.p5js.org/mlg583/sketches/d5q1UExau (didnt use millis cause im not comfortable yet i guess)
 - Timer : https://editor.p5js.org/marynotari/sketches/S1T2ZTMp-
-- Pixel Art Frog : Cookadle (me)
-- Fly:
-- Inspiration for organisation of files: 
+
+-Pixel Art Frog: Cookadle (me)
+
+- Inspiration for organisation of files 
 - https://github.com/Dajuuu/2D-Platformer-p5
 
-- Clicker game ressources :(structure+code was taken )
+-Clicker game ressources:(structure+code was taken )
 - https://editor.p5js.org/coowill/sketches/60UssVO9L
 - https://editor.p5js.org/Mortak/sketches/uBjPns_Ft
 
