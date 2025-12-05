@@ -10,10 +10,19 @@ Instructions for Greedy Frog:
 - Catch flies until you can't
 - **Can you get to 3000?**
 
- Instructions for Ping Pong Frog:
+ Instructions for Ping Frog:
 - Move the paddle with the up and down key arrows
 - Catch flies until you can't
 - **Can you get to 35 or will the AI beat you?**
+
+  
+Instructions for Free Frog:
+- Move the frog with the left right key arrows
+- Press up arrow to jump
+- **Can you outrun your enemies**
+
+ Instructions for Free Frog:
+ -Click away
 
 General
 - Press M to go back to the main menu
@@ -24,10 +33,12 @@ General
 [Play it!](https://cookadle.github.io/cart253/frogfrogfrog/)
 
 -[Ideas](./ideas.md)
+
 ## Description 
 A modded version of Pippin Bar frog frog game.
+
 Introducing Greedy Greedy frog,a silly who love eating flies any way he can!
-Three games following the life of Mr.Greedy frog !
+Follow the adventures of Mr.Greedy frog in this short story made by me!
 
 *What will happen???*
 ---------------------------------------------------------
@@ -42,13 +53,24 @@ Oh you want **more**?
 ![Variation menu ](assets/images/Variations_Menu.png)
 ***Try beating the game ai then!***
 ![In game screen for Ping Pong Frog](assets/images/PingPong_Frog.png)
-
+Guess you won't stop at anything
+![In game screen Jump Frog](assets/images/JumpFrogSC.png.png)
+Well if it isn't the actions of your own consequences...
+![In game screen Free Frog](assets/images/FreeFrog.png)
 
 ## New function/attributes
-translate()
+- translate()
+- rotate() (for obstacles movements)
+- bezier
+**Known Bugs/Issues**
+- Paddle player for Ping glitching with ball sometimes
+- Timer for Jump Frog not counting down smoothly
 
 ## Attribution
-- Loik my partner(Ostolen code hihi)
+- Loik my partner(stolen code hihi)
+- Lanna Check
+- Phillipe Beauchemin
+
 - Ai(ish)configuration + Ping Pong :
 - https://gamedev.stackexchange.com/questions/124037/how-to-make-pong-ai-paddle
 - https://peerdh.com/blogs/programming-insights/creating-a-simple-game-ai-using-javascript
@@ -69,9 +91,11 @@ translate()
 -Fly:
 -Inspiration for organisation of files: 
 - https://github.com/Dajuuu/2D-Platformer-p5
--Clicker game ressources : (structure =code was taken )
+
+-Clicker game ressources : (structure+code was taken )
 -https://editor.p5js.org/coowill/sketches/60UssVO9L
 -https://editor.p5js.org/Mortak/sketches/uBjPns_Ft
+
 -Sounds: 
 
 -Title : 

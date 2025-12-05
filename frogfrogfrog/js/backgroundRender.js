@@ -13,8 +13,6 @@
  * sounds folder            -all sound effects or music will be kept here
  * 
  *  A multigame of catching flies in original ways
- * 1.frog cath
- * 2.pingfrog.
  
  * Original concept by : Pippin Bar
  * Modded by : Jeany Corrius 
@@ -38,6 +36,7 @@
 Anything related to background assets such as button bg menu etc will be here
 */
 "use strict";
+//fully commented for pippin
 //GREEDY FROG
 
 //a gradiant title screen going from ligth green to dark green 
@@ -116,6 +115,7 @@ function runGame() { //will let the game  start once game state is different / B
     background(bgColor);
 
     // no cursor ingame will disseaper once in canvas
+    //future jeany add this to your other game
     noCursor();
 
     //regular fonction (organizing myself )
@@ -223,15 +223,17 @@ function showPingPongGameOver() {
     textSize(16);
     text("Click anywhere to restart", width / 2, height / 2 + 60);
 }
+//show winning for ping frog
 function showPlayerGameOver() {
     push();
     fill(255);
     textAlign(CENTER, CENTER);
     textSize(32);
-    text("GAME OVER", width / 2, height / 2 - 60);
+    text("You won?", width / 2, height / 2 - 60);
 
     textSize(18);
-    text("Oh Mr.Greedy,you never learn your lesson, do ya?", width / 2, height / 2);
+    text("But at what cost...", width / 2, height / 2 - 40);
+    text("Oh Mr.Greedy,I think they are coming for you...", width / 2, height / 2);
 
     textSize(16);
     text("Click anywhere to restart", width / 2, height / 2 + 60);
@@ -258,7 +260,7 @@ function drawSpiders() {
 
 
 
-            //spider evil look
+            //spider evil look i hate it whatever 
             stroke(0);
             strokeWeight(4);
             //legs 
@@ -286,7 +288,7 @@ function drawSpiders() {
             ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
             ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
 
-            // Simple Spider Horns
+            // Simple Spider Horns they look horrible so commented out for future jeany who might wanna work on this
             /*stroke('#FF0000');
             strokeWeight(6);  
 
@@ -314,18 +316,22 @@ function drawSpiders() {
                 bezier(0, 0, legLength * i * 0.5, legLength * 0.1, legLength * i * 0.8, legLength * 0.2, legLength * i, legLength * 0.3);
             }
             pop();
-
+            //never change this part it was hell 
             // Regular spider body 
             fill('#000000');
             ellipse(0, 0, spider.size, spider.size);
             //eyes normal spider
             fill('#FFFFFF');
-            ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
-            ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.35, spider.size * 0.35);
+            ellipse(-spider.size * 0.28, -spider.size * 0.28, spider.size * 0.5, spider.size * 0.5);
+            ellipse(spider.size * 0.28, -spider.size * 0.28, spider.size * 0.5, spider.size * 0.5);
             // Pupils for normal spider eye 
             fill('#000000');
-            ellipse(-spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
-            ellipse(spider.size * 0.25, -spider.size * 0.25, spider.size * 0.12, spider.size * 0.12);
+            ellipse(-spider.size * 0.28, -spider.size * 0.28, spider.size * 0.22, spider.size * 0.22);
+            ellipse(spider.size * 0.28, -spider.size * 0.28, spider.size * 0.22, spider.size * 0.22);
+            // highlight 4 eyes 
+            fill('#FFFFFF');
+            ellipse(-spider.size * 0.33, -spider.size * 0.33, spider.size * 0.08, spider.size * 0.08);
+            ellipse(spider.size * 0.23, -spider.size * 0.33, spider.size * 0.08, spider.size * 0.08);
 
             // Smile 4 normal spider
             stroke('#8a2f64ff');
@@ -336,6 +342,7 @@ function drawSpiders() {
         pop();
     }
 }
+
 function drawPingPongHelp() { //instructions on ping pong screen
     push();
     fill(255);
@@ -352,10 +359,10 @@ function drawScorepingpong() {
         resetPingPong();
     }
     else if (pingBallX > width) {
-        leftScore += 1; // ai scores a point
+        leftScore += 1; // fakeai scores a point
         resetPingPong();
     }
-    //raw the score on the screen
+    //draw the score on the screen
     push();
     fill(255);
     textAlign(CENTER);
@@ -364,49 +371,60 @@ function drawScorepingpong() {
     text(rightScore, width * 3 / 4, 40);
     pop();
 
-    //ping Pong game over with AI winning 
+    //ping Pong game over with fakeAI winning 
     if (leftScore >= 30) {
         gameState = "pingpongGameOver";
     }
 }
-/////////////////JUMP FROG //////////////////////////////
-
+/////////////////JUMP FROG SECTION //////////////////////////////
+//losing screen for jump
 function showGameOverJump() {
-    background("#318a1bff");
+    background("#25421dff");
     fill(255);
     textSize(32);
-    textAlign(CENTER, CENTER);//not needed herebut html habits
+    textAlign(CENTER, CENTER);//not needed here NGL but html habits
     text("GAME OVER", width / 2, height / 2 - 40);
     textSize(18);
-    text("to be filled  ");
-    text("Click to Restart rabbit", width / 2, height / 2 + 40);
+    text("Those spiders are really out to get you eh? I wonder why...", width / 2, height / 2 + 20);
+    text("Click to retry", width / 2, height / 2 + 50);
 }
+//winning screen for jump frog
 function showjumpWinner() {
-    background("#3242cdff"); 
+    background("#3242cdff");
     fill(255);
     textSize(32);
     textAlign(CENTER, CENTER);
     text("YOU WON!", width / 2, height / 2 - 40);
     textSize(18);
     text("Congratulations! You avoided all obstacles Mr.Greedy!", width / 2, height / 2 + 40);
-    textSize(18); 
-    fill("#ff0000ff"); 
-    text("You made it to jail!", width / 2,  height / 2 +80);
-    fill("#00f014ff"); 
-       text("Click M to go back to menu", width / 2,  height / 2 +100);
+    textSize(18);
+    fill("#ff0000ff");
+    text("You made it to spider jail!", width / 2, height / 2 + 80);
+    fill("#212522ff");
+    text("Click anywhere to continue", width / 2, height / 2 + 100);
 }
-/////////////////clicker//////////////////////////////////////////
+/////////////////clicker frog //////////////////////////////////////////
+//draw jail bar on top froggy
 function drawJailHP() {
     fill("#222");
     rect(width / 2 - 110, 70, 220, 20, 10);
-
+    //draw free him on top of cage bar not behgind 
+    push();
+    textAlign(CENTER);
+    textSize(28);
+    fill("#006400");
+    stroke("#a3d977");
+    strokeWeight(2);
+    text("Free the Frog!", width / 2, 40);
+    pop();
+    //hp bar 
     fill("#ff6060");
     let barWidth = map(jailHealth, 0, maxJailHealth, 0, 220);
     rect(width / 2 - 110, 70, barWidth, 20, 10);
-
+    //instruction cuz me lazy
     fill(255);
     textSize(16);
-    text("Jail HP: " + jailHealth, width / 2, 105);
+    text("Click to free him!!! ", width / 2, 105);
 }
 
 //////////////////////////////////////buttons///////////////////
@@ -417,16 +435,17 @@ function drawVariationMenu() {
     // title variation menu
     fill(0);
     textSize(32);
-    text("More greed...", width / 2, 100);
+    text("More of Mr. Greedy...", width / 2, 50);
+    textSize(20);
+    text("For optimal storytelling ", width / 2, 410);
+    text("Start with Ping Frog", width / 2, 438);
+    text("followed by Jump Frog ", width / 2, 465);
 
-
-     
-   
 
 
     // draw Ping Pong  frog and back button that user will be able to click to navigate // leave this function here 
     let hoveringPing = drawButton(pingPongButton);
     let hoveringBack = drawButton(backButton);
-    let hoveringSnake = drawButton(jumpFrogButton);// Draw jump Frog button here
-    let hoveringFree = drawButton(freeFrogButton);freeFrogButton
+    let hoveringSnake = drawButton(jumpFrogButton);
+    let hoveringFree = drawButton(freeFrogButton);
 }

@@ -12,10 +12,6 @@
  * images folder            -all images asre stored here
  * sounds folder            -all sound effects or music will be kept here
  * 
- *  A multigame of catching flies in original ways
- * 1.frog cath
- * 2.pingfrog.
- 
  * Original concept by : Pippin Bar
  * Modded by : Jeany Corrius 
  * 
@@ -34,6 +30,7 @@
 //welcome to the cast of happy character 
 "use strict";
 //frog drawing 
+////////////////greeedyyy GREEDY FROG 
 //Displays the tongue (tip and line connection) and the frog (body)
 function drawFrog() {
     // Draw the tongue tip
@@ -50,26 +47,31 @@ function drawFrog() {
         strokeWeight(frog.tongue.size / 2);
         line(frog.tongue.x, frog.tongue.y, frog.body.x, frog.body.y);
         pop();
-
+        
         //draw the frog body
         push();
         fill("#32CD32");
         noStroke();
-        ellipse(frog.body.x, frog.body.y, frog.body.size, frog.body.size * 1.3);
+        //Two body here because i wanted to make my frog look chunky baby
+        // body
+        ellipse(frog.body.x, frog.body.y - 25, frog.body.size * 1.05, frog.body.size * 0.9);
+        // body
+        ellipse(frog.body.x, frog.body.y - 30, frog.body.size * 0.9, frog.body.size * 0.75);
         pop();
+        
 
         //eyes
         push();
         fill("#ffffffff");
         stroke("#3d5a3dff");
         strokeWeight(2);
-        ellipse(frog.body.x - 25, frog.body.y - 55, 40, 50); // left eye 
-        ellipse(frog.body.x + 25, frog.body.y - 55, 40, 50); // right eye
+        ellipse(frog.body.x - 32, frog.body.y - 55, 55, 35); // left eye 
+        ellipse(frog.body.x + 32, frog.body.y - 55, 55, 35); // right eye
 
-        //pupil
+        // pupils 
         fill(0);
-        ellipse(frog.body.x - 25, frog.body.y - 55, 20);
-        ellipse(frog.body.x + 25, frog.body.y - 55, 20);
+        ellipse(frog.body.x - 32, frog.body.y - 55, 30, 18);//left
+        ellipse(frog.body.x + 32, frog.body.y - 55, 30, 18);//right
         pop();
 
     }
@@ -195,6 +197,7 @@ function drawPingFly() {
 
     pop();
 }
+/////////////////////////////////////////////////////////////////////////////////////
 ////////////////jumpfrog PART THIS IS jumpfrog///////////////////////////////////
 function drawJumpFrog() {// im silly n tired of this so this kinda where the game call the function to run the game **to reorganize later or separate into two codes cause im lazy rn**
     background("#87ceeb");
@@ -207,7 +210,7 @@ function drawJumpFrog() {// im silly n tired of this so this kinda where the gam
     imageMode(CENTER);
     image(frogImg, jumpFrog.x, jumpFrog.y, jumpFrog.size, jumpFrog.size * 1.2);
     pop();
-    // Draw obstacles //stolen from lana potion flies
+    //draw obstacles //stolen idea from lana potion flies
     for (let obstacle of obstacles) {
         push();
         translate(obstacle.x, obstacle.y); // Move to obstacle's position
@@ -253,10 +256,10 @@ function drawJumpFrog() {// im silly n tired of this so this kinda where the gam
     textAlign(RIGHT);
     text("Time: " + remainingTime + "s", width - 20, 30);
 
-    // If time runs out
+    //ff time runs out
     if (remainingTime <= 0 && !gameEnded) {
         gameEnded = true;
-        gameState = "jumpWinner";  // Switch to game over state
+        gameState = "jumpWinner";
     }
 
     //game runnning
@@ -267,24 +270,24 @@ function drawJumpFrog() {// im silly n tired of this so this kinda where the gam
 
 //////////////////CLICKER FROG///////////////////////
 function drawFreeFrog() {
-    background("#87ceeb"); // sky blue
-push();
-    textAlign(CENTER);
-    fill(0);
-    textSize(28);
-    text("Free the Frog!", width / 2, 40);
+    background("#314b55ff"); // sky blue
+
+
+
     imageMode(CENTER);
-   
-    // Frog shake effect on click
+
+    //frog shake on click
     let shakeX = random(-frogShake, frogShake);
     let shakeY = random(-frogShake, frogShake);
 
-    // Draw frog
+    //draw frog
     imageMode(CENTER);
     image(frogImg, width / 2 + shakeX, height / 2 + shakeY, 180, 190);
-     pop();
-    // Draw jail bars in front of frog
-    drawJailBars();
+
+    //draw jail bars ONLY if frog is still trapped
+    if (jailHealth > 0) {
+        drawJailBars();
+    }
     // Jail HP Bar
     drawJailHP();
 
@@ -292,22 +295,24 @@ push();
     if (jailHealth <= 0) {
         textSize(32);
         fill("#1e7a2e");
-        text("THE FROG IS FREE!!!", width / 2, height / 2 + 150);
+        text("MR.GREEDY IS FREE!!!", width / 2, height / 2 + 150);
+        text("Click M", width / 2, height / 2 + 200);
     }
 
     // Reduce shake every frame
     frogShake = max(0, frogShake - 0.5);
 }
-// Function to draw bars
+
+// function to draw bars //put it in background render when you come back from being burnout
 function drawJailBars() {
-    stroke("#000000ff");        
+    stroke("#000000ff");
     strokeWeight(6);
     let spacing = 60;//space between bars
-//vertical bar
-   for (let x = 0; x <= width; x += spacing) {
+    //vertical bar
+    for (let x = 0; x <= width; x += spacing) {
         line(x, 0, x, height);
     }//horizon bar
-     for (let y = 0; y <= height; y += spacing) {
+    for (let y = 0; y <= height; y += spacing) {
         line(0, y, width, y);
     }
 }

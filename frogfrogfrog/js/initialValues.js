@@ -40,7 +40,7 @@
 
 
 
-
+//fully commented for pippin
 "use strict";
 // Possible states so far : menu, variationMenu, game, pingpong, gameOver,freeFrogClicker,etc
 let gameState = "menu";
@@ -98,12 +98,12 @@ let spideyleft;
 let spideyright;
 let upkey;
 let movingkey;
-//let gameMusic;
+//let gameMusic;//damn i never used it eh
 let keys = {
     up: false,
     down: false
 };
-// PingPong game variables
+///////////////////////// PingPong game variables
 let pingBallImg;
 let pingBallX, pingBallY;
 let pingBallSpeedX = 5;
@@ -124,7 +124,7 @@ let spiderCount = 5;
 // Add new variable for custom message for ping frog
 let pingPongGameOverMessage = "Oooof they ate you up Mr.Greedy!";
 
-//for frogjump game variables
+/////////////////////////for frogjump game variables
 let jumpFrog = {
     x: 320,
     y: 440,
@@ -142,33 +142,33 @@ let gameTimer = 30; //Set the game 4 30 seconds
 let gameStartTime = 0;//Variable to track when the game started
 let gameEnded = false; //to track if the game has ended
 let jumpBg;
-//FREE THE FROG CLICKER VARIABLES
-let jailHealth = 100;   //clicks needed
-let maxJailHealth = 100; //drawing HP bar
+/////////////////////Freefrog clicker variables
+let jailHealth = 100; //clicks needed
+let maxJailHealth = 100;//drawing HP bar exist now ok
 let frogShake = 0; //shake effect when clicked
-let cageImg;                
-// Buttons inside variation menu aka more of greedy frog
-let pingPongButton = {
+let cageImg;
+////// Buttons inside variation menu aka more of greedy frog
+let pingPongButton = {//ping frog button
     x: 220, y: 250, w: 200, h: 50, cornerRadius: 20,
     baseColor: '#9ACC7E',
     hoverColor: '#B5E68C',
     textColor: '#000',
     label: "Ping Frog"
-};
+};//jumpfrog button 
 let jumpFrogButton = {
     x: 220, y: 170, w: 200, h: 50, cornerRadius: 20,
     baseColor: '#9ACC7E',
     hoverColor: '#B5E68C',
     textColor: '#000',
     label: "Jump Frog"
-};
+};//backbutton
 let backButton = {
     x: 220, y: 330, w: 200, h: 50, cornerRadius: 20,
     baseColor: '#FFD27F',
     hoverColor: '#FFE6B3',
     textColor: '#000',
     label: "Back"
-};
+};//free frog button
 let freeFrogButton = {
     x: 220, y: 100, w: 200, h: 50, cornerRadius: 20,
     baseColor: '#9ACC7E',
@@ -177,7 +177,7 @@ let freeFrogButton = {
     label: "Free Frog"
 };
 
-// Load all the images.
+///////////////////// Load all the images.
 function preload() {
     spideytop = loadImage('./assets/images/SpiderTop.png');
     spideyleft = loadImage('./assets/images/SpiderLeft.png');
@@ -190,14 +190,15 @@ function preload() {
 
     frogImg = loadImage('./assets/images/frog.png'); //the jumper
     //jump assets
- jumpBg = loadImage('./assets/images/jumpGrass.png');
- //jail clickler 
- cageImg = loadImage("./assets/images/jail.jpg"); 
+    jumpBg = loadImage('./assets/images/jumpGrass.png');
+    //jail clickler 
+    cageImg = loadImage("./assets/images/jail.jpg");
 
     //music n sounds
     //gameMusic = loadSound('./assets/sounds/funkybeat.mp3');
 }
-// Our frog
+////////////////////////////////////GREEDY FROG OG
+///// Our frog
 const frog = {
     // The frog's body has a position and size
     body: {

@@ -12,21 +12,7 @@
  * images folder            -all images asre stored here
  * sounds folder            -all sound effects or music will be kept here
  * 
- *  A multigame of catching flies in original ways
- * 1.frog cath
- * 2.pingfrog.
- 
- * Original concept by : Pippin Bar
- * Modded by : Jeany Corrius 
- * 
- * Instructions for Greedy Frog:
- * - Move the frog with the left right key arrows
- * - Press up arrow to launch the tongue
- * - Catch flies until you can't
- * 
- * Instructions for Ping Pong Frog :
- * -Move the paddle with the up and down key arrows
- * -Catch the flies
+
  * 
  * Made with p5
  * https://p5js.org/
@@ -47,7 +33,7 @@ function setup() {
     resetFly();
     //same but for pingpong frog
     resetPingFly();
-    // Initialize spiders for pong frong hihi my first array
+    //spiders for pong frong hihi my first array
     for (let i = 0; i < spiderCount; i++) {
         spiders.push({
             x: random(width),
@@ -72,6 +58,8 @@ function draw() { //where the gamestate come alive
         drawButton(variationButton);
         return;
     }
+     
+    
     //will switch to menu with more option
     if (gameState === "variationMenu") {
         drawVariationMenu();
@@ -106,6 +94,7 @@ function draw() { //where the gamestate come alive
         showPingPongGameOver();
         return;
     }
+    //jump winning state
     if (gameState === "jumpWinner") {
         showjumpWinner();
         return;
@@ -267,7 +256,7 @@ function keyPressed() {
         paddleLeftY = 200;
         keys.up = false;
         keys.down = false;
-        return; // stop processing
+        return; 
     }
 
     // Ping Pong controls
@@ -287,7 +276,7 @@ function keyReleased() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////Jump frog jump jump jump/////////////////////////////////////////////////
-//frog jumping 
+//frog jumping and moving
 function moveJumpFrog() {
     if (gameEnded) return;
     if (keyIsDown(UP_ARROW) && !jumpFrog.isJumping) {
@@ -296,17 +285,17 @@ function moveJumpFrog() {
     }
     //horizontal movement (left and right)
     if (keyIsDown(LEFT_ARROW)) {
-        jumpFrog.x -= 5; // move left
+        jumpFrog.x -= 5; 
     }
     if (keyIsDown(RIGHT_ARROW)) {
-        jumpFrog.x += 5; //move right
+        jumpFrog.x += 5; 
     }
 
-    //gravity effect
+    //gravity effect type shxt
     jumpFrog.velocity += 0.5;
     jumpFrog.y += jumpFrog.velocity;
 
-    //if frog touches the ground, stop the jump
+    //if frog touches the ground,stop the jump
     if (jumpFrog.y >= 440) {
         jumpFrog.y = 440;
         jumpFrog.isJumping = false;
@@ -314,16 +303,16 @@ function moveJumpFrog() {
     }
     //constrain frog within the canvas a classiccccc
     jumpFrog.x = constrain(jumpFrog.x, 0 + jumpFrog.size / 2, width - jumpFrog.size / 2);
-    // Update the timer every frame
+    // Update the timer every frame//its a bit laggy fix it when you feel less burno
     if (gameStartTime > 0) {
-        let elapsedTime = (frameCount - gameStartTime) / 60; // Convert frames to seconds
+        let elapsedTime = (frameCount - gameStartTime) / 60; 
         gameTimer = Math.max(30 - Math.floor(elapsedTime), 0); // 30 seconds countdown
     }
 
-    // Check if time is up
+    // Check if time is up then validate winning conditiion
     if (gameTimer <= 0) {
-        gameState = "jumpWinner"; // Switch to winner screen when time's up
-        gameEnded = true; // Mark game as ended
+        gameState = "jumpWinner"; 
+        gameEnded = true;
     }
 }
 //randomly sized obstacles will be spawned
@@ -345,7 +334,7 @@ function generateObstacles() {
 //stolen code with credit in read me 
 function moveObstacles() {
     for (let i = obstacles.length - 1; i >= 0; i--) {
-        obstacles[i].x -= obstacles[i].speed;  // Move obstacles left
+        obstacles[i].x -= obstacles[i].speed; //thank you loik for explaning this part im so silly
 
         // Check if the frog collides with an obstacle
         if (dist(jumpFrog.x, jumpFrog.y, obstacles[i].x, obstacles[i].y) < (jumpFrog.size / 2 + obstacles[i].width / 2)) {
@@ -356,7 +345,7 @@ function moveObstacles() {
         // If the obstacle moves off the screen, remove it
         if (obstacles[i].x < -obstacles[i].width) {
             obstacles.splice(i, 1);
-            jumpFrogScore++;  // Increase score for avoiding the obstacle
+            //jumpFrogScore++;//increase score for avoiding the obstacle//decided to not need score system here
         }
     }
 }
@@ -365,12 +354,13 @@ function resetJumpFrogGame() {
     jumpFrog.y = 440;
     jumpFrogScore = 0;
     obstacles = [];
-    gameStartTime = frameCount; //TIMER 
-    gameEnded = false;   //RESET so game doesn't auto-end
+    gameStartTime = frameCount; //TIMER TIMERTIMMMMERRRR
+    gameEnded = false; //RESET so game doesn't auto-end once you restart (a very annoying lesson was learned)
     gameTimer = 30;
 
 }
-/////////CLICKER////////////////
+/////////CLICKER FROG ////////////////
+//reset the frog click game jail health 
 function resetFreeFrog() {
     jailHealth = maxJailHealth;
     frogShake = 0;
@@ -378,7 +368,7 @@ function resetFreeFrog() {
 
 ///////////////MEEEEENUUUUUUS/////////////////////////////////////////////////
 
-// Mouse click handling for menus lord help me
+// Mouse click handling for menus lord help me// you gonna have to organize this one day 
 function mousePressed() {
 
     //main menu clicling
@@ -418,7 +408,7 @@ function mousePressed() {
             }
 
         }
-          // FREE FROG CLICKER 
+          // free ffrog click
         if (mouseX > freeFrogButton.x && mouseX < freeFrogButton.x + freeFrogButton.w &&
             mouseY > freeFrogButton.y && mouseY < freeFrogButton.y + freeFrogButton.h) {
             resetFreeFrog();
@@ -429,10 +419,6 @@ function mousePressed() {
             mouseY > backButton.y && mouseY < backButton.y + backButton.h) {
             gameState = "menu";
         }
-    }  // Game Over screen reset for Greedy Frog
-    if (gameState === "gameOver") {
-
-        gameState = "menu";
     }
     // restart Ping Frog once game over with fakeai
     if (gameState === "pingpongGameOver") {
@@ -450,7 +436,10 @@ function mousePressed() {
         resetJumpFrogGame();
         gameState = "jumpFrog";
     }
-
+//If Jump Frog winner, go to clicker game on click
+    if (gameState === "jumpWinner") {
+        gameState = "freeFrogClicker";
+    }
     //Handle mouse press to reset the game after game over(might be an isue in the future keep an eye out(it wasnt im just silly and turn out i dont need to put this function with the othe game state above it works the same))
     if (gameState === "pingpong" && rightScore >= 35) {
         resetPingPong();
@@ -461,8 +450,11 @@ function mousePressed() {
         paddleRightY = 200;//u know
         gameState = "pingpong";
     }
-
-/////clicker frog///
+// Game Over screen reset for Greedy Frog//dont put in game state draw it wont show game over if you do
+    if (gameState === "gameOver") {
+        gameState = "menu"; //no return cause its a long game just pres m
+    }
+/////clicker frog/// idont think it should stay here ngl
 if (gameState === "freeFrogClicker" && jailHealth > 0) {
     jailHealth--;
     frogShake = 10; // little shake animation
