@@ -17,3 +17,4 @@ short length
 click 20 times to free frog
 once freed spider come out
 you get eaten game over 
+ADD 
